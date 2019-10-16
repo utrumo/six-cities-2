@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Пётр Девятериков](https://up.htmlacademy.ru/react/2/user/510833).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Погорелов](https://up.htmlacademy.ru/react/2/user/1031283).
 
 ---
 
