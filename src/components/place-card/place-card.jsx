@@ -22,10 +22,22 @@ const getNormalizedRating = (rating) => {
   return roundedValue;
 };
 
-const getRatingInPercent = (rating) => getNormalizedRating(rating) / ONE_PERCENT_OF_MAX_RATING;
+const getRatingInPercent = (rating) => {
+  return getNormalizedRating(rating) / ONE_PERCENT_OF_MAX_RATING;
+};
 
 const PlaceCard = (props) => {
-  const {id, image, title, isPremium, rating, price, type} = props;
+  const {
+    id,
+    image,
+    title,
+    isPremium,
+    rating,
+    price,
+    type,
+    onTitleClick,
+  } = props;
+
   return <article className="cities__place-card place-card">
     {
       isPremium &&
@@ -34,8 +46,14 @@ const PlaceCard = (props) => {
       </div>
     }
     <div className="cities__image-wrapper place-card__image-wrapper">
-      <a href={`${OFFER_SECTION}${id}`}>
-        <img className="place-card__image" src={image} width="260" height="200" alt="Place image"/>
+      <a href="#">
+        <img
+          className="place-card__image"
+          src={image}
+          width="260"
+          height="200"
+          alt="Place image"
+        />
       </a>
     </div>
     <div className="place-card__info">
@@ -57,7 +75,7 @@ const PlaceCard = (props) => {
           <span className="visually-hidden">Rating</span>
         </div>
       </div>
-      <h2 className="place-card__name">
+      <h2 className="place-card__name" onClick={onTitleClick}>
         <a href={`${OFFER_SECTION}${id}`}>{title}</a>
       </h2>
       <p className="place-card__type">{type}</p>
@@ -73,6 +91,7 @@ PlaceCard.propTypes = {
   rating: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired,
+  onTitleClick: PropTypes.func.isRequired,
 };
 
 export default PlaceCard;

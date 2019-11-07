@@ -11,6 +11,7 @@ const renameProperty = (object, oldName, newName) => {
   delete object[oldName];
 };
 
+
 const getNormalizedLocations = (locations) => locations.map((location) => {
   const normalized = Object.assign({}, location);
   renameProperty(normalized, `preview_image`, `previewImage`);
@@ -27,4 +28,5 @@ const init = (cityLocations) => {
   );
 };
 
-init(getNormalizedLocations(mockLocations));
+const normalizedLocations = getNormalizedLocations(mockLocations);
+init(normalizedLocations);
