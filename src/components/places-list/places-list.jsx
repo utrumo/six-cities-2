@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PlaceCard from '../place-card/place-card.jsx';
 
+const onTitleClick = (evt) => {
+  evt.preventDefault();
+};
+
 const PlacesList = (props) => {
   const {locations} = props;
   const cardList = locations.map((location) => {
@@ -14,6 +18,7 @@ const PlacesList = (props) => {
       price={location.price}
       rating={location.rating}
       isPremium={location.isPremium}
+      onTitleClick={onTitleClick}
     />;
   });
   return <div className="cities__places-list places__list tabs__content">
