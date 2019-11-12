@@ -12,7 +12,7 @@ module.exports = {
     contentBase: path.join(__dirname, `public`),
     compress: false,
     open: true,
-    port: 1337,
+    port: 1337
   },
   module: {
     rules: [
@@ -20,10 +20,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: `babel-loader`,
-        },
+          loader: `babel-loader`
+        }
       }
-    ],
+    ]
   },
   devtool: `source-map`
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import App from './components/app/app.jsx';
-import mockLocations from './mocks/locations.json';
+import offers from './mocks/offers.js';
 
 const renameProperty = (object, oldName, newName) => {
   if (oldName === newName) {
@@ -12,7 +12,7 @@ const renameProperty = (object, oldName, newName) => {
 };
 
 
-const getNormalizedLocations = (locations) => locations.map((location) => {
+const getNormalizedOffers = (locations) => locations.map((location) => {
   const normalized = Object.assign({}, location);
   renameProperty(normalized, `preview_image`, `previewImage`);
   renameProperty(normalized, `is_premium`, `isPremium`);
@@ -28,5 +28,5 @@ const init = (cityLocations) => {
   );
 };
 
-const normalizedLocations = getNormalizedLocations(mockLocations);
-init(normalizedLocations);
+const normalizedOffers = getNormalizedOffers(offers);
+init(normalizedOffers);
