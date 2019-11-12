@@ -113,7 +113,7 @@ MainPage.propTypes = {
     isPremium: PropTypes.bool.isRequired,
     rating: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
-    type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired,
+    type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired
   })).isRequired
 };
 

@@ -17,7 +17,7 @@ App.propTypes = {
     type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
-    isPremium: PropTypes.bool.isRequired,
+    isPremium: PropTypes.bool.isRequired
   })).isRequired
 };
 

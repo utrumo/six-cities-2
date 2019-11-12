@@ -23,6 +23,7 @@ it(`PlaceCard component renders correctly`, () => {
       rating={mock.rating}
       isPremium={mock.isPremium}
       onTitleClick={() => {}}
+      onMouseEnter={() => {}}
     />)
     .toJSON();
   expect(placeCard).toMatchSnapshot();
