@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component renders correctly 1`] = `
+exports[`App component renders correctly after restart 1`] = `
 <div
   className="page page--gray page--main"
 >
@@ -18,12 +18,17 @@ exports[`App component renders correctly 1`] = `
         >
           <a
             className="header__logo-link header__logo-link--active"
+            style={
+              Object {
+                "cursor": "default",
+              }
+            }
           >
             <img
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -312,10 +317,10 @@ exports[`App component renders correctly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
                     href="/offer/1"
+                    onClick={[Function]}
                   >
                     Beautiful & luxurious apartment at great location
                   </a>

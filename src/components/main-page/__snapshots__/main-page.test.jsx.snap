@@ -18,12 +18,17 @@ exports[`MainPage component renders correctly 1`] = `
         >
           <a
             className="header__logo-link header__logo-link--active"
+            style={
+              Object {
+                "cursor": "default",
+              }
+            }
           >
             <img
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -312,10 +317,10 @@ exports[`MainPage component renders correctly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
                     href="/offer/1"
+                    onClick={[Function]}
                   >
                     Beautiful & luxurious apartment at great location
                   </a>

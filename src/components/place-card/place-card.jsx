@@ -1,14 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {OfferTypeToPresentName} from '../../shared/const';
+import {getRatingInPercent} from '../../utils/rating-to-percent';
 
-const Rating = {
-  MIN_VALUE: 0,
-  MAX_VALUE: 5
-};
-const HUNDRED_PERCENT = 100;
-const ONE_PERCENT_OF_MAX_RATING = Rating.MAX_VALUE / HUNDRED_PERCENT;
-const OFFER_SECTION = `/offer/`;
-
+const OFFER_SECTION = `offer/`;
 
 class PlaceCard extends React.PureComponent {
   constructor(props) {
@@ -22,17 +18,16 @@ class PlaceCard extends React.PureComponent {
   }
 
   render() {
-    const {id, image, title, isPremium, rating, price, type, onTitleClick} = this.props;
+    const {id, image, title, isPremium, rating, price, type} = this.props;
 
     return <article
       onMouseEnter={this._mouseEnterHandler}
       className="cities__place-card place-card"
     >
-      {
-        isPremium &&
-      <div className="place-card__mark">
-        <span>Premium</span>
-      </div>
+      {isPremium &&
+        <div className="place-card__mark">
+          <span>Premium</span>
+        </div>
       }
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -60,33 +55,16 @@ class PlaceCard extends React.PureComponent {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${PlaceCard.getRatingInPercent(rating)}%`}}></span>
+            <span style={{width: `${getRatingInPercent(rating)}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={onTitleClick}>
-          <a href={`${OFFER_SECTION}${id}`}>{title}</a>
+        <h2 className="place-card__name">
+          <Link to={`${OFFER_SECTION}${id}`}>{title}</Link>
         </h2>
-        <p className="place-card__type">{type}</p>
+        <p className="place-card__type">{OfferTypeToPresentName[type]}</p>
       </div>
     </article>;
-  }
-
-  static getNormalizedRating(rating) {
-    const {MIN_VALUE, MAX_VALUE} = Rating;
-    const roundedValue = Math.round(rating);
-
-    if (roundedValue < MIN_VALUE) {
-      return MIN_VALUE;
-    } else if (roundedValue > MAX_VALUE) {
-      return MAX_VALUE;
-    }
-
-    return roundedValue;
-  }
-
-  static getRatingInPercent(rating) {
-    return PlaceCard.getNormalizedRating(rating) / ONE_PERCENT_OF_MAX_RATING;
   }
 }
 
@@ -97,8 +75,7 @@ PlaceCard.propTypes = {
   isPremium: PropTypes.bool.isRequired,
   rating: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
-  type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
+  type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
   onMouseEnter: PropTypes.func.isRequired
 };
 

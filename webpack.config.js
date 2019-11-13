@@ -1,18 +1,18 @@
 'use strict';
-
-const path = require(`path`);
+const {join} = require(`path`);
 
 module.exports = {
-  entry: `./src/index.js`,
+  entry: `./src/index.jsx`,
   output: {
     filename: `bundle.js`,
-    path: path.join(__dirname, `public`)
+    path: join(__dirname, `public`)
   },
   devServer: {
-    contentBase: path.join(__dirname, `public`),
+    contentBase: join(__dirname, `public`),
     compress: false,
     open: true,
-    port: 1337
+    port: 1337,
+    historyApiFallback: true
   },
   module: {
     rules: [
