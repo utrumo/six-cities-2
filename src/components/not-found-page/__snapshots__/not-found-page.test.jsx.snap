@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Must be rendered correctly after restart 1`] = `
+Array [
+  <h1>
+    404
+  </h1>,
+  <p>
+    Page not found
+  </p>,
+]
+`;
