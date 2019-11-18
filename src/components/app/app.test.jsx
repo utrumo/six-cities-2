@@ -4,6 +4,14 @@ import App from './app.jsx';
 const mockOffers = [
   {
     id: 1,
+    city: {
+      name: `Amsterdam`,
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10
+      }
+    },
     previewImage: `img/apartment-01.jpg`,
     images: [
       `img/apartment-02.jpg`,
@@ -15,6 +23,10 @@ const mockOffers = [
     ],
     title: `Beautiful & luxurious apartment at great location`,
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
+    location: {
+      latitude: 52.369553943508,
+      longitude: 4.85309666406198
+    },
     isPremium: true,
     rating: 4.6,
     price: 120,
