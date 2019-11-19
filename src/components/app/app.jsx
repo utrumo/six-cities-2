@@ -60,8 +60,20 @@ class App extends PureComponent {
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.exact({
     id: PropTypes.number.isRequired,
+    city: PropTypes.exact({
+      name: PropTypes.string.isRequired,
+      location: PropTypes.exact({
+        latitude: PropTypes.number.isRequired,
+        longitude: PropTypes.number.isRequired,
+        zoom: PropTypes.number.isRequired
+      }).isRequired
+    }).isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    location: PropTypes.exact({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired
+    }).isRequired,
     previewImage: PropTypes.string.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
     type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
