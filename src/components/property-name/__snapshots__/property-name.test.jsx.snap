@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyName should renders correct. 1`] = `
+<div
+  className="property__name-wrapper"
+>
+  <h1
+    className="property__name"
+  >
+    Test title
+  </h1>
+  <p
+    className="place-card__type"
+    style={
+      Object {
+        "fontSize": "16px",
+        "padding": "5px 0 15px",
+        "textAlign": "center",
+      }
+    }
+  >
+    Private Room
+  </p>
+  <button
+    className="property__bookmark-button button"
+    type="button"
+  >
+    <svg
+      className="property__bookmark-icon"
+      height="33"
+      width="31"
+    >
+      <use
+        xlinkHref="#icon-bookmark"
+      />
+    </svg>
+    <span
+      className="visually-hidden"
+    >
+      To bookmarks
+    </span>
+  </button>
+</div>
+`;

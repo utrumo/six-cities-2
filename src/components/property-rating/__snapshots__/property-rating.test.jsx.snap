@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyRating should renders correctly 1`] = `
+<div
+  className="property__rating rating"
+>
+  <div
+    className="property__stars rating__stars"
+  >
+    <span
+      className="rating__gotten-stars"
+      style={
+        Object {
+          "width": "60%",
+        }
+      }
+    />
+    <span
+      className="visually-hidden"
+    >
+      Rating
+    </span>
+  </div>
+  <span
+    className="property__rating-value rating__value"
+  >
+    3
+  </span>
+</div>
+`;

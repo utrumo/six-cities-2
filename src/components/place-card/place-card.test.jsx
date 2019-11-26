@@ -24,7 +24,7 @@ it(`PlaceCard component renders correctly`, () => {
         price={mock.price}
         rating={mock.rating}
         isPremium={mock.isPremium}
-        onMouseEnter={() => {}}
+        onMouseMove={() => {}}
       />
     </Router>)
     .toJSON();

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyPrice should renders correctly 1`] = `
+<div
+  className="property__price"
+>
+  <b
+    className="property__price-value"
+  >
+    €
+    100
+  </b>
+  <span
+    className="property__price-text"
+  >
+     night
+  </span>
+</div>
+`;

@@ -30,7 +30,7 @@ exports[`OfferReviews must correct renders after restart 1`] = `
             alt="Reviews avatar"
             className="reviews__avatar user__avatar"
             height="54"
-            src="/img/avatar-max.jpg"
+            src="https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/1.jpg"
             width="54"
           />
         </div>
@@ -52,7 +52,7 @@ exports[`OfferReviews must correct renders after restart 1`] = `
             <span
               style={
                 Object {
-                  "width": "94%",
+                  "width": "60%",
                 }
               }
             />
@@ -66,13 +66,13 @@ exports[`OfferReviews must correct renders after restart 1`] = `
         <p
           className="reviews__text"
         >
-          A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
+          The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.
         </p>
         <time
           className="reviews__time"
-          dateTime="2019-04-24"
+          dateTime="2019-11-13"
         >
-          April 2019
+          November 2019
         </time>
       </div>
     </li>

@@ -49,10 +49,31 @@ const mockOffers = [
   }
 ];
 
+const mockOffersReviews = [
+  {
+    id: 1,
+    comments: [
+      {
+        id: 1,
+        user: {
+          id: 12,
+          isPro: false,
+          name: `Alex`,
+          avatarUrl: `/img/avatar-alex.jpg`
+        },
+        rating: 4,
+        comment: `Greate place`,
+        date: `2019-10-31T08:29:32.047Z`
+      }
+    ]
+  }
+];
+
 it(`App component renders correctly after restart`, () => {
   const tree = renderer
     .create(<App
       offers={mockOffers}
+      offersReviews={mockOffersReviews}
     />)
     .toJSON();
 

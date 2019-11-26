@@ -2,8 +2,9 @@
 
 exports[`PlaceCard component renders correctly 1`] = `
 <article
-  className="cities__place-card place-card"
+  className="place-card"
   onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="place-card__mark"
@@ -13,16 +14,17 @@ exports[`PlaceCard component renders correctly 1`] = `
     </span>
   </div>
   <div
-    className="cities__image-wrapper place-card__image-wrapper"
+    className="place-card__image-wrapper"
   >
     <a
-      href="#"
+      href="/offer/1"
+      onClick={[Function]}
     >
       <img
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-01.jpg"
+        src="/img/apartment-01.jpg"
         width="260"
       />
     </a>

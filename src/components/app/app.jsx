@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import MainPage from '../main-page/main-page.jsx';
 import OfferPage from '../offer-page/offer-page.jsx';
 import NotFoundPage from '../not-found-page/not-found-page.jsx';
+import {getNearestOffers} from '../../utils/nearest-offers.js';
 import PropTypes from 'prop-types';
 
 class App extends PureComponent {
@@ -17,10 +18,10 @@ class App extends PureComponent {
     return <MainPage offers={offers} />;
   }
 
-  _getOfferPage({match: {params: {id}}}) {
-    const {offers} = this.props;
+  _getOfferPage({match: {params: {id: idStr}}}) {
+    const {offers, offersReviews} = this.props;
 
-    const offerId = Number(id);
+    const offerId = Number(idStr);
     if (Number.isNaN(offerId)) {
       return <NotFoundPage />;
     }
@@ -30,19 +31,13 @@ class App extends PureComponent {
       return <NotFoundPage />;
     }
 
+    const offerReviews = offersReviews.find((it) => it.id === offerId);
+    const nearestOffers = getNearestOffers(offer, offers);
+
     return <OfferPage
-      id={offer.id}
-      title={offer.title}
-      description={offer.description}
-      images={offer.images}
-      type={offer.type}
-      maxAdults={offer.maxAdults}
-      bedrooms={offer.bedrooms}
-      price={offer.price}
-      rating={offer.rating}
-      isPremium={offer.isPremium}
-      goods={offer.goods}
-      host={offer.host}
+      offer={offer}
+      reviews={offerReviews ? offerReviews.comments : []}
+      nearestOffers={nearestOffers}
     />;
   }
 
@@ -88,6 +83,22 @@ App.propTypes = {
       isPro: PropTypes.bool.isRequired,
       avatarUrl: PropTypes.string.isRequired
     }).isRequired
+  })).isRequired,
+
+  offersReviews: PropTypes.arrayOf(PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    comments: PropTypes.arrayOf(PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      user: PropTypes.exact({
+        id: PropTypes.number.isRequired,
+        isPro: PropTypes.bool.isRequired,
+        name: PropTypes.string.isRequired,
+        avatarUrl: PropTypes.string.isRequired
+      }).isRequired,
+      rating: PropTypes.number.isRequired,
+      comment: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired
+    })).isRequired
   })).isRequired
 };
 

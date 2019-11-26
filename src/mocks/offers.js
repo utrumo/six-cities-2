@@ -16,13 +16,14 @@ export default [
       `img/apartment-01.jpg`,
       `img/studio-01.jpg`,
       `img/apartment-03.jpg`,
+      `img/apartment-01.jpg`,
       `img/apartment-01.jpg`
     ],
     "title": `Beautiful & luxurious apartment at great location`,
     "description": `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     "location": {
-      "latitude": 52.3909553943508,
-      "longitude": 4.85309666406198
+      "latitude": 52.3809553943508,
+      "longitude": 4.939309666406198
     },
     "is_premium": true,
     "rating": 4.6,
@@ -152,8 +153,8 @@ export default [
     "title": `Nice, cozy, warm big bed apartment`,
     "description": `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     "location": {
-      "latitude": 52.3809553943508,
-      "longitude": 4.939309666406198
+      "latitude": 52.3909553943508,
+      "longitude": 4.85309666406198
     },
     "is_premium": true,
     "rating": 1.7,
