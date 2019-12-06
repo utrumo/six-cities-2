@@ -1,12 +1,28 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import PageHeader from '../page-header/page-header.jsx';
 import PlacesList from '../places-list/places-list.jsx';
 import Map from '../map/map.jsx';
-import PropTypes from 'prop-types';
 
 class MainPage extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeCardId: null
+    };
+
+    this._activeCardHandler = this._activeCardHandler.bind(this);
+  }
+
+  _activeCardHandler(offerId) {
+    this.setState({
+      activeCardId: offerId
+    });
+  }
+
   render() {
     const {offers} = this.props;
+    const {activeCardId} = this.state;
     return <div className="page page--gray page--main">
       <PageHeader isMain/>
       <main className="page__main page__main--index">
@@ -75,13 +91,24 @@ class MainPage extends PureComponent {
                  </select>
                 */}
               </form>
-              <PlacesList offers={offers} />
+              <PlacesList
+                offers={offers}
+                onCardActive={this._activeCardHandler}
+                additionalClasses={{
+                  own: [`cities__places-list`, `tabs__content`],
+                  item: {
+                    own: `cities__place-card`,
+                    imageWrapper: `cities__image-wrapper`
+                  }
+                }}
+              />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
                 <Map
                   view={offers[0].city.location}
                   markers={MainPage._getMarkers(offers)}
+                  activeCardId={activeCardId}
                 />
               </section>
             </div>
@@ -92,7 +119,7 @@ class MainPage extends PureComponent {
   }
 
   static _getMarkers(offers) {
-    return offers.map(({location: {latitude, longitude}}) => ({latitude, longitude}));
+    return offers.map(({id, location: {latitude, longitude}}) => ({id, latitude, longitude}));
   }
 }
 

@@ -10,10 +10,12 @@ const view = {
 
 const markers = [
   {
+    id: 10,
     latitude: 52.3909553943508,
     longitude: 4.85309666406198
   },
   {
+    id: 11,
     latitude: 52.369553943508,
     longitude: 4.85309666406198
   }

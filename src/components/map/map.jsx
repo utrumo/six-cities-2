@@ -4,12 +4,57 @@ import 'leaflet/dist/leaflet.css';
 import PropTypes from 'prop-types';
 import {ASSETS_PATCH} from '../../shared/const';
 
+const MAP_OPTIONS = {
+  zoomControl: false
+};
+
+const TileOptions = {
+  URL_TEMPLATE: `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
+  OPTIONS: {
+    attribution: `&copy;
+        <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+        contributors &copy;
+        <a href="https://carto.com/attributions">CARTO</a>`
+  }
+};
+
+const Container = {
+  ID: `map`,
+  STYLE: {height: `100%`}
+};
+
+const Icon = {
+  NORMAL: leaflet.icon({
+    iconUrl: `${ASSETS_PATCH}img/pin.svg`,
+    iconSize: [30, 30]
+  }),
+  ACTIVE: leaflet.icon({
+    iconUrl: `${ASSETS_PATCH}img/pin-active.svg`,
+    iconSize: [30, 30]
+  })
+};
+
 class Map extends PureComponent {
+  constructor(props) {
+    super(props);
+    this._addedMarkers = [];
+  }
+
   componentDidMount() {
-    const {view, markers} = this.props;
+    const {view, markers, activeCardId} = this.props;
 
     this._setView(view);
-    this._setMarkers(markers);
+    this._addMarkers(markers, activeCardId);
+  }
+
+  componentDidUpdate(prevProps) {
+    const {activeCardId: prevActiveCardId} = prevProps;
+    const {view, markers, activeCardId} = this.props;
+
+    this._setView(view);
+    this._removeUnneededMarkers(markers);
+    this._updateIcons(prevActiveCardId, activeCardId);
+    this._addNewMarkers(markers, activeCardId);
   }
 
   componentWillUnmount() {
@@ -32,42 +77,86 @@ class Map extends PureComponent {
     this._map.setView([latitude, longitude], zoom);
   }
 
-  _setMarker(latitude, longitude, isActive) {
-    leaflet
-      .marker([latitude, longitude], {icon: Map._getIcon(isActive)})
+  _addMarker(latitude, longitude, isActive) {
+    const icon = isActive ? Icon.ACTIVE : Icon.NORMAL;
+    return leaflet
+      .marker([latitude, longitude], {icon})
       .addTo(this._map);
   }
 
-  _setMarkers(markers) {
-    markers.forEach(({latitude, longitude}) => {
-      this._setMarker(latitude, longitude);
+  _addMarkers(markers, activeCardId) {
+    markers.forEach(({id, latitude, longitude}) => {
+      const isActive = id === activeCardId;
+
+      this._addedMarkers.push({
+        id,
+        instance: this._addMarker(latitude, longitude, isActive)
+      });
     });
+  }
+
+  _addNewMarkers(newMarkerList, activeCardId) {
+    const newMarkers = newMarkerList.filter((marker) => {
+      const isAdded = this._addedMarkers.some((it) => it.id === marker.id);
+
+      return !isAdded;
+    });
+
+    this._addMarkers(newMarkers, activeCardId);
+  }
+
+  _removeUnneededMarkers(newMarkerList) {
+    let hasRemoved = false;
+    const addedMarkers = this._addedMarkers.filter((marker) => {
+      const isExist = newMarkerList.some((it) => it.id === marker.id);
+
+      if (!isExist) {
+        marker.instance.remove();
+        hasRemoved = true;
+      }
+
+      return isExist;
+    });
+
+    if (hasRemoved) {
+      this._addedMarkers = addedMarkers;
+    }
+  }
+
+  _setIcon(markerId, icon) {
+    if (!markerId) {
+      return;
+    }
+
+    const marker = this._addedMarkers.find(({id}) => id === markerId);
+
+    if (!marker) {
+      return;
+    }
+
+    marker.instance.setIcon(icon);
+  }
+
+  _updateIcons(prevActiveCardId, activeCardId) {
+    if (activeCardId !== prevActiveCardId) {
+      this._setIcon(prevActiveCardId, Icon.NORMAL);
+      this._setIcon(activeCardId, Icon.ACTIVE);
+    }
   }
 
   render() {
-    return <div id="map" style={{height: `100%`}}></div>;
-  }
-
-  static _getIcon(isActive = false) {
-    return leaflet.icon({
-      iconUrl: `${ASSETS_PATCH}img/pin${isActive ? `-active` : ``}.svg`,
-      iconSize: [30, 30]
-    });
+    return <div id={Container.ID} style={Container.STYLE} />;
   }
 
   static _setLayer(map) {
+    const {URL_TEMPLATE, OPTIONS} = TileOptions;
     leaflet
-      .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
-        attribution: `&copy;
-          <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
-          contributors &copy;
-          <a href="https://carto.com/attributions">CARTO</a>`
-      })
+      .tileLayer(URL_TEMPLATE, OPTIONS)
       .addTo(map);
   }
 
   static _getMap() {
-    const map = leaflet.map(`map`, {zoomControl: false});
+    const map = leaflet.map(Container.ID, MAP_OPTIONS);
     Map._setLayer(map);
     return map;
   }
@@ -80,9 +169,11 @@ Map.propTypes = {
     zoom: PropTypes.number.isRequired
   }).isRequired,
   markers: PropTypes.arrayOf(PropTypes.exact({
+    id: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired
-  })).isRequired
+  })).isRequired,
+  activeCardId: PropTypes.number
 };
 
 export default Map;

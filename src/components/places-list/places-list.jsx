@@ -1,30 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import PlaceCard from '../place-card/place-card.jsx';
 
 class PlacesList extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      activeCard: this.props.offers[0]
-    };
-    this._mouseEnterHandler = this._mouseEnterHandler.bind(this);
+
+    this._mouseMoveHandler = this._mouseMoveHandler.bind(this);
   }
 
-  _getCard(id) {
-    return this.props.offers.find((it) => it.id === id);
-  }
-
-  _mouseEnterHandler(offerId) {
-    this.setState(() => ({
-      activeCard: this._getCard(offerId)
-    }));
+  _mouseMoveHandler(offerId) {
+    if (!this.props.onCardActive) {
+      return;
+    }
+    this.props.onCardActive(offerId);
   }
 
   render() {
-    const {offers} = this.props;
-    return <div className="cities__places-list places__list tabs__content">
+    const {offers, additionalClasses: {own, item}} = this.props;
+    return <div className={classNames(`places__list`, own)}>
       {offers.map((offer) => <PlaceCard
+        additionalClasses={item}
         key={offer.id}
         id={offer.id}
         title={offer.title}
@@ -33,11 +30,18 @@ class PlacesList extends React.PureComponent {
         price={offer.price}
         rating={offer.rating}
         isPremium={offer.isPremium}
-        onMouseEnter={this._mouseEnterHandler}
+        onMouseMove={this._mouseMoveHandler}
       />)}
     </div>;
   }
 }
+
+PlacesList.defaultProps = {
+  additionalClasses: {
+    own: [],
+    item: {}
+  }
+};
 
 PlacesList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
@@ -47,7 +51,20 @@ PlacesList.propTypes = {
     rating: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired
-  })).isRequired
+  })).isRequired,
+
+  onCardActive: PropTypes.func,
+
+  additionalClasses: PropTypes.exact({
+    own: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.string
+    ]),
+    item: PropTypes.exact({
+      own: PropTypes.string,
+      imageWrapper: PropTypes.string
+    })
+  })
 };
 
 export default PlacesList;

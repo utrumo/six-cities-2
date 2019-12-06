@@ -1,4 +1,4 @@
-import {makeCamelCaseObject} from './camel-case-object';
+import makeCamelCaseObject from './camel-case-object';
 
 const testObject = {
   'firs_property': {

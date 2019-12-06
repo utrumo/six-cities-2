@@ -1,164 +1,165 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import PageHeader from '../page-header/page-header.jsx';
+
 import OfferReviews from '../offer-reviews/offer-reviews.jsx';
-import NearPlaces from '../near-places/near-places.jsx';
-import {
-  MAX_IMAGE_ON_OFFER_PAGE,
-  ASSETS_PATCH,
-  OfferTypeToPresentName
-} from '../../shared/const';
+import PropertyGallery from '../property-gallery/property-gallery.jsx';
+import PropertyMarks from '../property-marks/property-marks.jsx';
+import PropertyName from '../property-name/property-name.jsx';
+import PropertyRating from '../property-rating/property-rating.jsx';
+import PropertyFeatures from '../property-feauters/property-features.jsx';
+import PropertyPrice from '../property-price/property-price.jsx';
+import PropertyInside from '../property-inside/property-inside.jsx';
+import PropertyHost from '../property-host/property-host.jsx';
 
-const getMaxImages = (images) => {
-  return images.slice(0, MAX_IMAGE_ON_OFFER_PAGE);
+import Map from '../map/map.jsx';
+import PlacesList from '../places-list/places-list.jsx';
+
+const MAX_IMAGES_ON_OFFER_PAGE = 6;
+const ADDITIONAL_CLASSES = {
+  own: `near-places__list`,
+  item: {
+    own: `near-places__card`,
+    imageWrapper: `near-places__image-wrapper`
+  }
 };
-import {
-  getNormalizedRating,
-  getRatingInPercent
-} from '../../utils/rating-to-percent';
+const MAP_CONTAINER_STYLE = {paddingLeft: `initial`, paddingRight: `initial`};
 
-const OfferPage = (props) => {
-  const {
-    id,
-    title,
-    description,
-    images,
-    type,
-    bedrooms,
-    maxAdults,
-    price,
-    rating,
-    isPremium,
-    goods,
-    host: {name, isPro, avatarUrl}
-  } = props;
-  const maxImages = getMaxImages(images);
+class OfferPage extends PureComponent {
+  get _markers() {
+    const {offer: {id, location: {latitude, longitude}}, nearestOffers} = this.props;
+    const currentMark = {id, latitude, longitude};
 
-  return <div className="page">
-    <PageHeader/>
-    <main className="page__main page__main--property">
-      <section className="property">
-        <div className="property__gallery-container container">
-          <div className="property__gallery">
-            {maxImages.map((src, i) => (
-              <div key={`${id}-${i}`} className="property__image-wrapper">
-                <img className="property__image" src={`${ASSETS_PATCH}${src}`} alt="Photo studio" />
+    const markers = nearestOffers.map((it) => ({
+      id: it.id,
+      latitude: it.location.latitude,
+      longitude: it.location.longitude
+    }));
+
+    markers.push(currentMark);
+
+    return markers;
+  }
+
+  render() {
+    const {offer, reviews, nearestOffers} = this.props;
+    const {id, images, isPremium, title, type, rating, bedrooms, maxAdults, price, goods} = offer;
+    const {host: {name, isPro, avatarUrl}, description} = offer;
+    const markers = this._markers;
+
+    return (
+      <div className="page">
+        <PageHeader />
+        <main className="page__main page__main--property">
+          <section className="property">
+            <PropertyGallery images={images} count={MAX_IMAGES_ON_OFFER_PAGE} />
+            <div className="property__container container">
+              <div className="property__wrapper">
+                <PropertyMarks isPremium={isPremium} />
+                <PropertyName title={title} type={type} />
+                <PropertyRating rating={rating} />
+                <PropertyFeatures bedrooms={bedrooms} maxAdults={maxAdults} />
+                <PropertyPrice price={price} />
+                <PropertyInside goods={goods} />
+                <PropertyHost name={name} isPro={isPro} url={avatarUrl} description={description} />
+                <OfferReviews reviews={reviews} />
               </div>
-            ))}
+            </div>
+            <div className="container" style={MAP_CONTAINER_STYLE}>
+              <section className="property__map map">
+                <Map view={offer.city.location} markers={markers} activeCardId={id} />
+              </section>
+            </div>
+          </section>
+          <div className="container">
+            <section className="near-places places">
+              <h2 className="near-places__title">Other places in the neighbourhood</h2>
+              <PlacesList offers={nearestOffers} additionalClasses={ADDITIONAL_CLASSES} />
+            </section>
           </div>
-        </div>
-        <div className="property__container container">
-          <div className="property__wrapper">
-            {isPremium &&
-              <div className="property__mark">
-                <span>Premium</span>
-              </div>
-            }
-            <div className="property__name-wrapper">
-              <h1 className="property__name">{title}</h1>
-              <p
-                style={{padding: `5px 0 15px`, fontSize: `16px`, textAlign: `center`}}
-                className="place-card__type"
-              >
-                {OfferTypeToPresentName[type]}
-              </p>
-              <button className="property__bookmark-button button" type="button">
-                <svg className="property__bookmark-icon" width="31" height="33">
-                  <use xlinkHref="#icon-bookmark"></use>
-                </svg>
-                <span className="visually-hidden">To bookmarks</span>
-              </button>
-            </div>
-            <div className="property__rating rating">
-              <div className="property__stars rating__stars">
-                <span style={{width: `${getRatingInPercent(rating)}%`}}></span>
-                <span className="visually-hidden">Rating</span>
-              </div>
-              <span className="property__rating-value rating__value">
-                {getNormalizedRating(rating)}
-              </span>
-            </div>
-            <ul className="property__features">
-              <li className="property__feature property__feature--entire">
-                Entire place
-              </li>
-              <li className="property__feature property__feature--bedrooms">
-                {bedrooms} Bedrooms
-              </li>
-              <li className="property__feature property__feature--adults">
-                Max {maxAdults} adults
-              </li>
-            </ul>
-            <div className="property__price">
-              <b className="property__price-value">&euro;{price}</b>
-              <span className="property__price-text">&nbsp;night</span>
-            </div>
-            {!!goods.length &&
-              <div className="property__inside">
-                <h2 className="property__inside-title">What&apos;s inside</h2>
-                <ul className="property__inside-list">
-                  {goods.map((it, i) => (
-                    <li key={`${id}-${i}`} className="property__inside-item">{it}</li>
-                  ))}
-                </ul>
-              </div>
-            }
-            <div className="property__host">
-              <h2 className="property__host-title">Meet the host</h2>
-              <div className="property__host-user user">
-                <div className={`property__avatar-wrapper${isPro
-                  ? ` property__avatar-wrapper--pro`
-                  : ``
-                } user__avatar-wrapper`
-                }>
-                  <img
-                    className="property__avatar user__avatar"
-                    src={`${ASSETS_PATCH}${avatarUrl}`}
-                    width="74"
-                    height="74"
-                    alt="Host avatar"
-                  />
-                </div>
-                <span className="property__user-name">
-                  {name}
-                </span>
-                {isPro &&
-                <span className="property__user-status">
-                  Pro
-                </span>
-                }
-              </div>
-              <div className="property__description">
-                <p className="property__text">{description}</p>
-              </div>
-            </div>
-            <OfferReviews />
-          </div>
-        </div>
-        <section className="property__map map"></section>
-      </section>
-      <NearPlaces />
-    </main>
-  </div>;
-};
+        </main>
+      </div>
+    );
+  }
+}
 
 OfferPage.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
-  bedrooms: PropTypes.number.isRequired,
-  maxAdults: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
-  rating: PropTypes.number.isRequired,
-  isPremium: PropTypes.bool.isRequired,
-  goods: PropTypes.arrayOf(PropTypes.string).isRequired,
-  host: PropTypes.exact({
-    name: PropTypes.string.isRequired,
-    isPro: PropTypes.bool.isRequired,
-    avatarUrl: PropTypes.string.isRequired
-  }).isRequired
+  offer: PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    city: PropTypes.exact({
+      name: PropTypes.string.isRequired,
+      location: PropTypes.exact({
+        latitude: PropTypes.number.isRequired,
+        longitude: PropTypes.number.isRequired,
+        zoom: PropTypes.number.isRequired
+      }).isRequired
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    location: PropTypes.exact({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired
+    }),
+    previewImage: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
+    bedrooms: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    goods: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.exact({
+      name: PropTypes.string.isRequired,
+      isPro: PropTypes.bool.isRequired,
+      avatarUrl: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired,
+
+  reviews: PropTypes.arrayOf(PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    user: PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      isPro: PropTypes.bool.isRequired,
+      name: PropTypes.string.isRequired,
+      avatarUrl: PropTypes.string.isRequired
+    }).isRequired,
+    rating: PropTypes.number.isRequired,
+    comment: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired
+  })).isRequired,
+
+  nearestOffers: PropTypes.arrayOf(PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    city: PropTypes.exact({
+      name: PropTypes.string.isRequired,
+      location: PropTypes.exact({
+        latitude: PropTypes.number.isRequired,
+        longitude: PropTypes.number.isRequired,
+        zoom: PropTypes.number.isRequired
+      }).isRequired
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    location: PropTypes.exact({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired
+    }).isRequired,
+    previewImage: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
+    bedrooms: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    goods: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.exact({
+      name: PropTypes.string.isRequired,
+      isPro: PropTypes.bool.isRequired,
+      avatarUrl: PropTypes.string.isRequired
+    }).isRequired
+  })).isRequired
 };
 
 export default OfferPage;

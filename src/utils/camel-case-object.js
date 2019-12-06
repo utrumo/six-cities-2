@@ -28,4 +28,4 @@ const makeCamelCaseObject = (item) => {
   return item;
 };
 
-export {makeCamelCaseObject};
+export default makeCamelCaseObject;

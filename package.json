@@ -1,6 +1,6 @@
 {
   "name": "six-cities",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "private": true,
   "description": "Личный проект «Шесть городов» от HTML Academy",
   "scripts": {
@@ -20,7 +20,10 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "npm test"
+      "npm run eslint"
+    ],
+    "*.test.{js,jsx}": [
+      "npm run jest"
     ]
   },
   "devDependencies": {
@@ -49,6 +52,8 @@
     "node": "10"
   },
   "dependencies": {
+    "classnames": "2.2.6",
+    "haversine": "1.1.1",
     "leaflet": "1.5.1",
     "prop-types": "15.7.2",
     "react": "16.10.2",

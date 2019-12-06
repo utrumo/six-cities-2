@@ -1,44 +1,60 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {OfferTypeToPresentName} from '../../shared/const';
+import classNames from 'classnames';
+import {Link} from 'react-router-dom';
+import {OfferTypeToPresentName, ASSETS_PATCH} from '../../shared/const';
 import {getRatingInPercent} from '../../utils/rating-to-percent';
 
-const OFFER_SECTION = `offer/`;
+const OFFER_SECTION = `/offer/`;
 
 class PlaceCard extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this._mouseEnterHandler = this._mouseEnterHandler.bind(this);
+    this._mouseLeaveHandler = this._mouseLeaveHandler.bind(this);
   }
 
   _mouseEnterHandler() {
-    this.props.onMouseEnter(this.props.id);
+    this.props.onMouseMove(this.props.id);
+  }
+
+  _mouseLeaveHandler() {
+    this.props.onMouseMove(null);
   }
 
   render() {
-    const {id, image, title, isPremium, rating, price, type} = this.props;
+    const {
+      id,
+      image,
+      title,
+      isPremium,
+      rating,
+      price,
+      type,
+      additionalClasses: {own, imageWrapper}
+    } = this.props;
 
     return <article
       onMouseEnter={this._mouseEnterHandler}
-      className="cities__place-card place-card"
+      onMouseLeave={this._mouseLeaveHandler}
+      className={classNames(`place-card`, own)}
     >
       {isPremium &&
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       }
-      <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+      <div className={classNames(`place-card__image-wrapper`, imageWrapper)}>
+        <Link to={`${OFFER_SECTION}${id}`}>
           <img
             className="place-card__image"
-            src={image}
+            src={`${ASSETS_PATCH}${image}`}
             width="260"
             height="200"
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -68,6 +84,13 @@ class PlaceCard extends React.PureComponent {
   }
 }
 
+PlaceCard.defaultProps = {
+  additionalClasses: {
+    own: ``,
+    imageWrapper: ``
+  }
+};
+
 PlaceCard.propTypes = {
   id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
@@ -76,7 +99,12 @@ PlaceCard.propTypes = {
   rating: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
-  onMouseEnter: PropTypes.func.isRequired
+  onMouseMove: PropTypes.func.isRequired,
+
+  additionalClasses: PropTypes.exact({
+    own: PropTypes.string,
+    imageWrapper: PropTypes.string
+  })
 };
 
 export default PlaceCard;

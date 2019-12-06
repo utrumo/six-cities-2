@@ -1,4 +1,4 @@
-const MAX_IMAGE_ON_OFFER_PAGE = 6;
+const MAX_REVIEWS_ON_OFFER_PAGE = 10;
 const ASSETS_PATCH = `/`;
 
 const OfferTypeToPresentName = {
@@ -9,7 +9,7 @@ const OfferTypeToPresentName = {
 };
 
 export {
-  MAX_IMAGE_ON_OFFER_PAGE,
+  MAX_REVIEWS_ON_OFFER_PAGE,
   ASSETS_PATCH,
   OfferTypeToPresentName
 };
