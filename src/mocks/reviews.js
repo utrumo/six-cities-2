@@ -17,7 +17,6 @@ export default [
     ]
   },
 
-
   {
     "id": 2,
     "comments": [
@@ -49,7 +48,6 @@ export default [
     ]
   },
 
-
   {
     "id": 3,
     "comments": [
@@ -80,7 +78,6 @@ export default [
       }
     ]
   },
-
 
   {
     "id": 4,

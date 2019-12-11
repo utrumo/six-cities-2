@@ -11,10 +11,9 @@ class PlacesList extends React.PureComponent {
   }
 
   _mouseMoveHandler(offerId) {
-    if (!this.props.onCardActive) {
-      return;
+    if (this.props.onCardActive) {
+      this.props.onCardActive(offerId);
     }
-    this.props.onCardActive(offerId);
   }
 
   render() {
@@ -38,14 +37,17 @@ class PlacesList extends React.PureComponent {
 
 PlacesList.defaultProps = {
   additionalClasses: {
-    own: [],
+    own: ``,
     item: {}
   }
 };
 
 PlacesList.propTypes = {
+  onCardActive: PropTypes.func,
+
   offers: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
+    previewImage: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
     rating: PropTypes.number.isRequired,
@@ -53,18 +55,16 @@ PlacesList.propTypes = {
     type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired
   })).isRequired,
 
-  onCardActive: PropTypes.func,
-
   additionalClasses: PropTypes.exact({
     own: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.string),
-      PropTypes.string
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string)
     ]),
     item: PropTypes.exact({
       own: PropTypes.string,
       imageWrapper: PropTypes.string
     })
-  })
+  }).isRequired
 };
 
 export default PlacesList;

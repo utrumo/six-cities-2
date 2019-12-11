@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ReviewsList from './reviews-list.jsx';
+import {ReviewsList} from './reviews-list.jsx';
 
-const mock = {reviews: [
+const reviews = [
   {
     id: 1,
     user: {
@@ -15,11 +15,11 @@ const mock = {reviews: [
     comment: `What an amazing view! The house is stunning and in an amazing location. The large glass wall had an amazing view of the river!`,
     date: `2019-11-20T13:49:50.988Z`
   }
-]};
+];
 
 it(`ReviewsList component renders correctly after restart`, () => {
   const tree = renderer
-    .create(<ReviewsList {...mock} />)
+    .create(<ReviewsList reviews={reviews} />)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

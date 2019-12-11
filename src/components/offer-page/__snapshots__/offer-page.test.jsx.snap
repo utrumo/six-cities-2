@@ -352,7 +352,7 @@ exports[`shold correct renderer after relaunch 1`] = `
                       alt="Reviews avatar"
                       className="reviews__avatar user__avatar"
                       height="54"
-                      src="https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/4.jpg"
+                      src="/img/avatar-alex.jpg"
                       width="54"
                     />
                   </div>
@@ -598,114 +598,7 @@ exports[`shold correct renderer after relaunch 1`] = `
         </h2>
         <div
           className="places__list near-places__list"
-        >
-          <article
-            className="place-card near-places__card"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <div
-              className="place-card__mark"
-            >
-              <span>
-                Premium
-              </span>
-            </div>
-            <div
-              className="place-card__image-wrapper near-places__image-wrapper"
-            >
-              <a
-                href="/offer/22"
-                onClick={[Function]}
-              >
-                <img
-                  alt="Place image"
-                  className="place-card__image"
-                  height="200"
-                  src="/https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg"
-                  width="260"
-                />
-              </a>
-            </div>
-            <div
-              className="place-card__info"
-            >
-              <div
-                className="place-card__price-wrapper"
-              >
-                <div
-                  className="place-card__price"
-                >
-                  <b
-                    className="place-card__price-value"
-                  >
-                    €
-                    252
-                  </b>
-                  <span
-                    className="place-card__price-text"
-                  >
-                    / night
-                  </span>
-                </div>
-                <button
-                  className="place-card__bookmark-button button"
-                  type="button"
-                >
-                  <svg
-                    className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
-                  >
-                    <use
-                      xlinkHref="#icon-bookmark"
-                    />
-                  </svg>
-                  <span
-                    className="visually-hidden"
-                  >
-                    To bookmarks
-                  </span>
-                </button>
-              </div>
-              <div
-                className="place-card__rating rating"
-              >
-                <div
-                  className="place-card__stars rating__stars"
-                >
-                  <span
-                    style={
-                      Object {
-                        "width": "80%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
-                  >
-                    Rating
-                  </span>
-                </div>
-              </div>
-              <h2
-                className="place-card__name"
-              >
-                <a
-                  href="/offer/22"
-                  onClick={[Function]}
-                >
-                  Canal View Prinsengracht
-                </a>
-              </h2>
-              <p
-                className="place-card__type"
-              >
-                Private Room
-              </p>
-            </div>
-          </article>
-        </div>
+        />
       </section>
     </div>
   </main>

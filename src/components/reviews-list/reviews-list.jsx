@@ -1,34 +1,23 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import ReviewsItem from '../reviews-item/reviews-item.jsx';
 import PropTypes from 'prop-types';
-import {MAX_REVIEWS_ON_OFFER_PAGE} from '../../shared/const.js';
 
+import {connect} from 'react-redux';
+import Selectors from '../../store/selectors.js';
 
-class ReviewsList extends PureComponent {
-  get _reviews() {
-    const {reviews} = this.props;
-    return reviews
-      .slice(0, MAX_REVIEWS_ON_OFFER_PAGE)
-      .sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
-  }
-
-  render() {
-    const reviews = this._reviews;
-    return (
-      <ul className="reviews__list">
-        {reviews.map((it) => (
-          <ReviewsItem
-            key={it.id}
-            user={it.user}
-            rating={it.rating}
-            comment={it.comment}
-            date={it.date}
-          />
-        ))}
-      </ul>
-    );
-  }
-}
+const ReviewsList = ({reviews}) => (
+  <ul className="reviews__list">
+    {reviews.map(({id, user, rating, comment, date}) => (
+      <ReviewsItem
+        key={id}
+        user={user}
+        rating={rating}
+        comment={comment}
+        date={date}
+      />
+    ))}
+  </ul>
+);
 
 ReviewsList.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.exact({
@@ -45,4 +34,9 @@ ReviewsList.propTypes = {
   })).isRequired
 };
 
-export default ReviewsList;
+const mapStateToProps = (state) => ({
+  reviews: Selectors.getCommentsForOfferPage(state)
+});
+
+export {ReviewsList};
+export default connect(mapStateToProps)(ReviewsList);

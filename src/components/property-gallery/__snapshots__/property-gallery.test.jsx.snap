@@ -43,6 +43,33 @@ exports[`PropertyGallery renders correctly 1`] = `
         src="/img/studio-01.jpg"
       />
     </div>
+    <div
+      className="property__image-wrapper"
+    >
+      <img
+        alt="Photo studio"
+        className="property__image"
+        src="/img/apartment-03.jpg"
+      />
+    </div>
+    <div
+      className="property__image-wrapper"
+    >
+      <img
+        alt="Photo studio"
+        className="property__image"
+        src="/img/apartment-01.jpg"
+      />
+    </div>
+    <div
+      className="property__image-wrapper"
+    >
+      <img
+        alt="Photo studio"
+        className="property__image"
+        src="/img/apartment-05.jpg"
+      />
+    </div>
   </div>
 </div>
 `;

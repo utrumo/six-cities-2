@@ -1,21 +1,34 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import {createStore} from 'redux';
+import ActionCreator from './store/action-creator.js';
+import Selectors from './store/selectors.js';
+import {Provider} from 'react-redux';
+import reducer from './store/reducer.js';
 import App from './components/app/app.jsx';
-import makeCamelCaseObject from './utils/camel-case-object';
-import mockOffers from './mocks/offers.js';
+
+import mockOffers from './mocks/offers';
 import mockOffersReviews from './mocks/reviews.js';
 
-const camelCaseOffers = makeCamelCaseObject(mockOffers);
-const camelCaseOffersReviews = makeCamelCaseObject(mockOffersReviews);
+const init = () => {
+  const store = createStore(
+      reducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 
-const init = (cityOffers, offersReviews) => {
-  ReactDom.render(
-      <App
-        offers={cityOffers}
-        offersReviews={offersReviews}
-      />,
-      document.getElementById(`root`)
+  store.dispatch(ActionCreator.loadOffers(mockOffers));
+  store.dispatch(ActionCreator.loadComments(mockOffersReviews));
+
+  const firstLocation = Selectors.getLocations(store.getState())[0];
+  store.dispatch(ActionCreator.changeLocation(firstLocation));
+
+  ReactDom.render((
+    <Provider store={store}>
+      <App />
+    </Provider>
+  ),
+  document.getElementById(`root`)
   );
 };
 
-init(camelCaseOffers, camelCaseOffersReviews);
+init();

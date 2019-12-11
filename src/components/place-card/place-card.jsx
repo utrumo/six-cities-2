@@ -1,16 +1,15 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
-import {OfferTypeToPresentName, ASSETS_PATCH} from '../../shared/const';
+import {DEFAULT_NUMBER_VALUE, ASSETS_PATCH, OfferTypeToPresentName} from '../../shared/const';
 import {getRatingInPercent} from '../../utils/rating-to-percent';
 
 const OFFER_SECTION = `/offer/`;
 
-class PlaceCard extends React.PureComponent {
+class PlaceCard extends PureComponent {
   constructor(props) {
     super(props);
-
     this._mouseEnterHandler = this._mouseEnterHandler.bind(this);
     this._mouseLeaveHandler = this._mouseLeaveHandler.bind(this);
   }
@@ -20,20 +19,12 @@ class PlaceCard extends React.PureComponent {
   }
 
   _mouseLeaveHandler() {
-    this.props.onMouseMove(null);
+    this.props.onMouseMove(DEFAULT_NUMBER_VALUE);
   }
 
   render() {
-    const {
-      id,
-      image,
-      title,
-      isPremium,
-      rating,
-      price,
-      type,
-      additionalClasses: {own, imageWrapper}
-    } = this.props;
+    const {id, image, title, isPremium, rating, price, type} = this.props;
+    const {additionalClasses: {own, imageWrapper}} = this.props;
 
     return <article
       onMouseEnter={this._mouseEnterHandler}
@@ -85,10 +76,7 @@ class PlaceCard extends React.PureComponent {
 }
 
 PlaceCard.defaultProps = {
-  additionalClasses: {
-    own: ``,
-    imageWrapper: ``
-  }
+  additionalClasses: {own: ``, imageWrapper: ``}
 };
 
 PlaceCard.propTypes = {
@@ -100,11 +88,10 @@ PlaceCard.propTypes = {
   price: PropTypes.number.isRequired,
   type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
   onMouseMove: PropTypes.func.isRequired,
-
   additionalClasses: PropTypes.exact({
     own: PropTypes.string,
     imageWrapper: PropTypes.string
-  })
+  }).isRequired
 };
 
 export default PlaceCard;

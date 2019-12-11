@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Location should renders correctly 1`] = `
+<li
+  className="locations__item"
+>
+  <a
+    className="locations__item-link tabs__item tabs__item--active"
+    href={null}
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "default",
+      }
+    }
+  >
+    <span>
+      Moscow
+    </span>
+  </a>
+</li>
+`;

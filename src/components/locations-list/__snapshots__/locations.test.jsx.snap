@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationsList should renderes correctly 1`] = `
+<section
+  className="locations container"
+>
+  <ul
+    className="locations__list tabs__list"
+  >
+    <li
+      className="locations__item"
+    >
+      <a
+        className="locations__item-link tabs__item tabs__item--active"
+        href={null}
+        onClick={[Function]}
+        style={
+          Object {
+            "cursor": "default",
+          }
+        }
+      >
+        <span>
+          Moscow
+        </span>
+      </a>
+    </li>
+    <li
+      className="locations__item"
+    >
+      <a
+        className="locations__item-link tabs__item"
+        href="#"
+        onClick={[Function]}
+        style={null}
+      >
+        <span>
+          New York
+        </span>
+      </a>
+    </li>
+  </ul>
+</section>
+`;

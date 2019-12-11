@@ -2,6 +2,7 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import PlaceCard from './place-card.jsx';
+import {DEFAULT_NUMBER_VALUE} from '../../shared/const.js';
 
 configure({adapter: new Adapter()});
 
@@ -38,11 +39,11 @@ describe(`Mouse move callback`, () => {
     expect(mouseMoveHandler).toBeCalledWith(mock.id);
   });
 
-  it(`Should return null of current card on mouseLeave`, () => {
+  it(`Should return ${DEFAULT_NUMBER_VALUE} of current card on mouseLeave`, () => {
     const mouseMoveHandler = jest.fn();
     const placeCard = shallow(<PlaceCard {...mock} onMouseMove={mouseMoveHandler} />);
     placeCard.simulate(`mouseLeave`);
-    expect(mouseMoveHandler).toBeCalledWith(null);
+    expect(mouseMoveHandler).toBeCalledWith(DEFAULT_NUMBER_VALUE);
   });
 });
 

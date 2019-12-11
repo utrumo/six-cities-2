@@ -21,7 +21,7 @@ const markers = [
   }
 ];
 
-it(`Map component renders correctly after restart`, () => {
+it(`Map renders correctly`, () => {
   const tree = renderer.create(<Map view={view} markers={markers}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
