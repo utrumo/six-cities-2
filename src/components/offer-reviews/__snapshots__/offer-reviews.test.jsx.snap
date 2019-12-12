@@ -30,7 +30,7 @@ exports[`OfferReviews must correct renders after restart 1`] = `
             alt="Reviews avatar"
             className="reviews__avatar user__avatar"
             height="54"
-            src="https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/1.jpg"
+            src="avatar/1.jpg"
             width="54"
           />
         </div>
@@ -66,7 +66,7 @@ exports[`OfferReviews must correct renders after restart 1`] = `
         <p
           className="reviews__text"
         >
-          The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.
+          The house is very good.
         </p>
         <time
           className="reviews__time"

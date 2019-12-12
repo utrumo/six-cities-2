@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {BrowserRouter as Router} from 'react-router-dom';
 import PlacesList from './places-list.jsx';
-const mockOffer = [
+const offers = [
   {
     id: 1,
     previewImage: `img/apartment-01.jpg`,
@@ -16,11 +16,11 @@ const mockOffer = [
 
 it(`MainPage component renders correctly`, () => {
   const tree = renderer
-    .create(<Router>
-      <PlacesList
-        offers={mockOffer}
-      />
-    </Router>)
+    .create(
+        <Router>
+          <PlacesList offers={offers} />
+        </Router>
+    )
     .toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -11,7 +11,7 @@ exports[`PropertyRating should renders correctly 1`] = `
       className="rating__gotten-stars"
       style={
         Object {
-          "width": "60%",
+          "width": "40%",
         }
       }
     />
@@ -24,7 +24,7 @@ exports[`PropertyRating should renders correctly 1`] = `
   <span
     className="property__rating-value rating__value"
   >
-    3
+    3.2
   </span>
 </div>
 `;

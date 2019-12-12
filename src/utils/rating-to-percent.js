@@ -22,4 +22,4 @@ const getRatingInPercent = (rating) => {
   return getNormalizedRating(rating) / ONE_PERCENT_OF_MAX_RATING;
 };
 
-export {getNormalizedRating, getRatingInPercent};
+export {getNormalizedRating, getRatingInPercent, Rating};

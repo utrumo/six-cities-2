@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyMap renders correctly 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "paddingLeft": "initial",
+      "paddingRight": "initial",
+    }
+  }
+>
+  <section
+    className="property__map map"
+  >
+    <div
+      id="map"
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    />
+  </section>
+</div>
+`;

@@ -1,21 +1,27 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
-const PropertyMarks = (props) => {
-  const {isPremium} = props;
-  return (
-    <Fragment>
-      {isPremium &&
+import {connect} from 'react-redux';
+import Selectors from '../../store/selectors.js';
+
+const PropertyMarks = ({isPremium}) => (
+  <Fragment>
+    {isPremium &&
         <div className="property__mark">
           <span>Premium</span>
         </div>
-      }
-    </Fragment>
-  );
-};
+    }
+  </Fragment>
+);
+
 
 PropertyMarks.propTypes = {
   isPremium: PropTypes.bool
 };
 
-export default PropertyMarks;
+const mapStateToProps = (state) => ({
+  isPremium: Selectors.getCurrentOfferIsPremiumFlag(state)
+});
+
+export {PropertyMarks};
+export default connect(mapStateToProps)(PropertyMarks);

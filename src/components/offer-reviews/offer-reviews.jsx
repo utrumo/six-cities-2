@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReviewsList from '../reviews-list/reviews-list.jsx';
 
+import {connect} from 'react-redux';
+import Selectors from '../../store/selectors.js';
+
 const OfferReviews = (props) => {
-  const {reviews} = props;
+  const {commentsCount} = props;
   return <section className="property__reviews reviews">
     <h2 className="reviews__title">
       Reviews &middot;
-      <span className="reviews__amount">{reviews.length}</span>
+      <span className="reviews__amount">{commentsCount}</span>
     </h2>
-    <ReviewsList reviews={reviews}/>
+    <ReviewsList />
     <form className="reviews__form form" action="#" method="post">
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
@@ -124,18 +127,12 @@ const OfferReviews = (props) => {
 };
 
 OfferReviews.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.exact({
-    id: PropTypes.number.isRequired,
-    user: PropTypes.exact({
-      id: PropTypes.number.isRequired,
-      isPro: PropTypes.bool.isRequired,
-      name: PropTypes.string.isRequired,
-      avatarUrl: PropTypes.string.isRequired
-    }).isRequired,
-    rating: PropTypes.number.isRequired,
-    comment: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired
-  })).isRequired
+  commentsCount: PropTypes.number.isRequired
 };
 
-export default OfferReviews;
+const mapStateToProps = (state) => ({
+  commentsCount: Selectors.getCommentsCount(state)
+});
+
+export {OfferReviews};
+export default connect(mapStateToProps)(OfferReviews);

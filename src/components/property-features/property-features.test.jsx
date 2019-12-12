@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import PropertyFeatures from './property-features.jsx';
+import {PropertyFeatures} from './property-features.jsx';
 
 
 it(`PropertyFeatures should renders correctly`, () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {OfferTypeToPresentName} from '../../shared/const';
-import PropertyName from './property-name.jsx';
+import {PropertyName} from './property-name.jsx';
 
 configure({adapter: new Adapter()});
 
