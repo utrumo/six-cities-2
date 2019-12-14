@@ -1368,12 +1368,12 @@ it(`Should return offers count in current location`, () => {
     ],
     offersReviews: []
   };
-  expect(Selectors.getOffersCount(state)).toEqual(2);
+  expect(Selectors.getOffersCountInCurrentLocation(state)).toEqual(2);
 
   const nextState = Object.assign({}, state, {
     currentLocation: `Brussels`
   });
-  expect(Selectors.getOffersCount(nextState)).toEqual(1);
+  expect(Selectors.getOffersCountInCurrentLocation(nextState)).toEqual(1);
 });
 
 it(`Should return current offer id`, () => {

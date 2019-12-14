@@ -3,20 +3,35 @@ import PropTypes from 'prop-types';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import MainPage from '../main-page/main-page.jsx';
+import ErrorPage from '../error-page/error-page.jsx';
 import OfferPage from '../offer-page/offer-page.jsx';
-import NotFoundPage from '../not-found-page/not-found-page.jsx';
 
 import {connect} from 'react-redux';
 import Selectors from '../../store/selectors.js';
 import ActionCreator from '../../store/action-creator.js';
 
+const noOffers = {
+  status: `No places to stay available`,
+  description: `We could not find any property available at the moment`
+};
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
+    this._getMainPage = this._getMainPage.bind(this);
     this._getOfferPage = this._getOfferPage.bind(this);
   }
 
-  _getOfferPage(routeProps) {
+  _getMainPage() {
+    const {isOffersAvailable} = this.props;
+    return isOffersAvailable
+      ? <MainPage />
+      : (
+        <ErrorPage status={noOffers.status} description={noOffers.description} isMain />
+      );
+  }
+
+  _getOfferPage({match: {params: {id: idStr}}}) {
     const {
       currentOfferId,
       onChangeCurrentOfferId,
@@ -27,11 +42,10 @@ class App extends PureComponent {
       onChangeLocation
     } = this.props;
 
-    const {match: {params: {id: idStr}}} = routeProps;
     const offerId = Number(idStr);
 
     if (Number.isNaN(offerId)) {
-      return <NotFoundPage />;
+      return <ErrorPage />;
     }
 
     if (currentOfferId !== offerId) {
@@ -39,7 +53,7 @@ class App extends PureComponent {
     }
 
     if (!isOfferAvailable) {
-      return <NotFoundPage />;
+      return <ErrorPage />;
     }
 
     if (currentLocation !== currentOfferCityName) {
@@ -53,9 +67,9 @@ class App extends PureComponent {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" render={() => <MainPage />} />
+          <Route exact path="/" render={this._getMainPage} />
           <Route exact path="/offer/:id" render={this._getOfferPage} />
-          <Route render={NotFoundPage} />
+          <Route render={() => <ErrorPage />} />
         </Switch>
       </Router>
     );
@@ -63,6 +77,8 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
+  isOffersAvailable: PropTypes.bool.isRequired,
+
   currentOfferId: PropTypes.number.isRequired,
   isOfferAvailable: PropTypes.bool.isRequired,
   onChangeCurrentOfferId: PropTypes.func.isRequired,
@@ -73,6 +89,8 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  isOffersAvailable: Selectors.checkOffersAvailability(state),
+
   currentOfferId: Selectors.getCurrentOfferId(state),
   isOfferAvailable: Selectors.checkOfferAvailability(state),
 
@@ -86,5 +104,5 @@ const mapDispatchToProps = {
   onChangeLocation: ActionCreator.changeLocation
 };
 
-export {App};
+export {App, noOffers};
 export default connect(mapStateToProps, mapDispatchToProps)(App);

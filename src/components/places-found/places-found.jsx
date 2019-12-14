@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Selectors from '../../store/selectors.js';
 
-const PlacesFound = ({count, city}) => (
+const PlacesFound = ({city, count}) => (
   <b className="places__found">{count} places to stay in {city}</b>
 );
 
 PlacesFound.propTypes = {
-  count: PropTypes.number.isRequired,
-  city: PropTypes.string.isRequired
+  city: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  count: Selectors.getOffersCount(state),
-  city: Selectors.getCurrentLocation(state)
+  city: Selectors.getCurrentLocation(state),
+  count: Selectors.getOffersCountInCurrentLocation(state)
 });
 
 export {PlacesFound};
