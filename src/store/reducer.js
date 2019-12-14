@@ -1,10 +1,11 @@
-import {DEFAULT_NUMBER_VALUE, ActionTypes} from '../shared/const.js';
+import {DEFAULT_NUMBER_VALUE, ActionTypes, SortingVariants} from '../shared/const.js';
 
 const initState = {
+  offers: [],
+  offersReviews: [],
   currentLocation: ``,
   currentOfferId: DEFAULT_NUMBER_VALUE,
-  offers: [],
-  offersReviews: []
+  sortOrder: SortingVariants.POPULAR
 };
 
 const reducer = (state = initState, action) => {
@@ -23,6 +24,10 @@ const reducer = (state = initState, action) => {
 
     case ActionTypes.CHANGE_CURRENT_OFFER_ID: return Object.assign({}, state, {
       currentOfferId: action.payload
+    });
+
+    case ActionTypes.CHANGE_SORT_ORDER: return Object.assign({}, state, {
+      sortOrder: action.payload
     });
   }
 

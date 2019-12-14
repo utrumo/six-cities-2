@@ -28,6 +28,13 @@ const ActionCreator = {
       type: ActionTypes.CHANGE_CURRENT_OFFER_ID,
       payload: id
     };
+  },
+
+  changeSortOrder(order) {
+    return {
+      type: ActionTypes.CHANGE_SORT_ORDER,
+      payload: order
+    };
   }
 };
 

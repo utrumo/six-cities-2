@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should renders correctly 1`] = `
+<label>
+  <span
+    className="places__sorting-caption"
+  >
+    testLable
+  </span>
+   
+  <span
+    className="places__sorting-type"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    tabIndex="0"
+  >
+    second
+    <svg
+      className="places__sorting-arrow"
+      height="4"
+      width="7"
+    >
+      <use
+        xlinkHref="#icon-arrow-select"
+      />
+    </svg>
+  </span>
+  <ul
+    className="places__options places__options--custom"
+  >
+    <li
+      className="places__option"
+      onClick={[Function]}
+    >
+      first
+    </li>
+    <li
+      className="places__option places__option--active"
+      onClick={[Function]}
+    >
+      second
+    </li>
+  </ul>
+</label>
+`;

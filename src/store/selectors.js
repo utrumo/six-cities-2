@@ -1,6 +1,6 @@
 import {MAX_IMAGES_ON_OFFER_PAGE} from '../shared/const.js';
 import {getNormalizedRating, getRatingInPercent} from '../utils/rating-to-percent.js';
-import {MAX_REVIEWS_ON_OFFER_PAGE} from '../shared/const.js';
+import {SortingVariants, MAX_REVIEWS_ON_OFFER_PAGE} from '../shared/const.js';
 import {getNearestOffers} from '../utils/nearest-offers.js';
 
 const Selectors = {
@@ -13,8 +13,19 @@ const Selectors = {
     return state.currentLocation;
   },
 
+  getSortOrder(state) {
+    return state.sortOrder;
+  },
+
   getOffers(state) {
-    return state.offers.filter((it) => it.city.name === state.currentLocation);
+    const offers = state.offers.filter((it) => it.city.name === state.currentLocation);
+    const sortOrder = Selectors.getSortOrder(state);
+    switch (sortOrder) {
+      case SortingVariants.PRICE_LOW_TO_HIGHT: return offers.sort((a, b) => a.price - b.price);
+      case SortingVariants.PRICE_HIGHT_TO_LOW: return offers.sort((a, b) => b.price - a.price);
+      case SortingVariants.TOP_RATED: return offers.sort((a, b) => b.rating - a.rating);
+    }
+    return offers;
   },
 
   getOffersCount(state) {
