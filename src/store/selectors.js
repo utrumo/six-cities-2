@@ -28,7 +28,11 @@ const Selectors = {
     return offers;
   },
 
-  getOffersCount(state) {
+  checkOffersAvailability(state) {
+    return !!state.offers.length;
+  },
+
+  getOffersCountInCurrentLocation(state) {
     return Selectors.getOffers(state).length;
   },
 
