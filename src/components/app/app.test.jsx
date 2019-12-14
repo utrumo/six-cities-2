@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configuraStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
-import {DEFAULT_NUMBER_VALUE} from '../../shared/const.js';
+import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
 import App from './app.jsx';
 
 const offers = [
@@ -50,7 +50,8 @@ const store = mockStore({
   currentLocation: offers[0].city.name,
   offers,
   currentOfferId: DEFAULT_NUMBER_VALUE,
-  offersReviews
+  offersReviews,
+  sortOrder: SortingVariants.POPULAR
 });
 
 it(`App component renders correctly after restart`, () => {

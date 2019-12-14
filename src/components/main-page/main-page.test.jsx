@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import configuraStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
+import {SortingVariants} from '../../shared/const.js';
 import MainPage from './main-page.jsx';
 
 const offers = [
@@ -51,7 +52,8 @@ const store = mockStore({
   currentLocation: offers[0].city.name,
   offers,
   currentOfferId: offers[0].id,
-  offersReviews
+  offersReviews,
+  sortOrder: SortingVariants.POPULAR
 });
 
 it(`MainPage component renders correctly`, () => {

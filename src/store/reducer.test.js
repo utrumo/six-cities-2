@@ -1,13 +1,14 @@
 import reducer from './reducer.js';
-import {DEFAULT_NUMBER_VALUE, ActionTypes} from '../shared/const.js';
+import {DEFAULT_NUMBER_VALUE, SortingVariants, ActionTypes} from '../shared/const.js';
 
 let initState;
 beforeEach(() => {
   initState = {
+    offers: [],
+    offersReviews: [],
     currentLocation: ``,
     currentOfferId: DEFAULT_NUMBER_VALUE,
-    offers: [],
-    offersReviews: []
+    sortOrder: SortingVariants.POPULAR
   };
 });
 
@@ -56,10 +57,11 @@ it(`Reducer should replace offers by given in payload`, () => {
     payload: offers
   };
   const nextState = {
+    offers,
+    offersReviews: [],
     currentLocation: ``,
     currentOfferId: DEFAULT_NUMBER_VALUE,
-    offers,
-    offersReviews: []
+    sortOrder: SortingVariants.POPULAR
   };
 
   expect(reducer(initState, action)).toEqual(nextState);
@@ -86,10 +88,12 @@ it(`Reducer should replace offersReviews by given in payload`, () => {
     payload: offersReviews
   };
   const nextState = {
+    offers: [],
+    offersReviews,
     currentLocation: ``,
     currentOfferId: DEFAULT_NUMBER_VALUE,
-    offers: [],
-    offersReviews
+    sortOrder: SortingVariants.POPULAR
+
   };
   expect(reducer(initState, action)).toEqual(nextState);
 });
@@ -101,10 +105,11 @@ it(`Reducer should set currentLocation by given in payload`, () => {
     payload: location
   };
   const nextState = {
+    offers: [],
+    offersReviews: [],
     currentLocation: location,
     currentOfferId: DEFAULT_NUMBER_VALUE,
-    offers: [],
-    offersReviews: []
+    sortOrder: SortingVariants.POPULAR
   };
 
   expect(reducer(initState, action)).toEqual(nextState);
@@ -117,11 +122,29 @@ it(`Reducer should set currentOfferId by given in payload`, () => {
     payload: offerId
   };
   const nextState = {
+    offers: [],
+    offersReviews: [],
     currentLocation: ``,
     currentOfferId: offerId,
-    offers: [],
-    offersReviews: []
+    sortOrder: SortingVariants.POPULAR
   };
 
   expect(reducer(initState, action)).toEqual(nextState);
+});
+
+it(`Reducer should set sortOrder by given in payload`, () => {
+  const action = {
+    type: ActionTypes.CHANGE_SORT_ORDER,
+    payload: SortingVariants.TOP_RATED
+  };
+  const nextState = {
+    offers: [],
+    offersReviews: [],
+    currentLocation: ``,
+    currentOfferId: DEFAULT_NUMBER_VALUE,
+    sortOrder: SortingVariants.TOP_RATED
+  };
+
+  expect(reducer(initState, action)).toEqual(nextState);
+
 });

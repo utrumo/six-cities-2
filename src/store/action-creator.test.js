@@ -1,4 +1,4 @@
-import {ActionTypes} from '../shared/const.js';
+import {ActionTypes, SortingVariants} from '../shared/const.js';
 import ActionCreator from './action-creator.js';
 
 it(`Should return correct action for load offers`, () => {
@@ -125,6 +125,13 @@ it(`Should return correct action for change Current offer id`, () => {
   const id = 3;
   const action = ActionCreator.changeCurrentOfferId(id);
   const expectedAction = {type: ActionTypes.CHANGE_CURRENT_OFFER_ID, payload: id};
+
+  expect(action).toEqual(expectedAction);
+});
+
+it(`Should return correct action for change sort Order`, () => {
+  const action = ActionCreator.changeSortOrder(SortingVariants.TOP_RATED);
+  const expectedAction = {type: ActionTypes.CHANGE_SORT_ORDER, payload: SortingVariants.TOP_RATED};
 
   expect(action).toEqual(expectedAction);
 });
