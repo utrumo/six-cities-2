@@ -8,7 +8,7 @@ export default [
           "id": 12,
           "is_pro": true,
           "name": `Isaac`,
-          "avatar_url": `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/3.jpg`
+          "avatar_url": `/img/avatar-angelina.jpg`
         },
         "rating": 4,
         "comment": `The deluxe room was a quite comfortable one with all the adequate facilities. The only thing that made me feel uncomfortable was the rude behavior of an impolite staff at the reception desk.`,
@@ -26,7 +26,7 @@ export default [
           "id": 12,
           "is_pro": true,
           "name": `Isaac`,
-          "avatar_url": `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/3.jpg`
+          "avatar_url": `/img/avatar-max.jpg`
         },
         "rating": 3,
         "comment": `The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.`,
@@ -39,7 +39,7 @@ export default [
           "id": 16,
           "is_pro": true,
           "name": `Mollie`,
-          "avatar_url": `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/7.jpg`
+          "avatar_url": `/img/avatar-angelina.jpg`
         },
         "rating": 4,
         "comment": `Bathed in the nature. Completely unplugged. Unforgettable.`,
@@ -57,7 +57,7 @@ export default [
           "id": 15,
           "is_pro": false,
           "name": `Kendall`,
-          "avatar_url": `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/6.jpg`
+          "avatar_url": `/img/avatar-max.jpg`
         },
         "rating": 4,
         "comment": `I stayed here for one night and it was an unpleasant experience.`,
@@ -70,7 +70,7 @@ export default [
           "id": 11,
           "is_pro": false,
           "name": `Jack`,
-          "avatar_url": `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg`
+          "avatar_url": `/img/avatar-angelina.jpg`
         },
         "rating": 3,
         "comment": `Home is amazing. It's like staying in a museum. The rooms, furnishings and artworks are incredible. The views of My Vesuvius`,
@@ -88,7 +88,7 @@ export default [
           "id": 17,
           "is_pro": false,
           "name": `Emely`,
-          "avatar_url": `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/8.jpg`
+          "avatar_url": `/img/avatar-max.jpg`
         },
         "rating": 5,
         "comment": `What an amazing view! The house is stunning and in an amazing location. The large glass wall had an amazing view of the river!`,

@@ -1,30 +1,38 @@
+import {createStore, applyMiddleware} from 'redux';
+import {compose} from 'recompose';
+import thunk from 'redux-thunk';
+import createAPI from './api.js';
+import {Operation} from './store/data/data.js';
+import reducer from './store/reducer.js';
+import {BrowserRouter as Router} from 'react-router-dom';
+// import ActionCreator from './store/action-creator.js';
+// import mockOffers from './mocks/offers';
+// import mockOffersReviews from './mocks/reviews.js';
+
 import React from 'react';
 import ReactDom from 'react-dom';
-import {createStore} from 'redux';
-import ActionCreator from './store/action-creator.js';
-import Selectors from './store/selectors.js';
 import {Provider} from 'react-redux';
-import reducer from './store/reducer.js';
 import App from './components/app/app.jsx';
 
-import mockOffers from './mocks/offers';
-import mockOffersReviews from './mocks/reviews.js';
-
 const init = () => {
+  const api = createAPI((...args) => store.dispatch(...args));
+  const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
       reducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      composeEnchancers(
+          applyMiddleware(thunk.withExtraArgument(api))
+      )
   );
 
-  store.dispatch(ActionCreator.loadOffers(mockOffers));
-  store.dispatch(ActionCreator.loadComments(mockOffersReviews));
-
-  const firstLocation = Selectors.getLocations(store.getState())[0];
-  store.dispatch(ActionCreator.changeLocation(firstLocation));
+  store.dispatch(Operation.loadOffers());
+  // store.dispatch(ActionCreator.addOffers(mockOffers));
+  // store.dispatch(ActionCreator.addComments(mockOffersReviews));
 
   ReactDom.render((
     <Provider store={store}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   ),
   document.getElementById(`root`)

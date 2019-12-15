@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {ASSETS_PATCH} from '../../shared/const';
-
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {
+  getCurrentOfferHostName,
+  getCurrentOfferHostIsPro,
+  getCurrentOfferHostAvatarUrl,
+  getCurrentOfferDescription
+} from '../../store/data/selectors.js';
 
 const PropertyHost = ({name, isPro, url, description}) => (
   <div className="property__host">
@@ -17,7 +20,7 @@ const PropertyHost = ({name, isPro, url, description}) => (
       )}>
         <img
           className="property__avatar user__avatar"
-          src={`${ASSETS_PATCH}${url}`}
+          src={`/${url}`}
           width="74"
           height="74"
           alt="Host avatar"
@@ -40,10 +43,10 @@ PropertyHost.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  name: Selectors.getCurrentOfferHostName(state),
-  isPro: Selectors.getCurrentOfferHostIsPro(state),
-  url: Selectors.getCurrentOfferHostAvatarUrl(state),
-  description: Selectors.getCurrentOfferDescription(state)
+  name: getCurrentOfferHostName(state),
+  isPro: getCurrentOfferHostIsPro(state),
+  url: getCurrentOfferHostAvatarUrl(state),
+  description: getCurrentOfferDescription(state)
 });
 
 export {PropertyHost};

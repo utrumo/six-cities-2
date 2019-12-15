@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {
+  getCurrentOfferRatingInPercent,
+  getCurrentOfferNormalizedRating
+} from '../../store/data/selectors.js';
 
 const PropertyRating = ({ratingInPercent, rating}) => (
   <div className="property__rating rating">
@@ -23,8 +26,8 @@ PropertyRating.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  ratingInPercent: Selectors.getCurrentOfferRatingInPercent(state),
-  rating: Selectors.getCurrentOfferNormalizedRating(state)
+  ratingInPercent: getCurrentOfferRatingInPercent(state),
+  rating: getCurrentOfferNormalizedRating(state)
 });
 
 export {PropertyRating};

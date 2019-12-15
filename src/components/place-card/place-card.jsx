@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
-import {DEFAULT_NUMBER_VALUE, ASSETS_PATCH, OfferTypeToPresentName} from '../../shared/const';
+import {DEFAULT_NUMBER_VALUE, OfferTypeToPresentName} from '../../shared/const';
 import {getRatingInPercent} from '../../utils/rating-to-percent';
 
 const OFFER_SECTION = `/offer/`;
@@ -40,7 +40,7 @@ class PlaceCard extends PureComponent {
         <Link to={`${OFFER_SECTION}${id}`}>
           <img
             className="place-card__image"
-            src={`${ASSETS_PATCH}${image}`}
+            src={image}
             width="260"
             height="200"
             alt="Place image"

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {getCurrentLocation, getOffersCountInCurrentLocation} from '../../store/data/selectors.js';
 
 const PlacesFound = ({city, count}) => (
   <b className="places__found">{count} places to stay in {city}</b>
@@ -13,8 +13,8 @@ PlacesFound.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  city: Selectors.getCurrentLocation(state),
-  count: Selectors.getOffersCountInCurrentLocation(state)
+  city: getCurrentLocation(state),
+  count: getOffersCountInCurrentLocation(state)
 });
 
 export {PlacesFound};

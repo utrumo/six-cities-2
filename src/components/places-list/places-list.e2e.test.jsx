@@ -8,7 +8,7 @@ configure({adapter: new Adapter()});
 const mock = {offers: [
   {
     id: 1,
-    previewImage: `img/apartment.jpg`,
+    previewImage: `/img/apartment.jpg`,
     title: `Beautiful & luxurious apartment at great location`,
     isPremium: false,
     rating: 4.4,

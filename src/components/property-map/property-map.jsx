@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import Map from '../map/map.jsx';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {
+  getCurrentOfferId,
+  getCurrentOfferCityLocation,
+  getPropertyMapMarkers
+} from '../../store/data/selectors.js';
 
 const MAP_CONTAINER_STYLE = {paddingLeft: `initial`, paddingRight: `initial`};
 
@@ -30,9 +34,9 @@ PropertyMap.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  activeCardId: Selectors.getCurrentOfferId(state),
-  view: Selectors.getCurrentOfferCityLocation(state),
-  markers: Selectors.getPropertyMapMarkers(state)
+  activeCardId: getCurrentOfferId(state),
+  view: getCurrentOfferCityLocation(state),
+  markers: getPropertyMapMarkers(state)
 });
 
 export {PropertyMap};

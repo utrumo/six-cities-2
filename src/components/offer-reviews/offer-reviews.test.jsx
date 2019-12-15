@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import configuraStore from 'redux-mock-store';
+import configureStore from 'redux-mock-store';
+import NameSpace from '../../store/name-spaces.js';
 import {Provider} from 'react-redux';
 import OfferReviews from './offer-reviews.jsx';
 
@@ -69,13 +70,14 @@ const offersReviews = [
     }]
   }
 ];
-const mockStore = configuraStore([]);
-const store = mockStore({
+const mockStore = configureStore();
+const NAME_SPACE = NameSpace.DATA;
+const store = mockStore({[NAME_SPACE]: {
   currentLocation: offers[0].city.name,
   offers,
   currentOfferId: offers[0].id,
   offersReviews
-});
+}});
 
 it(`OfferReviews must correct renders after restart`, () => {
   const tree = renderer

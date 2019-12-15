@@ -1,9 +1,7 @@
 import React, {PureComponent} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  ASSETS_PATCH
-} from '../../shared/const';
+import {ImagePath} from '../../shared/const';
 
 class PageHeader extends PureComponent {
   render() {
@@ -42,7 +40,7 @@ class PageHeader extends PureComponent {
     return (
       <img
         className="header__logo"
-        src={`${ASSETS_PATCH}img/logo.svg`}
+        src={ImagePath.HEADER_LOGO}
         alt="6 cities logo"
         width="81"
         height="41"

@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import PropTypes from 'prop-types';
-import {ASSETS_PATCH} from '../../shared/const';
+import {ImagePath} from '../../shared/const';
 
 const MAP_OPTIONS = {
   zoomControl: false
@@ -25,11 +25,11 @@ const Container = {
 
 const Icon = {
   NORMAL: leaflet.icon({
-    iconUrl: `${ASSETS_PATCH}img/pin.svg`,
+    iconUrl: ImagePath.MAP_PIN,
     iconSize: [30, 30]
   }),
   ACTIVE: leaflet.icon({
-    iconUrl: `${ASSETS_PATCH}img/pin-active.svg`,
+    iconUrl: ImagePath.MAP_ACTIVE_PIN,
     iconSize: [30, 30]
   })
 };

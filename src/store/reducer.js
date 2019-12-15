@@ -1,37 +1,10 @@
-import {DEFAULT_NUMBER_VALUE, ActionTypes, SortingVariants} from '../shared/const.js';
+import {combineReducers} from 'redux';
+import NameSpace from './name-spaces.js';
 
-const initState = {
-  offers: [],
-  offersReviews: [],
-  currentLocation: ``,
-  currentOfferId: DEFAULT_NUMBER_VALUE,
-  sortOrder: SortingVariants.POPULAR
-};
+import {reducer as data} from './data/data.js';
+import {reducer as user} from './user/user.js';
 
-const reducer = (state = initState, action) => {
-  switch (action.type) {
-    case ActionTypes.LOAD_OFFERS: return Object.assign({}, state, {
-      offers: action.payload
-    });
-
-    case ActionTypes.LOAD_COMMENTS: return Object.assign({}, state, {
-      offersReviews: action.payload
-    });
-
-    case ActionTypes.CHANGE_LOCATION: return Object.assign({}, state, {
-      currentLocation: action.payload
-    });
-
-    case ActionTypes.CHANGE_CURRENT_OFFER_ID: return Object.assign({}, state, {
-      currentOfferId: action.payload
-    });
-
-    case ActionTypes.CHANGE_SORT_ORDER: return Object.assign({}, state, {
-      sortOrder: action.payload
-    });
-  }
-
-  return state;
-};
-
-export default reducer;
+export default combineReducers({
+  [NameSpace.DATA]: data,
+  [NameSpace.USER]: user
+});
