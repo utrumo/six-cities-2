@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {OfferTypeToPresentName} from '../../shared/const';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {getCurrentOfferTitle, getCurrentOfferType} from '../../store/data/selectors.js';
 
 const PropertyName = ({title, type}) => (
   <div className="property__name-wrapper">
@@ -30,8 +30,8 @@ PropertyName.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  title: Selectors.getCurrentOfferTitle(state),
-  type: Selectors.getCurrentOfferType(state)
+  title: getCurrentOfferTitle(state),
+  type: getCurrentOfferType(state)
 });
 
 export {PropertyName};

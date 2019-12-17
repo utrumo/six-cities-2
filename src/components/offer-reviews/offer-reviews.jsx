@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReviewsList from '../reviews-list/reviews-list.jsx';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {getCommentsCount} from '../../store/data/selectors.js';
 
 const OfferReviews = (props) => {
   const {commentsCount} = props;
@@ -131,7 +131,7 @@ OfferReviews.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  commentsCount: Selectors.getCommentsCount(state)
+  commentsCount: getCommentsCount(state)
 });
 
 export {OfferReviews};

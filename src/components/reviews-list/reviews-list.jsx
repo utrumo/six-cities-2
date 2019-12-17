@@ -3,7 +3,7 @@ import ReviewsItem from '../reviews-item/reviews-item.jsx';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {getCommentsForOfferPage} from '../../store/data/selectors.js';
 
 const ReviewsList = ({reviews}) => (
   <ul className="reviews__list">
@@ -35,7 +35,7 @@ ReviewsList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  reviews: Selectors.getCommentsForOfferPage(state)
+  reviews: getCommentsForOfferPage(state)
 });
 
 export {ReviewsList};

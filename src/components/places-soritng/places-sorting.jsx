@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import CustomSelect from '../custom-select/custom-select.jsx';
 import {SortingVariants} from '../../shared/const.js';
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
-import ActionCreator from '../../store/action-creator.js';
+import {getSortOrder} from '../../store/data/selectors.js';
+import {ActionCreator} from '../../store/data/data.js';
 
 const {POPULAR, PRICE_LOW_TO_HIGHT, PRICE_HIGHT_TO_LOW, TOP_RATED} = SortingVariants;
 const PlacesSorting = ({value, onChange}) => (
@@ -29,7 +29,7 @@ PlacesSorting.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  value: Selectors.getSortOrder(state)
+  value: getSortOrder(state)
 });
 
 const mapDispatchToProps = {

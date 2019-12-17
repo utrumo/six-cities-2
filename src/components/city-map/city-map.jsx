@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {
+  getFirstOfferCityLocation,
+  getCityMapMarkers,
+  getCurrentOfferId
+} from '../../store/data/selectors.js';
 
 import Map from '../map/map.jsx';
 
@@ -33,9 +37,9 @@ CitiyMap.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  view: Selectors.getFirstOfferCityLocation(state),
-  markers: Selectors.getCityMapMarkers(state),
-  activeCardId: Selectors.getCurrentOfferId(state)
+  view: getFirstOfferCityLocation(state),
+  markers: getCityMapMarkers(state),
+  activeCardId: getCurrentOfferId(state)
 });
 
 export {CitiyMap};

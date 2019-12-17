@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import PlacesList from '../places-list/places-list.jsx';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {getNearestOffers} from '../../store/data/selectors.js';
 
 const ADDITIONAL_CLASSES = {
   own: `near-places__list`,
@@ -33,7 +33,7 @@ NearPlaces.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  nearestOffers: Selectors.getNearestOffers(state)
+  nearestOffers: getNearestOffers(state)
 });
 
 export {NearPlaces};

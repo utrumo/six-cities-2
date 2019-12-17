@@ -5,7 +5,7 @@ import {NearPlaces} from './near-places.jsx';
 const nearestOffers = [
   {
     id: 1,
-    previewImage: `img/apartment.jpg`,
+    previewImage: `/img/apartment.jpg`,
     title: `Beautiful location`,
     isPremium: true,
     rating: 4.9,
@@ -14,7 +14,7 @@ const nearestOffers = [
   },
   {
     id: 2,
-    previewImage: `img/hotel.jpg`,
+    previewImage: `/img/hotel.jpg`,
     title: `Great location`,
     isPremium: false,
     rating: 4.7,
