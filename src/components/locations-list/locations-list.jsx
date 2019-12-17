@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Location from '../location/location.jsx';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
-import ActionCreator from '../../store/action-creator.js';
+import {getLocations, getCurrentLocation} from '../../store/data/selectors.js';
+import {ActionCreator} from '../../store/data/data.js';
 
 const LocationsList = ({locations, currentLocation, onClick}) => (
   <section className="locations container">
@@ -28,8 +28,8 @@ LocationsList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  locations: Selectors.getLocations(state),
-  currentLocation: Selectors.getCurrentLocation(state)
+  locations: getLocations(state),
+  currentLocation: getCurrentLocation(state)
 });
 
 const mapDispatchToProps = {

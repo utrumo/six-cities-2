@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {getCurrentOfferGoods} from '../../store/data/selectors.js';
 
 const PropertyInside = ({goods}) => (
   goods.length ? (
@@ -22,7 +22,7 @@ PropertyInside.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  goods: Selectors.getCurrentOfferGoods(state)
+  goods: getCurrentOfferGoods(state)
 });
 
 export {PropertyInside};

@@ -5,7 +5,7 @@ import PlacesList from './places-list.jsx';
 const offers = [
   {
     id: 1,
-    previewImage: `img/apartment-01.jpg`,
+    previewImage: `/img/apartment-01.jpg`,
     title: `Beautiful & luxurious apartment at great location`,
     isPremium: true,
     rating: 4.6,

@@ -41,7 +41,8 @@ exports[`PageHeader component renders correctly after restart 1`] = `
           >
             <a
               className="header__nav-link header__nav-link--profile"
-              href="#"
+              href="/favorites"
+              onClick={[Function]}
             >
               <div
                 className="header__avatar-wrapper user__avatar-wrapper"
@@ -49,7 +50,7 @@ exports[`PageHeader component renders correctly after restart 1`] = `
               <span
                 className="header__user-name user__name"
               >
-                Oliver.conner@gmail.com
+                test@test.ru
               </span>
             </a>
           </li>

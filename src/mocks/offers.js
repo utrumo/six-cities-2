@@ -9,15 +9,15 @@ export default [
         "zoom": 13
       }
     },
-    "preview_image": `img/apartment-01.jpg`,
+    "preview_image": `/img/apartment-01.jpg`,
     "images": [
-      `img/apartment-02.jpg`,
-      `img/room.jpg`,
-      `img/apartment-01.jpg`,
-      `img/studio-01.jpg`,
-      `img/apartment-03.jpg`,
-      `img/apartment-01.jpg`,
-      `img/apartment-01.jpg`
+      `/img/apartment-02.jpg`,
+      `/img/room.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/studio-01.jpg`,
+      `/img/apartment-03.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/apartment-01.jpg`
     ],
     "title": `Beautiful & luxurious apartment at great location`,
     "description": `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
@@ -62,14 +62,14 @@ export default [
         "zoom": 13
       }
     },
-    "preview_image": `img/room.jpg`,
+    "preview_image": `/img/room.jpg`,
     "images": [
-      `img/studio-01.jpg`,
-      `img/apartment-01.jpg`,
-      `img/apartment-02.jpg`,
-      `img/room.jpg`,
-      `img/apartment-01.jpg`,
-      `img/apartment-03.jpg`
+      `/img/studio-01.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/apartment-02.jpg`,
+      `/img/room.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/apartment-03.jpg`
     ],
     "title": `Wood and stone place`,
     "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
@@ -106,14 +106,14 @@ export default [
         "zoom": 13
       }
     },
-    "preview_image": `img/apartment-02.jpg`,
+    "preview_image": `/img/apartment-02.jpg`,
     "images": [
-      `img/studio-01.jpg`,
-      `img/apartment-02.jpg`,
-      `img/apartment-01.jpg`,
-      `img/apartment-03.jpg`,
-      `img/room.jpg`,
-      `img/apartment-01.jpg`
+      `/img/studio-01.jpg`,
+      `/img/apartment-02.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/apartment-03.jpg`,
+      `/img/room.jpg`,
+      `/img/apartment-01.jpg`
     ],
     "title": `Canal View Prinsengracht`,
     "description": `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
@@ -138,7 +138,7 @@ export default [
       "id": 3,
       "name": `Max`,
       "is_pro": true,
-      "avatar_url": `img/avatar-max.jpg`
+      "avatar_url": `img/avatar-angelina.jpg`
     }
 
   },
@@ -153,14 +153,14 @@ export default [
         "zoom": 13
       }
     },
-    "preview_image": `img/apartment-03.jpg`,
+    "preview_image": `/img/apartment-03.jpg`,
     "images": [
-      `img/apartment-01.jpg`,
-      `img/room.jpg`,
-      `img/apartment-01.jpg`,
-      `img/apartment-02.jpg`,
-      `img/studio-01.jpg`,
-      `img/apartment-03.jpg`
+      `/img/apartment-01.jpg`,
+      `/img/room.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/apartment-02.jpg`,
+      `/img/studio-01.jpg`,
+      `/img/apartment-03.jpg`
     ],
     "title": `Nice, cozy, warm big bed apartment`,
     "description": `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
@@ -206,14 +206,14 @@ export default [
         "zoom": 13
       }
     },
-    "preview_image": `img/apartment-02.jpg`,
+    "preview_image": `/img/apartment-02.jpg`,
     "images": [
-      `img/apartment-02.jpg`,
-      `img/apartment-01.jpg`,
-      `img/room.jpg`,
-      `img/apartment-01.jpg`,
-      `img/apartment-03.jpg`,
-      `img/studio-01.jpg`
+      `/img/apartment-02.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/room.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/apartment-03.jpg`,
+      `/img/studio-01.jpg`
     ],
     "title": `Loft Studio in the Central Area`,
     "is_favorite": false,
@@ -256,14 +256,14 @@ export default [
         "zoom": 13
       }
     },
-    "preview_image": `img/apartment-01.jpg`,
+    "preview_image": `/img/apartment-01.jpg`,
     "images": [
-      `img/apartment-01.jpg`,
-      `img/studio-01.jpg`,
-      `img/apartment-02.jpg`,
-      `img/room.jpg`,
-      `img/apartment-01.jpg`,
-      `img/apartment-03.jpg`
+      `/img/apartment-01.jpg`,
+      `/img/studio-01.jpg`,
+      `/img/apartment-02.jpg`,
+      `/img/room.jpg`,
+      `/img/apartment-01.jpg`,
+      `/img/apartment-03.jpg`
     ],
     "title": `House in countryside`,
     "is_favorite": false,
@@ -281,7 +281,7 @@ export default [
       "id": 25,
       "name": `Angelina`,
       "is_pro": true,
-      "avatar_url": `img/avatar-angelina.jpg`
+      "avatar_url": `img/avatar-max.jpg`
     },
     "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     "location": {

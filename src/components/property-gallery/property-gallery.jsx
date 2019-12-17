@@ -2,17 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
-
-import {ASSETS_PATCH} from '../../shared/const';
-
+import {getCurrentOfferImagesForGallery} from '../../store/data/selectors.js';
 
 const PropertyGallery = ({images}) => (
   <div className="property__gallery-container container">
     <div className="property__gallery">
       {images.map((src, i) => (
-        <div key={i} className="property__image-wrapper">
-          <img className="property__image" src={`${ASSETS_PATCH}${src}`} alt="Photo studio" />
+        <div key={`${i}-${src}`} className="property__image-wrapper">
+          <img className="property__image" src={src} alt="Photo studio" />
         </div>
       ))}
     </div>
@@ -24,7 +21,7 @@ PropertyGallery.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  images: Selectors.getCurrentOfferImagesForGallery(state)
+  images: getCurrentOfferImagesForGallery(state)
 });
 
 export {PropertyGallery};

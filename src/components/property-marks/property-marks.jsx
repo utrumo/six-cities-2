@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {getCurrentOfferIsPremiumFlag} from '../../store/data/selectors.js';
 
 const PropertyMarks = ({isPremium}) => (
   <Fragment>
@@ -20,7 +20,7 @@ PropertyMarks.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  isPremium: Selectors.getCurrentOfferIsPremiumFlag(state)
+  isPremium: getCurrentOfferIsPremiumFlag(state)
 });
 
 export {PropertyMarks};

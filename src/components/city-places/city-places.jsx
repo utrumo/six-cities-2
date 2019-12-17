@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import PlacesList from '../places-list/places-list.jsx';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
-import ActionCreator from '../../store/action-creator.js';
+import {getCurrentOffers} from '../../store/data/selectors.js';
+import {ActionCreator} from '../../store/data/data.js';
 
 const ADDITIONAL_CLASSES = {
   own: [`cities__places-list`, `tabs__content`],
@@ -38,7 +38,7 @@ CityPlaces.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: Selectors.getOffers(state)
+  offers: getCurrentOffers(state)
 });
 
 const mapDispatchToProps = {

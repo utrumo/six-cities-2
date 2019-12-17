@@ -6,7 +6,7 @@ import {CityPlaces} from './city-places.jsx';
 const offers = [
   {
     id: 1,
-    previewImage: `img/apartment.jpg`,
+    previewImage: `/img/apartment.jpg`,
     title: `Great place`,
     isPremium: true,
     rating: 2.4,

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import Selectors from '../../store/selectors.js';
+import {getCurrentOfferPrice} from '../../store/data/selectors.js';
 
 const PropertyPrice = ({price}) => (
   <div className="property__price">
@@ -16,7 +16,7 @@ PropertyPrice.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  price: Selectors.getCurrentOfferPrice(state)
+  price: getCurrentOfferPrice(state)
 });
 
 export {PropertyPrice};
