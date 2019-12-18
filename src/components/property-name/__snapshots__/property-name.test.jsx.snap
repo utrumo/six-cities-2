@@ -22,11 +22,12 @@ exports[`PropertyName should renders correct. 1`] = `
     Private Room
   </p>
   <button
-    className="property__bookmark-button button"
+    className="property__bookmark-button property__bookmark-button--active button"
+    onClick={[Function]}
     type="button"
   >
     <svg
-      className="property__bookmark-icon"
+      className="property__bookmark-icon place-card__bookmark-icon"
       height="33"
       width="31"
     >

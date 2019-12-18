@@ -19,18 +19,21 @@ class PlacesList extends React.PureComponent {
   render() {
     const {offers, additionalClasses: {own, item}} = this.props;
     return <div className={classNames(`places__list`, own)}>
-      {offers.map((offer) => <PlaceCard
-        additionalClasses={item}
-        key={offer.id}
-        id={offer.id}
-        title={offer.title}
-        image={offer.previewImage}
-        type={offer.type}
-        price={offer.price}
-        rating={offer.rating}
-        isPremium={offer.isPremium}
-        onMouseMove={this._mouseMoveHandler}
-      />)}
+      {offers.map((offer) => (
+        <PlaceCard
+          additionalClasses={item}
+          key={offer.id}
+          id={offer.id}
+          title={offer.title}
+          image={offer.previewImage}
+          type={offer.type}
+          price={offer.price}
+          rating={offer.rating}
+          isPremium={offer.isPremium}
+          isFavorite={offer.isFavorite}
+          onMouseMove={this._mouseMoveHandler}
+        />)
+      )}
     </div>;
   }
 }
@@ -50,6 +53,7 @@ PlacesList.propTypes = {
     previewImage: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
     rating: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired

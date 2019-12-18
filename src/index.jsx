@@ -7,7 +7,8 @@ import {createStore, applyMiddleware} from 'redux';
 import reducer from './store/reducer.js';
 import thunk from 'redux-thunk';
 
-import {Operation} from './store/data/data.js';
+import {Operation as DataOperation} from './store/data/data.js';
+import {Operation as UserOperation} from './store/user/user.js';
 // import ActionCreator from './store/action-creator.js';
 // import mockOffers from './mocks/offers';
 // import mockOffersReviews from './mocks/reviews.js';
@@ -20,7 +21,11 @@ import App from './components/app/app.jsx';
 
 const init = () => {
   const history = createBrowserHistory();
-  const api = createAPI(() => history.push(UrlPath.LOGIN));
+  const api = createAPI(() => {
+    if (history.location.pathname === UrlPath.FAVORITES) {
+      history.push(UrlPath.LOGIN);
+    }
+  });
   const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
       reducer,
@@ -29,7 +34,9 @@ const init = () => {
       )
   );
 
-  store.dispatch(Operation.loadOffers());
+  store.dispatch(UserOperation.loadProfile());
+  store.dispatch(DataOperation.loadOffers());
+  // store.dispatch(DataOperation.loadFavorites());
   // store.dispatch(ActionCreator.addOffers(mockOffers));
   // store.dispatch(ActionCreator.addComments(mockOffersReviews));
 

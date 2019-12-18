@@ -9,7 +9,6 @@ import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
 import App from './app.jsx';
 
 const mockStore = configureStore([thunk]);
-const NAME_SPACE = NameSpace.DATA;
 
 it(`Offer page with wrong offer id renders correctly`, () => {
   const store = mockStore({
@@ -71,6 +70,7 @@ it(`Offer page with wrong offer id renders correctly`, () => {
           }
         }
       ],
+      favorites: [],
       offersReviews: []
     },
     [NameSpace.USER]: {
@@ -243,7 +243,7 @@ it(`Main page with offers renders correctly`, () => {
 
 it(`Offer page renders correctly`, () => {
   const store = mockStore({
-    [NAME_SPACE]: {
+    [NameSpace.DATA]: {
       currentLocation: `Amsterdam`,
       currentOfferId: 1,
       sortOrder: SortingVariants.POPULAR,

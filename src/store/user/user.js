@@ -1,4 +1,4 @@
-import {UrlPath} from '../../shared/const.js';
+import {ApiPath} from '../../shared/const.js';
 import makeCamelCaseObject from '../../utils/camel-case-object.js';
 import {transformEmailError} from '../../utils/transform-messages.js';
 
@@ -35,7 +35,7 @@ const Operation = {
   authorize(email, password) {
     return (dispatch, _gateState, api) => (
       api
-      .post(UrlPath.LOGIN, {email, password})
+      .post(ApiPath.LOGIN, {email, password})
       .then(({data}) => {
         dispatch(ActionCreator.addUserProfile(makeCamelCaseObject(data)));
         dispatch(ActionCreator.changeAuthorizationStatus(true));
@@ -44,6 +44,17 @@ const Operation = {
         dispatch(ActionCreator.changeEmailValidationMessage(transformEmailError(error)));
         dispatch(ActionCreator.changeAuthorizationStatus(false));
       })
+    );
+  },
+  loadProfile() {
+    return (dispatch, _gateState, api) => (
+      api
+      .get(ApiPath.LOGIN)
+      .then(({data}) => {
+        dispatch(ActionCreator.addUserProfile(makeCamelCaseObject(data)));
+        dispatch(ActionCreator.changeAuthorizationStatus(true));
+      })
+      .catch(()=> {})
     );
   }
 };

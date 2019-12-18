@@ -43,6 +43,7 @@ it(`shold correct renderer after relaunch`, () => {
             zoom: 8
           },
           isPremium: true,
+          isFavorite: true,
           rating: 4.6,
           price: 120,
           type: `apartment`,
@@ -63,6 +64,7 @@ it(`shold correct renderer after relaunch`, () => {
           }
         }
       ],
+      favorites: [],
       offersReviews: [
         {
           id: 2,
