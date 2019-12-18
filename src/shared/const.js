@@ -21,11 +21,27 @@ const SortingVariants = {
   TOP_RATED: `Top rated first`
 };
 
+const ResponseCode = {
+  OK: 200,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401
+};
+
+const UrlPath = {
+  ROOT: `/`,
+  LOGIN: `/login`,
+  OFFER: `/offer`,
+  HOTELS: `/hotels`,
+  FAVORITES: `/favorites`
+};
+
 export {
   MAX_REVIEWS_ON_OFFER_PAGE,
   DEFAULT_NUMBER_VALUE,
   ImagePath,
   MAX_IMAGES_ON_OFFER_PAGE,
   OfferTypeToPresentName,
-  SortingVariants
+  SortingVariants,
+  ResponseCode,
+  UrlPath
 };

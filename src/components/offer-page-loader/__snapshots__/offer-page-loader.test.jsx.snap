@@ -41,15 +41,16 @@ exports[`Offer page renders correctly 1`] = `
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                href="/login"
+                onClick={[Function]}
               >
                 <div
                   className="header__avatar-wrapper user__avatar-wrapper"
                 />
                 <span
-                  className="header__user-name user__name"
+                  className="header__login"
                 >
-                  Oliver.conner@gmail.com
+                  Sign in
                 </span>
               </a>
             </li>
@@ -766,15 +767,16 @@ exports[`Offer page with wrong offer id renders correctly 1`] = `
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                href="/login"
+                onClick={[Function]}
               >
                 <div
                   className="header__avatar-wrapper user__avatar-wrapper"
                 />
                 <span
-                  className="header__user-name user__name"
+                  className="header__login"
                 >
-                  Oliver.conner@gmail.com
+                  Sign in
                 </span>
               </a>
             </li>

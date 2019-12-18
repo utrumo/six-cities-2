@@ -1,10 +1,13 @@
-import {createStore, applyMiddleware} from 'redux';
-import {compose} from 'recompose';
-import thunk from 'redux-thunk';
+import {createBrowserHistory} from 'history';
 import createAPI from './api.js';
-import {Operation} from './store/data/data.js';
+import {UrlPath} from './shared/const.js';
+
+import {compose} from 'recompose';
+import {createStore, applyMiddleware} from 'redux';
 import reducer from './store/reducer.js';
-import {BrowserRouter as Router} from 'react-router-dom';
+import thunk from 'redux-thunk';
+
+import {Operation} from './store/data/data.js';
 // import ActionCreator from './store/action-creator.js';
 // import mockOffers from './mocks/offers';
 // import mockOffersReviews from './mocks/reviews.js';
@@ -12,10 +15,12 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import React from 'react';
 import ReactDom from 'react-dom';
 import {Provider} from 'react-redux';
+import {Router} from 'react-router-dom';
 import App from './components/app/app.jsx';
 
 const init = () => {
-  const api = createAPI((...args) => store.dispatch(...args));
+  const history = createBrowserHistory();
+  const api = createAPI(() => history.push(UrlPath.LOGIN));
   const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
       reducer,
@@ -30,7 +35,7 @@ const init = () => {
 
   ReactDom.render((
     <Provider store={store}>
-      <Router>
+      <Router history={history}>
         <App />
       </Router>
     </Provider>

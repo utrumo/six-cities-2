@@ -1,10 +1,22 @@
 import {ActionType, ActionCreator, Operation, reducer} from './data.js';
+import NameSpace from '../name-spaces.js';
 import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
 import MockAdapter from 'axios-mock-adapter';
 import createAPI from '../../api.js';
+import {ResponseCode, UrlPath} from '../../shared/const.js';
 
-describe(`actionCreator`, () => {
-  it(`Should return correct action for  add offers`, () => {
+const NAME_SPACE = NameSpace.DATA;
+
+describe(`ActionCreator`, () => {
+  it(`changeCurrentOfferId: Should return correct action for change Current offer id`, () => {
+    const id = 3;
+    const action = ActionCreator.changeCurrentOfferId(id);
+    const expectedAction = {type: ActionType.CHANGE_CURRENT_OFFER_ID, payload: id};
+
+    expect(action).toEqual(expectedAction);
+  });
+
+  it(`addOffers: Should return correct action for  add offers`, () => {
     const incomingOffers = [{
       "id": 6,
       "city": {
@@ -79,7 +91,7 @@ describe(`actionCreator`, () => {
     expect(action).toEqual(expectedAction);
   });
 
-  it(`Should return correct action for add comments`, () => {
+  it(`addComments: Should return correct action for add comments`, () => {
     const incomingComments = [{
       "id": 4,
       "comments": [{
@@ -116,7 +128,7 @@ describe(`actionCreator`, () => {
     expect(action).toEqual(expectedAction);
   });
 
-  it(`Should return correct action for change location`, () => {
+  it(`changeLocation: Should return correct action for change location`, () => {
     const city = `New York`;
     const action = ActionCreator.changeLocation(city);
     const expectedAction = {type: ActionType.CHANGE_LOCATION, payload: city};
@@ -124,15 +136,7 @@ describe(`actionCreator`, () => {
     expect(action).toEqual(expectedAction);
   });
 
-  it(`Should return correct action for change Current offer id`, () => {
-    const id = 3;
-    const action = ActionCreator.changeCurrentOfferId(id);
-    const expectedAction = {type: ActionType.CHANGE_CURRENT_OFFER_ID, payload: id};
-
-    expect(action).toEqual(expectedAction);
-  });
-
-  it(`Should return correct action for change sort Order`, () => {
+  it(`changeSortOrder: Should return correct action for change sort Order`, () => {
     const action = ActionCreator.changeSortOrder(SortingVariants.TOP_RATED);
     const expectedAction = {type: ActionType.CHANGE_SORT_ORDER, payload: SortingVariants.TOP_RATED};
 
@@ -141,7 +145,45 @@ describe(`actionCreator`, () => {
 });
 
 describe(`Operation`, () => {
-  it(`Should coreect load offers from remote server`, () => {
+  describe(`checkCurrentOfferId`, () => {
+    it(`Should dispatch changeCurrentOfferId`, () => {
+      const dispatch = jest.fn();
+      const getState = () => ({[NAME_SPACE]: {
+        currentLocation: ``,
+        currentOfferId: 1,
+        sortOrder: SortingVariants.POPULAR,
+        offers: [],
+        offersReviews: []
+      }});
+      const requestedOfferId = 2;
+      const expectedResult = {
+        type: ActionType.CHANGE_CURRENT_OFFER_ID,
+        payload: requestedOfferId
+      };
+
+      Operation.checkCurrentOfferId(requestedOfferId)(dispatch, getState);
+
+      expect(dispatch).toHaveBeenNthCalledWith(1, expectedResult);
+    });
+
+    it(`Shouldn't dispatch anything`, () => {
+      const dispatch = jest.fn();
+      const getState = () => ({[NAME_SPACE]: {
+        currentLocation: ``,
+        currentOfferId: 1,
+        sortOrder: SortingVariants.POPULAR,
+        offers: [],
+        offersReviews: []
+      }});
+      const requestedOfferId = 1;
+
+      Operation.checkCurrentOfferId(requestedOfferId)(dispatch, getState);
+
+      expect(dispatch).not.toHaveBeenCalled();
+    });
+  });
+
+  it(`loadOffers: Should coreect load offers from remote server`, () => {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
     const apiMock = new MockAdapter(api);
@@ -215,8 +257,8 @@ describe(`Operation`, () => {
       }
     }];
     apiMock
-      .onGet(`/hotels`)
-      .reply(200, response);
+      .onGet(UrlPath.HOTELS)
+      .reply(ResponseCode.OK, response);
 
     return offersLoader(dispatch, jest.fn(), api)
       .then(() => {
@@ -225,6 +267,206 @@ describe(`Operation`, () => {
           payload: expectedPayload
         });
       });
+  });
+
+  describe(`checkCurrentLocationOnOfferPage`, () => {
+    it(`Should dispatch correct change location action`, () => {
+      const dispatch = jest.fn();
+      const getState = () => ({[NAME_SPACE]: {
+        currentLocation: `Amsterdam`,
+        currentOfferId: 6,
+        sortOrder: SortingVariants.POPULAR,
+        offers: [{
+          id: 6,
+          city: {
+            name: `Brussels`,
+            location: {
+              latitude: 50.846557,
+              longitude: 4.351697,
+              zoom: 13
+            }
+          },
+          previewImage: `/img/apartment-01.jpg`,
+          images: [`/img/apartment-01.jpg`],
+          title: `House in countryside`,
+          isFavorite: false,
+          isPremium: false,
+          rating: 2.8,
+          type: `room`,
+          bedrooms: 1,
+          maxAdults: 1,
+          price: 143,
+          goods: [`Laptop friendly workspace`],
+          host: {
+            id: 25,
+            name: `Angelina`,
+            isPro: true,
+            avatarUrl: `img/avatar-max.jpg`
+          },
+          description: `Relax, rejuvenate and unplug.`,
+          location: {
+            latitude: 50.828556999999996,
+            longitude: 4.362697,
+            zoom: 16
+          }
+        }],
+        offersReviews: []
+      }});
+      const expectedResult = {
+        type: ActionType.CHANGE_LOCATION,
+        payload: `Brussels`
+      };
+
+      Operation.checkCurrentLocationOnOfferPage()(dispatch, getState);
+      expect(dispatch).toHaveBeenNthCalledWith(1, expectedResult);
+    });
+
+    it(`Shouldn't dispatch anything`, () => {
+      const dispatch = jest.fn();
+      const getState = () => ({[NAME_SPACE]: {
+        currentLocation: `Brussels`,
+        currentOfferId: 6,
+        sortOrder: SortingVariants.POPULAR,
+        offers: [{
+          id: 6,
+          city: {
+            name: `Brussels`,
+            location: {
+              latitude: 50.846557,
+              longitude: 4.351697,
+              zoom: 13
+            }
+          },
+          previewImage: `/img/apartment-01.jpg`,
+          images: [`/img/apartment-01.jpg`],
+          title: `House in countryside`,
+          isFavorite: false,
+          isPremium: false,
+          rating: 2.8,
+          type: `room`,
+          bedrooms: 1,
+          maxAdults: 1,
+          price: 143,
+          goods: [`Laptop friendly workspace`],
+          host: {
+            id: 25,
+            name: `Angelina`,
+            isPro: true,
+            avatarUrl: `img/avatar-max.jpg`
+          },
+          description: `Relax, rejuvenate and unplug.`,
+          location: {
+            latitude: 50.828556999999996,
+            longitude: 4.362697,
+            zoom: 16
+          }
+        }],
+        offersReviews: []
+      }});
+
+      Operation.checkCurrentLocationOnOfferPage()(dispatch, getState);
+      expect(dispatch).not.toHaveBeenCalled();
+    });
+  });
+
+  describe(`checkCurrentLocationOnMainPage`, () => {
+    it(`Should dispatch correct change location action`, () => {
+      const dispatch = jest.fn();
+      const getState = () => ({[NAME_SPACE]: {
+        currentLocation: ``,
+        currentOfferId: 6,
+        sortOrder: SortingVariants.POPULAR,
+        offers: [{
+          id: 6,
+          city: {
+            name: `Amsterdam`,
+            location: {
+              latitude: 50.846557,
+              longitude: 4.351697,
+              zoom: 13
+            }
+          },
+          previewImage: `/img/apartment-01.jpg`,
+          images: [`/img/apartment-01.jpg`],
+          title: `House in countryside`,
+          isFavorite: false,
+          isPremium: false,
+          rating: 2.8,
+          type: `room`,
+          bedrooms: 1,
+          maxAdults: 1,
+          price: 143,
+          goods: [`Laptop friendly workspace`],
+          host: {
+            id: 25,
+            name: `Angelina`,
+            isPro: true,
+            avatarUrl: `img/avatar-max.jpg`
+          },
+          description: `Relax, rejuvenate and unplug.`,
+          location: {
+            latitude: 50.828556999999996,
+            longitude: 4.362697,
+            zoom: 16
+          }
+        }],
+        offersReviews: []
+      }});
+      const expectedResult = {
+        type: ActionType.CHANGE_LOCATION,
+        payload: `Amsterdam`
+      };
+
+      Operation.checkCurrentLocationOnMainPage()(dispatch, getState);
+      expect(dispatch).toHaveBeenNthCalledWith(1, expectedResult);
+    });
+
+    it(`Shouldn't dispatch anything`, () => {
+      const dispatch = jest.fn();
+      const getState = () => ({[NAME_SPACE]: {
+        currentLocation: `Brussels`,
+        currentOfferId: 6,
+        sortOrder: SortingVariants.POPULAR,
+        offers: [{
+          id: 6,
+          city: {
+            name: `Brussels`,
+            location: {
+              latitude: 50.846557,
+              longitude: 4.351697,
+              zoom: 13
+            }
+          },
+          previewImage: `/img/apartment-01.jpg`,
+          images: [`/img/apartment-01.jpg`],
+          title: `House in countryside`,
+          isFavorite: false,
+          isPremium: false,
+          rating: 2.8,
+          type: `room`,
+          bedrooms: 1,
+          maxAdults: 1,
+          price: 143,
+          goods: [`Laptop friendly workspace`],
+          host: {
+            id: 25,
+            name: `Angelina`,
+            isPro: true,
+            avatarUrl: `img/avatar-max.jpg`
+          },
+          description: `Relax, rejuvenate and unplug.`,
+          location: {
+            latitude: 50.828556999999996,
+            longitude: 4.362697,
+            zoom: 16
+          }
+        }],
+        offersReviews: []
+      }});
+
+      Operation.checkCurrentLocationOnMainPage()(dispatch, getState);
+      expect(dispatch).not.toHaveBeenCalled();
+    });
   });
 });
 

@@ -1,55 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Redirect} from 'react-router-dom';
 
 import ErrorPage from '../../components/error-page/error-page.jsx';
 import MainPage from '../../components/main-page/main-page.jsx';
 
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../store/data/data.js';
-import {
-  checkOffersAvailability,
-  getCurrentLocation,
-  getLocations
-} from '../../store/data/selectors.js';
+import {getAuthorizationStatus} from '../../store/user/selectors.js';
+import {checkOffersAvailability, getCurrentLocation} from '../../store/data/selectors.js';
+import {Operation} from '../../store/data/data.js';
 
 const noOffers = {
   status: `No places to stay available`,
   description: `We could not find any property available at the moment`
 };
 
-const checkLocation = (currentLocation, locations, onChangeLocation) => {
-  if (!currentLocation) {
-    const randomIndex = Math.floor(Math.random() * locations.length);
-    const location = locations[randomIndex];
-    onChangeLocation(location);
+const MainPageLoader = ({isAuthorized, isOffersAvailable, currentLocation, onOffersAvailable}) => {
+  if (isAuthorized) {
+    return <Redirect to="/login" />;
   }
-};
 
-const MainPageLoader = ({isOffersAvailable, currentLocation, locations, onChangeLocation}) => {
-  if (!isOffersAvailable) {
+  if (isOffersAvailable) {
+    onOffersAvailable();
+  }
+
+  if (!currentLocation) {
     return <ErrorPage status={noOffers.status} description={noOffers.description} isMain />;
   }
-
-  checkLocation(currentLocation, locations, onChangeLocation);
 
   return <MainPage />;
 };
 
 MainPageLoader.propTypes = {
   isOffersAvailable: PropTypes.bool.isRequired,
+  onOffersAvailable: PropTypes.func.isRequired,
   currentLocation: PropTypes.string.isRequired,
-  locations: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onChangeLocation: PropTypes.func.isRequired
+  isAuthorized: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state) => ({
+  isAuthorized: getAuthorizationStatus(state),
   isOffersAvailable: checkOffersAvailability(state),
-  currentLocation: getCurrentLocation(state),
-  locations: getLocations(state)
+  currentLocation: getCurrentLocation(state)
 });
 
 const mapDispatchToProps = {
-  onChangeLocation: ActionCreator.changeLocation
+  onOffersAvailable: Operation.checkCurrentLocationOnMainPage
 };
 
 export {MainPageLoader};
