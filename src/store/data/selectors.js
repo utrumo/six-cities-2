@@ -88,6 +88,11 @@ export const getCurrentOfferIsPremiumFlag = (state) => {
   return currentOffer && currentOffer.isPremium;
 };
 
+export const getCurrentOfferIsFavoriteFlag = (state) => {
+  const currentOffer = _getCurrentOffer(state);
+  return currentOffer && currentOffer.isFavorite;
+};
+
 export const getCurrentOfferTitle = (state) => {
   const currentOffer = _getCurrentOffer(state);
   return currentOffer && currentOffer.title;

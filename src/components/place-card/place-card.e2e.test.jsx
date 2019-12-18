@@ -1,7 +1,7 @@
 import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import PlaceCard from './place-card.jsx';
+import {PlaceCard} from './place-card.jsx';
 import {DEFAULT_NUMBER_VALUE} from '../../shared/const.js';
 
 configure({adapter: new Adapter()});
@@ -11,10 +11,12 @@ const mock = {
   image: `img/apartment-01.jpg`,
   title: `Beautiful & luxurious apartment at great location`,
   isPremium: false,
+  isFavorite: true,
   rating: 4.6,
   price: 120,
   type: `apartment`,
-  onMouseMove: () => {}
+  onMouseMove: jest.fn(),
+  onButtonClick: jest.fn()
 };
 
 describe(`Premium mark`, () => {

@@ -31,8 +31,13 @@ const UrlPath = {
   ROOT: `/`,
   LOGIN: `/login`,
   OFFER: `/offer`,
-  HOTELS: `/hotels`,
   FAVORITES: `/favorites`
+};
+
+const ApiPath = {
+  LOGIN: `/login`,
+  HOTELS: `/hotels`,
+  FAVORITE: `/favorite`
 };
 
 export {
@@ -43,5 +48,6 @@ export {
   OfferTypeToPresentName,
   SortingVariants,
   ResponseCode,
-  UrlPath
+  UrlPath,
+  ApiPath
 };

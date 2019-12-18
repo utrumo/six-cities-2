@@ -5,17 +5,20 @@ import PlacesList from './places-list.jsx';
 
 configure({adapter: new Adapter()});
 
-const mock = {offers: [
-  {
-    id: 1,
-    previewImage: `/img/apartment.jpg`,
-    title: `Beautiful & luxurious apartment at great location`,
-    isPremium: false,
-    rating: 4.4,
-    price: 110,
-    type: `apartment`
-  }
-]};
+const mock = {
+  offers: [
+    {
+      id: 1,
+      previewImage: `/img/apartment.jpg`,
+      title: `Beautiful & luxurious apartment at great location`,
+      isPremium: false,
+      isFavorite: true,
+      rating: 4.4,
+      price: 110,
+      type: `apartment`
+    }
+  ]
+};
 
 describe(`Optional classes`, () => {
   it(`Should doesn't adds any css classes if are doesn't exist in props.`, () => {

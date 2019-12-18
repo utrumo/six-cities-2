@@ -162,10 +162,11 @@ exports[`Offer page renders correctly 1`] = `
             </p>
             <button
               className="property__bookmark-button button"
+              onClick={[Function]}
               type="button"
             >
               <svg
-                className="property__bookmark-icon"
+                className="property__bookmark-icon place-card__bookmark-icon"
                 height="33"
                 width="31"
               >
@@ -664,6 +665,7 @@ exports[`Offer page renders correctly 1`] = `
                 </div>
                 <button
                   className="place-card__bookmark-button button"
+                  onClick={[Function]}
                   type="button"
                 >
                   <svg

@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Redirect} from 'react-router-dom';
 
 import ErrorPage from '../../components/error-page/error-page.jsx';
 import MainPage from '../../components/main-page/main-page.jsx';
 
 import {connect} from 'react-redux';
-import {getAuthorizationStatus} from '../../store/user/selectors.js';
 import {checkOffersAvailability, getCurrentLocation} from '../../store/data/selectors.js';
 import {Operation} from '../../store/data/data.js';
 
@@ -15,10 +13,7 @@ const noOffers = {
   description: `We could not find any property available at the moment`
 };
 
-const MainPageLoader = ({isAuthorized, isOffersAvailable, currentLocation, onOffersAvailable}) => {
-  if (isAuthorized) {
-    return <Redirect to="/login" />;
-  }
+const MainPageLoader = ({isOffersAvailable, currentLocation, onOffersAvailable}) => {
 
   if (isOffersAvailable) {
     onOffersAvailable();
@@ -34,12 +29,10 @@ const MainPageLoader = ({isAuthorized, isOffersAvailable, currentLocation, onOff
 MainPageLoader.propTypes = {
   isOffersAvailable: PropTypes.bool.isRequired,
   onOffersAvailable: PropTypes.func.isRequired,
-  currentLocation: PropTypes.string.isRequired,
-  isAuthorized: PropTypes.bool.isRequired
+  currentLocation: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  isAuthorized: getAuthorizationStatus(state),
   isOffersAvailable: checkOffersAvailability(state),
   currentLocation: getCurrentLocation(state)
 });

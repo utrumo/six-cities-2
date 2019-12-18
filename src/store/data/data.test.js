@@ -153,6 +153,7 @@ describe(`Operation`, () => {
         currentOfferId: 1,
         sortOrder: SortingVariants.POPULAR,
         offers: [],
+        favorites: [],
         offersReviews: []
       }});
       const requestedOfferId = 2;
@@ -173,6 +174,7 @@ describe(`Operation`, () => {
         currentOfferId: 1,
         sortOrder: SortingVariants.POPULAR,
         offers: [],
+        favorites: [],
         offersReviews: []
       }});
       const requestedOfferId = 1;
@@ -310,6 +312,7 @@ describe(`Operation`, () => {
             zoom: 16
           }
         }],
+        favorites: [],
         offersReviews: []
       }});
       const expectedResult = {
@@ -361,6 +364,7 @@ describe(`Operation`, () => {
             zoom: 16
           }
         }],
+        favorites: [],
         offersReviews: []
       }});
 
@@ -410,6 +414,7 @@ describe(`Operation`, () => {
             zoom: 16
           }
         }],
+        favorites: [],
         offersReviews: []
       }});
       const expectedResult = {
@@ -461,6 +466,7 @@ describe(`Operation`, () => {
             zoom: 16
           }
         }],
+        favorites: [],
         offersReviews: []
       }});
 
@@ -475,6 +481,7 @@ describe(`reducer`, () => {
   beforeEach(() => {
     initState = {
       offers: [],
+      favorites: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -528,6 +535,7 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers,
+      favorites: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -559,6 +567,7 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers: [],
+      favorites: [],
       offersReviews,
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -576,6 +585,7 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers: [],
+      favorites: [],
       offersReviews: [],
       currentLocation: location,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -593,6 +603,7 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers: [],
+      favorites: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: offerId,
@@ -609,6 +620,7 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers: [],
+      favorites: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,

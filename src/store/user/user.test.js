@@ -1,7 +1,7 @@
 import {ActionType, ActionCreator, Operation, reducer} from './user.js';
 import MockAdapter from 'axios-mock-adapter';
 import createAPI from '../../api.js';
-import {UrlPath, ResponseCode} from '../../shared/const.js';
+import {ApiPath, ResponseCode} from '../../shared/const.js';
 
 
 describe(`ActionCreator`, () => {
@@ -75,7 +75,7 @@ describe(`Operation`, () => {
     };
 
     apiMock
-        .onPost(UrlPath.LOGIN)
+        .onPost(ApiPath.LOGIN)
         .reply(ResponseCode.OK, response);
 
     return Operation.authorize(email, password)(dispatch, jest.fn(), api).then(() => {
@@ -103,7 +103,7 @@ describe(`Operation`, () => {
     };
 
     apiMock
-        .onPost(UrlPath.LOGIN)
+        .onPost(ApiPath.LOGIN)
         .reply(ResponseCode.BAD_REQUEST, response);
 
     return Operation.authorize(email, password)(dispatch, jest.fn(), api).then(() => {

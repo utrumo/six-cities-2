@@ -34,11 +34,13 @@ it(`MainPage component renders correctly`, () => {
             zoom: 8
           },
           isPremium: true,
+          isFavorite: true,
           rating: 4.6,
           price: 120,
           type: `apartment`
         }
       ],
+      favorites: [],
       offersReviews: []
     },
     [NameSpace.USER]: {
