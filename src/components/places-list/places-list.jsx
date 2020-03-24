@@ -66,7 +66,10 @@ PlacesList.propTypes = {
     ]),
     item: PropTypes.exact({
       own: PropTypes.string,
-      imageWrapper: PropTypes.string
+      imageWrapper: PropTypes.string,
+      imageWidth: PropTypes.number,
+      imageHeight: PropTypes.number,
+      cardInfo: PropTypes.string
     })
   }).isRequired
 };

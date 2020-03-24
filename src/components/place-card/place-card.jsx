@@ -33,7 +33,7 @@ class PlaceCard extends PureComponent {
 
   render() {
     const {id, image, title, isPremium, isFavorite, rating, price, type} = this.props;
-    const {additionalClasses: {own, imageWrapper}} = this.props;
+    const {additionalClasses: {own, imageWrapper, imageWidth, imageHeight, cardInfo}} = this.props;
 
     return (
       <article
@@ -51,13 +51,13 @@ class PlaceCard extends PureComponent {
             <img
               className="place-card__image"
               src={image}
-              width="260"
-              height="200"
+              width={imageWidth}
+              height={imageHeight}
               alt="Place image"
             />
           </Link>
         </div>
-        <div className="place-card__info">
+        <div className={classNames(`place-card__info`, cardInfo)}>
           <div className="place-card__price-wrapper">
             <div className="place-card__price">
               <b className="place-card__price-value">&euro;{price}</b>
@@ -95,7 +95,13 @@ class PlaceCard extends PureComponent {
 }
 
 PlaceCard.defaultProps = {
-  additionalClasses: {own: ``, imageWrapper: ``}
+  additionalClasses: {
+    own: ``,
+    imageWrapper: ``,
+    imageWidth: 260,
+    imageHeight: 200,
+    cardInfo: ``
+  }
 };
 
 PlaceCard.propTypes = {
@@ -107,10 +113,15 @@ PlaceCard.propTypes = {
   rating: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
+
   additionalClasses: PropTypes.exact({
     own: PropTypes.string,
-    imageWrapper: PropTypes.string
+    imageWrapper: PropTypes.string,
+    imageWidth: PropTypes.number,
+    imageHeight: PropTypes.number,
+    cardInfo: PropTypes.string
   }).isRequired,
+
   onMouseMove: PropTypes.func.isRequired,
   onButtonClick: PropTypes.func.isRequired
 };
