@@ -20,7 +20,7 @@ const MainPageLoader = ({isOffersAvailable, currentLocation, onOffersAvailable})
   }
 
   if (!currentLocation) {
-    return <ErrorPage status={noOffers.status} description={noOffers.description} isMain />;
+    return <ErrorPage status={noOffers.status} description={noOffers.description} />;
   }
 
   return <MainPage />;

@@ -9,7 +9,7 @@ import CityMap from '../city-map/city-map.jsx';
 
 const MainPage = () => (
   <div className="page page--gray page--main">
-    <PageHeader isMain/>
+    <PageHeader />
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">

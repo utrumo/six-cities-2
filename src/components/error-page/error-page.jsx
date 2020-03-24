@@ -7,9 +7,9 @@ const Classes = {
   DESCRIPTION: `cities__status-description`
 };
 
-const ErrorPage = ({status, description, isMain}) => (
+const ErrorPage = ({status, description}) => (
   <div className="page page--gray page--main">
-    <PageHeader isMain={isMain}/>
+    <PageHeader />
     <main className="page__main page__main--index page__main--index-empty">
       <h1 className="visually-hidden">Cities</h1>
       <div className="cities">
@@ -29,8 +29,7 @@ const ErrorPage = ({status, description, isMain}) => (
 
 ErrorPage.defaultProps = {
   status: 404,
-  description: `Page not found`,
-  isMain: false
+  description: `Page not found`
 };
 
 ErrorPage.propTypes = {
@@ -38,8 +37,7 @@ ErrorPage.propTypes = {
     PropTypes.number.isRequired,
     PropTypes.string.isRequired
   ]),
-  description: PropTypes.string.isRequired,
-  isMain: PropTypes.bool.isRequired
+  description: PropTypes.string.isRequired
 };
 
 export default ErrorPage;

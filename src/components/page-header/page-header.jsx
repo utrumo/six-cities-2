@@ -1,32 +1,31 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {ImagePath, UrlPath} from '../../shared/const';
 
 import {connect} from 'react-redux';
 import {getAuthorizationStatus, getEmail} from '../../store/user/selectors.js';
 
-const style = {cursor: `default`};
-const logo = (
-  <img
-    className="header__logo"
-    src={ImagePath.HEADER_LOGO}
-    alt="6 cities logo"
-    width="81"
-    height="41"
-  />
-);
-
-const PageHeader = ({isMain, isAuthorized, email}) => (
+const PageHeader = ({isAuthorized, email}) => (
   <header className="header">
     <div className="container">
       <div className="header__wrapper">
         <div className="header__left">
-          {
-            isMain
-              ? <a style={style} className="header__logo-link header__logo-link--active">{logo}</a>
-              : <Link to="/" className="header__logo-link">{logo}</Link>
-          }
+          <NavLink
+            to="/"
+            className="header__logo-link"
+            activeClassName="header__logo-link--active"
+            activeStyle={{cursor: `default`}}
+            exact
+          >
+            <img
+              className="header__logo"
+              src={ImagePath.HEADER_LOGO}
+              alt="6 cities logo"
+              width="81"
+              height="41"
+            />
+          </NavLink>
         </div>
         <nav className="header__nav">
           <ul className="header__nav-list">
@@ -51,13 +50,11 @@ const PageHeader = ({isMain, isAuthorized, email}) => (
 );
 
 PageHeader.defaultProps = {
-  isMain: false,
   isAuthorized: false,
   email: ``
 };
 
 PageHeader.propTypes = {
-  isMain: PropTypes.bool,
   isAuthorized: PropTypes.bool.isRequired,
   email: PropTypes.string.isRequired
 };
