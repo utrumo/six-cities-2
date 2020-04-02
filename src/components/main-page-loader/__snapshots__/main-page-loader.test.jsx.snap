@@ -17,7 +17,10 @@ exports[`Main page with offers renders correctly 1`] = `
           className="header__left"
         >
           <a
+            aria-current="page"
             className="header__logo-link header__logo-link--active"
+            href="/"
+            onClick={[Function]}
             style={
               Object {
                 "cursor": "default",
@@ -198,9 +201,9 @@ exports[`Main page with offers renders correctly 1`] = `
                   <img
                     alt="Place image"
                     className="place-card__image"
-                    height="200"
+                    height={200}
                     src="/img/apartment-02.jpg"
-                    width="260"
+                    width={260}
                   />
                 </a>
               </div>
@@ -305,9 +308,9 @@ exports[`Main page with offers renders correctly 1`] = `
                   <img
                     alt="Place image"
                     className="place-card__image"
-                    height="200"
+                    height={200}
                     src="/img/apartment-03.jpg"
-                    width="260"
+                    width={260}
                   />
                 </a>
               </div>
@@ -431,7 +434,10 @@ exports[`Main page without offers renders correctly 1`] = `
           className="header__left"
         >
           <a
+            aria-current="page"
             className="header__logo-link header__logo-link--active"
+            href="/"
+            onClick={[Function]}
             style={
               Object {
                 "cursor": "default",

@@ -17,7 +17,10 @@ exports[`Main page with offers renders correctly 1`] = `
           className="header__left"
         >
           <a
+            aria-current="page"
             className="header__logo-link header__logo-link--active"
+            href="/"
+            onClick={[Function]}
             style={
               Object {
                 "cursor": "default",
@@ -205,9 +208,9 @@ exports[`Main page with offers renders correctly 1`] = `
                   <img
                     alt="Place image"
                     className="place-card__image"
-                    height="200"
+                    height={200}
                     src="/img/apartment-01.jpg"
-                    width="260"
+                    width={260}
                   />
                 </a>
               </div>
@@ -305,9 +308,9 @@ exports[`Main page with offers renders correctly 1`] = `
                   <img
                     alt="Place image"
                     className="place-card__image"
-                    height="200"
+                    height={200}
                     src="/img/room.jpg"
-                    width="260"
+                    width={260}
                   />
                 </a>
               </div>
@@ -431,7 +434,10 @@ exports[`Main page without offers renders correctly 1`] = `
           className="header__left"
         >
           <a
+            aria-current="page"
             className="header__logo-link header__logo-link--active"
+            href="/"
+            onClick={[Function]}
             style={
               Object {
                 "cursor": "default",
@@ -534,6 +540,7 @@ exports[`Offer page renders correctly 1`] = `
           className="header__left"
         >
           <a
+            aria-current={null}
             className="header__logo-link"
             href="/"
             onClick={[Function]}
@@ -634,6 +641,7 @@ exports[`Offer page with wrong offer id renders correctly 1`] = `
           className="header__left"
         >
           <a
+            aria-current={null}
             className="header__logo-link"
             href="/"
             onClick={[Function]}

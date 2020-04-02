@@ -14,7 +14,10 @@ exports[`PageHeader component renders correctly after restart 1`] = `
         className="header__left"
       >
         <a
+          aria-current="page"
           className="header__logo-link header__logo-link--active"
+          href="/"
+          onClick={[Function]}
           style={
             Object {
               "cursor": "default",

@@ -23,31 +23,31 @@ it(`MainPage component renders correctly`, () => {
             location: {
               latitude: 52.370216,
               longitude: 4.895168,
-              zoom: 12
-            }
+              zoom: 12,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           title: `Beautiful & luxurious apartment at great location`,
           location: {
             latitude: 52.3809553943508,
             longitude: 4.939309666406198,
-            zoom: 8
+            zoom: 8,
           },
           isPremium: true,
           isFavorite: true,
           rating: 4.6,
           price: 120,
-          type: `apartment`
-        }
+          type: `apartment`,
+        },
       ],
       favorites: [],
-      offersReviews: []
+      offersReviews: [],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(

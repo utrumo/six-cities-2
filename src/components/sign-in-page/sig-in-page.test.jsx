@@ -23,8 +23,8 @@ it(`Should renders correctlry`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [`/img/apartment-02.jpg`],
@@ -33,7 +33,7 @@ it(`Should renders correctlry`, () => {
           location: {
             latitude: 52.364540000000005,
             longitude: 4.9019759999999994,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: true,
           isFavorite: false,
@@ -47,17 +47,17 @@ it(`Should renders correctlry`, () => {
             id: 1,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-angelina.jpg`,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: `Email validation error`,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(

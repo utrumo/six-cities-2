@@ -17,6 +17,7 @@ exports[`Offer page renders correctly 1`] = `
           className="header__left"
         >
           <a
+            aria-current={null}
             className="header__logo-link"
             href="/"
             onClick={[Function]}
@@ -636,9 +637,9 @@ exports[`Offer page renders correctly 1`] = `
                 <img
                   alt="Place image"
                   className="place-card__image"
-                  height="200"
+                  height={200}
                   src="/img/room.jpg"
-                  width="260"
+                  width={260}
                 />
               </a>
             </div>
@@ -745,6 +746,7 @@ exports[`Offer page with wrong offer id renders correctly 1`] = `
           className="header__left"
         >
           <a
+            aria-current={null}
             className="header__logo-link"
             href="/"
             onClick={[Function]}

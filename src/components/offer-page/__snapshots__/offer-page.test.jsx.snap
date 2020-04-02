@@ -17,9 +17,15 @@ exports[`shold correct renderer after relaunch 1`] = `
           className="header__left"
         >
           <a
-            className="header__logo-link"
+            aria-current="page"
+            className="header__logo-link header__logo-link--active"
             href="/"
             onClick={[Function]}
+            style={
+              Object {
+                "cursor": "default",
+              }
+            }
           >
             <img
               alt="6 cities logo"

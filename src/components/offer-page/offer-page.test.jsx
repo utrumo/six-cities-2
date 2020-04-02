@@ -23,8 +23,8 @@ it(`shold correct renderer after relaunch`, () => {
             location: {
               latitude: 52.370216,
               longitude: 4.895168,
-              zoom: 12
-            }
+              zoom: 12,
+            },
           },
           previewImage: `/img/apartment-02.jpg`,
           images: [
@@ -33,14 +33,14 @@ it(`shold correct renderer after relaunch`, () => {
             `/img/apartment-01.jpg`,
             `/img/studio-01.jpg`,
             `/img/apartment-03.jpg`,
-            `/img/apartment-01.jpg`
+            `/img/apartment-01.jpg`,
           ],
           title: `Beautiful & luxurious apartment at great location`,
           description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
           location: {
             latitude: 52.3809553943508,
             longitude: 5.939309666406198,
-            zoom: 8
+            zoom: 8,
           },
           isPremium: true,
           isFavorite: true,
@@ -55,14 +55,14 @@ it(`shold correct renderer after relaunch`, () => {
             `Air conditioning`,
             `Laptop friendly workspace`,
             `Towels`,
-            `Baby seat`
+            `Baby seat`,
           ],
           host: {
             name: `Max`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
       ],
       favorites: [],
       offersReviews: [
@@ -74,20 +74,20 @@ it(`shold correct renderer after relaunch`, () => {
               id: 13,
               isPro: false,
               name: `Zak`,
-              avatarUrl: `/img/avatar-alex.jpg`
+              avatarUrl: `/img/avatar-alex.jpg`,
             },
             rating: 4,
             comment: `The deluxe room was a quite comfortable one with all the adequate facilities. The only thing that made me feel uncomfortable was the rude behavior of an impolite staff at the reception desk.`,
-            date: `2019-11-20T13:49:50.988Z`
-          }]
-        }
-      ]
+            date: `2019-11-20T13:49:50.988Z`,
+          }],
+        },
+      ],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(
