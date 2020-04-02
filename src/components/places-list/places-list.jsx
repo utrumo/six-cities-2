@@ -39,10 +39,7 @@ class PlacesList extends React.PureComponent {
 }
 
 PlacesList.defaultProps = {
-  additionalClasses: {
-    own: ``,
-    item: {}
-  }
+  additionalClasses: {},
 };
 
 PlacesList.propTypes = {
@@ -56,22 +53,22 @@ PlacesList.propTypes = {
     isFavorite: PropTypes.bool.isRequired,
     rating: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
-    type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired
+    type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
   })).isRequired,
 
   additionalClasses: PropTypes.exact({
     own: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string)
+      PropTypes.arrayOf(PropTypes.string),
     ]),
     item: PropTypes.exact({
       own: PropTypes.string,
       imageWrapper: PropTypes.string,
       imageWidth: PropTypes.number,
       imageHeight: PropTypes.number,
-      cardInfo: PropTypes.string
-    })
-  }).isRequired
+      cardInfo: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default PlacesList;

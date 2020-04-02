@@ -11,7 +11,7 @@ const mock = {
   isFavorite: true,
   rating: 4.6,
   price: 120,
-  type: `apartment`
+  type: `apartment`,
 };
 
 it(`PlaceCard component renders correctly`, () => {

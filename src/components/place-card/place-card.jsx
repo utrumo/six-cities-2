@@ -9,6 +9,10 @@ import {connect} from 'react-redux';
 import {Operation} from '../../store/data/data.js';
 
 const OFFER_SECTION = `/offer/`;
+const DEFAULT_IMAGE_SIZES = {
+  WIDTH: 260,
+  HEIGHT: 200,
+};
 
 class PlaceCard extends PureComponent {
   constructor(props) {
@@ -33,7 +37,15 @@ class PlaceCard extends PureComponent {
 
   render() {
     const {id, image, title, isPremium, isFavorite, rating, price, type} = this.props;
-    const {additionalClasses: {own, imageWrapper, imageWidth, imageHeight, cardInfo}} = this.props;
+    const {
+      additionalClasses: {
+        own,
+        imageWrapper,
+        imageWidth = DEFAULT_IMAGE_SIZES.WIDTH,
+        imageHeight = DEFAULT_IMAGE_SIZES.HEIGHT,
+        cardInfo,
+      },
+    } = this.props;
 
     return (
       <article
@@ -95,13 +107,7 @@ class PlaceCard extends PureComponent {
 }
 
 PlaceCard.defaultProps = {
-  additionalClasses: {
-    own: ``,
-    imageWrapper: ``,
-    imageWidth: 260,
-    imageHeight: 200,
-    cardInfo: ``
-  }
+  additionalClasses: {},
 };
 
 PlaceCard.propTypes = {
@@ -119,15 +125,15 @@ PlaceCard.propTypes = {
     imageWrapper: PropTypes.string,
     imageWidth: PropTypes.number,
     imageHeight: PropTypes.number,
-    cardInfo: PropTypes.string
+    cardInfo: PropTypes.string,
   }).isRequired,
 
   onMouseMove: PropTypes.func.isRequired,
-  onButtonClick: PropTypes.func.isRequired
+  onButtonClick: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {
-  onButtonClick: Operation.toggleFavoritStatus
+  onButtonClick: Operation.toggleFavoriteStatus,
 };
 
 export {PlaceCard};
