@@ -23,4 +23,4 @@ settings:
 rules:
   comma-dangle:
     - error
-    - never
+    - always-multiline

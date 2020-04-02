@@ -12,4 +12,4 @@ parserOptions:
 rules:
   comma-dangle:
     - error
-    - never
+    - always-multiline
