@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MainPage component renders correctly 1`] = `
+exports[`PlacesList component renders correctly 1`] = `
 <div
   className="places__list"
 >

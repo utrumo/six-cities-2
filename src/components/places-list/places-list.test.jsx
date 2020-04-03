@@ -7,22 +7,8 @@ import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import PlacesList from './places-list.jsx';
 
-const mockStore = configureStore();
-
-const offers = [
-  {
-    id: 1,
-    previewImage: `/img/apartment-01.jpg`,
-    title: `Beautiful & luxurious apartment at great location`,
-    isPremium: true,
-    isFavorite: true,
-    rating: 4.6,
-    price: 120,
-    type: `apartment`
-  }
-];
-
-it(`MainPage component renders correctly`, () => {
+it(`PlacesList component renders correctly`, () => {
+  const mockStore = configureStore();
   const store = mockStore({
     [NameSpace.DATA]: {
       currentLocation: `Amsterdam`,
@@ -36,8 +22,8 @@ it(`MainPage component renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [`/img/apartment-02.jpg`],
@@ -46,7 +32,7 @@ it(`MainPage component renders correctly`, () => {
           location: {
             latitude: 52.364540000000005,
             longitude: 4.9019759999999994,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: true,
           isFavorite: false,
@@ -60,19 +46,32 @@ it(`MainPage component renders correctly`, () => {
             id: 1,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-angelina.jpg`,
+          },
+        },
       ],
       favorites: [],
-      offersReviews: []
+      offersReviews: [],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
+  const offers = [
+    {
+      id: 1,
+      previewImage: `/img/apartment-01.jpg`,
+      title: `Beautiful & luxurious apartment at great location`,
+      isPremium: true,
+      isFavorite: true,
+      rating: 4.6,
+      price: 120,
+      type: `apartment`,
+    },
+  ];
+
   const tree = renderer
     .create(
         <Provider store={store}>
