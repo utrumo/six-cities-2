@@ -4,7 +4,7 @@ import {
   getCurrentOfferId,
   getCurrentLocation,
   getCurrentOfferCityName,
-  getLocations
+  getLocations,
 } from './selectors.js';
 
 const ActionType = {
@@ -13,51 +13,51 @@ const ActionType = {
   ADD_COMMENTS: `ADD_COMMENTS`,
   REPLACE_OFFER: `REPLACE_OFFER`,
   CHANGE_LOCATION: `CHANGE_LOCATION`,
-  CHANGE_SORT_ORDER: `CHANGE_SORT_ORDER`
+  CHANGE_SORT_ORDER: `CHANGE_SORT_ORDER`,
 };
 
 const ActionCreator = {
   changeCurrentOfferId(id) {
     return {
       type: ActionType.CHANGE_CURRENT_OFFER_ID,
-      payload: id
+      payload: id,
     };
   },
 
   addOffers(offers) {
     return {
       type: ActionType.ADD_OFFERS,
-      payload: makeCamelCaseObject(offers)
+      payload: makeCamelCaseObject(offers),
     };
   },
 
   addComments(comments) {
     return {
       type: ActionType.ADD_COMMENTS,
-      payload: makeCamelCaseObject(comments)
+      payload: makeCamelCaseObject(comments),
     };
   },
 
   replaceOffer(offer) {
     return {
       type: ActionType.REPLACE_OFFER,
-      payload: makeCamelCaseObject(offer)
+      payload: makeCamelCaseObject(offer),
     };
   },
 
   changeLocation(location) {
     return {
       type: ActionType.CHANGE_LOCATION,
-      payload: location
+      payload: location,
     };
   },
 
   changeSortOrder(order) {
     return {
       type: ActionType.CHANGE_SORT_ORDER,
-      payload: order
+      payload: order,
     };
-  }
+  },
 };
 
 const Operation = {
@@ -112,7 +112,7 @@ const Operation = {
         dispatch(ActionCreator.changeLocation(location));
       }
     };
-  }
+  },
 };
 
 const initState = {
@@ -120,35 +120,35 @@ const initState = {
   currentOfferId: DEFAULT_NUMBER_VALUE,
   sortOrder: SortingVariants.POPULAR,
   offers: [],
-  offersReviews: []
+  offersReviews: [],
 };
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_CURRENT_OFFER_ID: return Object.assign({}, state, {
-      currentOfferId: action.payload
+      currentOfferId: action.payload,
     });
 
     case ActionType.ADD_OFFERS: return Object.assign({}, state, {
-      offers: action.payload
+      offers: action.payload,
     });
 
     case ActionType.ADD_COMMENTS: return Object.assign({}, state, {
-      offersReviews: action.payload
+      offersReviews: action.payload,
     });
 
     case ActionType.REPLACE_OFFER: return Object.assign({}, state, {
       offers: state.offers.map((it) => {
         return it.id === action.payload.id ? action.payload : it;
-      })
+      }),
     });
 
     case ActionType.CHANGE_LOCATION: return Object.assign({}, state, {
-      currentLocation: action.payload
+      currentLocation: action.payload,
     });
 
     case ActionType.CHANGE_SORT_ORDER: return Object.assign({}, state, {
-      sortOrder: action.payload
+      sortOrder: action.payload,
     });
   }
 

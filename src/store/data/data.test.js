@@ -24,8 +24,8 @@ describe(`ActionCreator`, () => {
         "location": {
           "latitude": 50.846557,
           "longitude": 4.351697,
-          "zoom": 13
-        }
+          "zoom": 13,
+        },
       },
       "preview_image": `img/apartment-01.jpg`,
       "images": [`img/apartment-01.jpg`],
@@ -42,14 +42,14 @@ describe(`ActionCreator`, () => {
         "id": 25,
         "name": `Angelina`,
         "is_pro": true,
-        "avatar_url": `img/avatar-angelina.jpg`
+        "avatar_url": `img/avatar-angelina.jpg`,
       },
       "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
       "location": {
         "latitude": 50.828556999999996,
         "longitude": 4.362697,
-        "zoom": 16
-      }
+        "zoom": 16,
+      },
     }];
     const convertedIncomingOffers = [{
       id: 6,
@@ -58,8 +58,8 @@ describe(`ActionCreator`, () => {
         location: {
           latitude: 50.846557,
           longitude: 4.351697,
-          zoom: 13
-        }
+          zoom: 13,
+        },
       },
       previewImage: `img/apartment-01.jpg`,
       images: [`img/apartment-01.jpg`],
@@ -76,14 +76,14 @@ describe(`ActionCreator`, () => {
         id: 25,
         name: `Angelina`,
         isPro: true,
-        avatarUrl: `img/avatar-angelina.jpg`
+        avatarUrl: `img/avatar-angelina.jpg`,
       },
       description: `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
       location: {
         latitude: 50.828556999999996,
         longitude: 4.362697,
-        zoom: 16
-      }
+        zoom: 16,
+      },
     }];
     const action = ActionCreator.addOffers(incomingOffers);
     const expectedAction = {type: ActionType.ADD_OFFERS, payload: convertedIncomingOffers};
@@ -100,12 +100,12 @@ describe(`ActionCreator`, () => {
           "id": 17,
           "is_pro": false,
           "name": `Emely`,
-          "avatar_url": `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/8.jpg`
+          "avatar_url": `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/8.jpg`,
         },
         "rating": 5,
         "comment": `What an amazing view!`,
-        "date": `2019-11-06T08:29:32.094Z`
-      }]
+        "date": `2019-11-06T08:29:32.094Z`,
+      }],
     }];
     const convertedIncomingComments = [{
       id: 4,
@@ -115,12 +115,12 @@ describe(`ActionCreator`, () => {
           id: 17,
           isPro: false,
           name: `Emely`,
-          avatarUrl: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/8.jpg`
+          avatarUrl: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/8.jpg`,
         },
         rating: 5,
         comment: `What an amazing view!`,
-        date: `2019-11-06T08:29:32.094Z`
-      }]
+        date: `2019-11-06T08:29:32.094Z`,
+      }],
     }];
     const action = ActionCreator.addComments(incomingComments);
     const expectedAction = {type: ActionType.ADD_COMMENTS, payload: convertedIncomingComments};
@@ -226,12 +226,12 @@ describe(`Operation`, () => {
         currentOfferId: 1,
         sortOrder: SortingVariants.POPULAR,
         offers: [],
-        offersReviews: []
+        offersReviews: [],
       }});
       const requestedOfferId = 2;
       const expectedResult = {
         type: ActionType.CHANGE_CURRENT_OFFER_ID,
-        payload: requestedOfferId
+        payload: requestedOfferId,
       };
 
       Operation.checkCurrentOfferId(requestedOfferId)(dispatch, getState);
@@ -246,7 +246,7 @@ describe(`Operation`, () => {
         currentOfferId: 1,
         sortOrder: SortingVariants.POPULAR,
         offers: [],
-        offersReviews: []
+        offersReviews: [],
       }});
       const requestedOfferId = 1;
 
@@ -268,8 +268,8 @@ describe(`Operation`, () => {
         "location": {
           "latitude": 50.846557,
           "longitude": 4.351697,
-          "zoom": 13
-        }
+          "zoom": 13,
+        },
       },
       "preview_image": `/img/apartment-01.jpg`,
       "images": [`/img/apartment-01.jpg`],
@@ -286,14 +286,14 @@ describe(`Operation`, () => {
         "id": 25,
         "name": `Angelina`,
         "is_pro": true,
-        "avatar_url": `img/avatar-max.jpg`
+        "avatar_url": `img/avatar-max.jpg`,
       },
       "description": `Relax, rejuvenate and unplug.`,
       "location": {
         "latitude": 50.828556999999996,
         "longitude": 4.362697,
-        "zoom": 16
-      }
+        "zoom": 16,
+      },
     }];
     const expectedPayload = [{
       id: 6,
@@ -302,8 +302,8 @@ describe(`Operation`, () => {
         location: {
           latitude: 50.846557,
           longitude: 4.351697,
-          zoom: 13
-        }
+          zoom: 13,
+        },
       },
       previewImage: `/img/apartment-01.jpg`,
       images: [`/img/apartment-01.jpg`],
@@ -320,14 +320,14 @@ describe(`Operation`, () => {
         id: 25,
         name: `Angelina`,
         isPro: true,
-        avatarUrl: `img/avatar-max.jpg`
+        avatarUrl: `img/avatar-max.jpg`,
       },
       description: `Relax, rejuvenate and unplug.`,
       location: {
         latitude: 50.828556999999996,
         longitude: 4.362697,
-        zoom: 16
-      }
+        zoom: 16,
+      },
     }];
     apiMock
       .onGet(UrlPath.HOTELS)
@@ -337,7 +337,7 @@ describe(`Operation`, () => {
       .then(() => {
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.ADD_OFFERS,
-          payload: expectedPayload
+          payload: expectedPayload,
         });
       });
   });
@@ -482,8 +482,8 @@ describe(`Operation`, () => {
             location: {
               latitude: 50.846557,
               longitude: 4.351697,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [`/img/apartment-01.jpg`],
@@ -500,20 +500,20 @@ describe(`Operation`, () => {
             id: 25,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-max.jpg`
+            avatarUrl: `img/avatar-max.jpg`,
           },
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 50.828556999999996,
             longitude: 4.362697,
-            zoom: 16
-          }
+            zoom: 16,
+          },
         }],
-        offersReviews: []
+        offersReviews: [],
       }});
       const expectedResult = {
         type: ActionType.CHANGE_LOCATION,
-        payload: `Brussels`
+        payload: `Brussels`,
       };
 
       Operation.checkCurrentLocationOnOfferPage()(dispatch, getState);
@@ -533,8 +533,8 @@ describe(`Operation`, () => {
             location: {
               latitude: 50.846557,
               longitude: 4.351697,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [`/img/apartment-01.jpg`],
@@ -551,16 +551,16 @@ describe(`Operation`, () => {
             id: 25,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-max.jpg`
+            avatarUrl: `img/avatar-max.jpg`,
           },
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 50.828556999999996,
             longitude: 4.362697,
-            zoom: 16
-          }
+            zoom: 16,
+          },
         }],
-        offersReviews: []
+        offersReviews: [],
       }});
 
       Operation.checkCurrentLocationOnOfferPage()(dispatch, getState);
@@ -582,8 +582,8 @@ describe(`Operation`, () => {
             location: {
               latitude: 50.846557,
               longitude: 4.351697,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [`/img/apartment-01.jpg`],
@@ -600,20 +600,20 @@ describe(`Operation`, () => {
             id: 25,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-max.jpg`
+            avatarUrl: `img/avatar-max.jpg`,
           },
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 50.828556999999996,
             longitude: 4.362697,
-            zoom: 16
-          }
+            zoom: 16,
+          },
         }],
-        offersReviews: []
+        offersReviews: [],
       }});
       const expectedResult = {
         type: ActionType.CHANGE_LOCATION,
-        payload: `Amsterdam`
+        payload: `Amsterdam`,
       };
 
       Operation.checkCurrentLocationOnMainPage()(dispatch, getState);
@@ -633,8 +633,8 @@ describe(`Operation`, () => {
             location: {
               latitude: 50.846557,
               longitude: 4.351697,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [`/img/apartment-01.jpg`],
@@ -651,16 +651,16 @@ describe(`Operation`, () => {
             id: 25,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-max.jpg`
+            avatarUrl: `img/avatar-max.jpg`,
           },
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 50.828556999999996,
             longitude: 4.362697,
-            zoom: 16
-          }
+            zoom: 16,
+          },
         }],
-        offersReviews: []
+        offersReviews: [],
       }});
 
       Operation.checkCurrentLocationOnMainPage()(dispatch, getState);
@@ -677,7 +677,7 @@ describe(`reducer`, () => {
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
-      sortOrder: SortingVariants.POPULAR
+      sortOrder: SortingVariants.POPULAR,
     };
   });
 
@@ -694,8 +694,8 @@ describe(`reducer`, () => {
         location: {
           latitude: 52.37454,
           longitude: 4.897976,
-          zoom: 13
-        }
+          zoom: 13,
+        },
       },
       previewImage: `img/room.jpg`,
       images: [`img/room.jpg`],
@@ -704,7 +704,7 @@ describe(`reducer`, () => {
       location: {
         latitude: 52.367540000000005,
         longitude: 4.883976,
-        zoom: 16
+        zoom: 16,
       },
       isPremium: false,
       isFavorite: false,
@@ -718,19 +718,19 @@ describe(`reducer`, () => {
         id: 2,
         name: `Oleg`,
         isPro: false,
-        avatarUrl: `img/avatar-max.jpg`
-      }
+        avatarUrl: `img/avatar-max.jpg`,
+      },
     }];
     const action = {
       type: ActionType.ADD_OFFERS,
-      payload: offers
+      payload: offers,
     };
     const nextState = {
       offers,
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
-      sortOrder: SortingVariants.POPULAR
+      sortOrder: SortingVariants.POPULAR,
     };
 
     expect(reducer(initState, action)).toEqual(nextState);
@@ -745,23 +745,23 @@ describe(`reducer`, () => {
           id: 12,
           isPro: true,
           name: `Isaac`,
-          avatarUrl: `img/3.jpg`
+          avatarUrl: `img/3.jpg`,
         },
         rating: 3,
         comment: `The house is very good`,
-        date: `2019-10-24T08:29:32.094Z`
-      }]
+        date: `2019-10-24T08:29:32.094Z`,
+      }],
     }];
     const action = {
       type: ActionType.ADD_COMMENTS,
-      payload: offersReviews
+      payload: offersReviews,
     };
     const nextState = {
       offers: [],
       offersReviews,
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
-      sortOrder: SortingVariants.POPULAR
+      sortOrder: SortingVariants.POPULAR,
 
     };
     expect(reducer(initState, action)).toEqual(nextState);
@@ -771,14 +771,14 @@ describe(`reducer`, () => {
     const location = `New York`;
     const action = {
       type: ActionType.CHANGE_LOCATION,
-      payload: location
+      payload: location,
     };
     const nextState = {
       offers: [],
       offersReviews: [],
       currentLocation: location,
       currentOfferId: DEFAULT_NUMBER_VALUE,
-      sortOrder: SortingVariants.POPULAR
+      sortOrder: SortingVariants.POPULAR,
     };
 
     expect(reducer(initState, action)).toEqual(nextState);
@@ -788,14 +788,14 @@ describe(`reducer`, () => {
     const offerId = 2;
     const action = {
       type: ActionType.CHANGE_CURRENT_OFFER_ID,
-      payload: offerId
+      payload: offerId,
     };
     const nextState = {
       offers: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: offerId,
-      sortOrder: SortingVariants.POPULAR
+      sortOrder: SortingVariants.POPULAR,
     };
 
     expect(reducer(initState, action)).toEqual(nextState);
@@ -804,14 +804,14 @@ describe(`reducer`, () => {
   it(`Reducer should set sortOrder by given in payload`, () => {
     const action = {
       type: ActionType.CHANGE_SORT_ORDER,
-      payload: SortingVariants.TOP_RATED
+      payload: SortingVariants.TOP_RATED,
     };
     const nextState = {
       offers: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
-      sortOrder: SortingVariants.TOP_RATED
+      sortOrder: SortingVariants.TOP_RATED,
     };
 
     expect(reducer(initState, action)).toEqual(nextState);
