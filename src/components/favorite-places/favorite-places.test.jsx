@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-
 import {MemoryRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import NameSpace from '../../store/name-spaces.js';
