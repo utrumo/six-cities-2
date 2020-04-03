@@ -18,8 +18,8 @@ describe(`checkOfferAvailability`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [`img/room.jpg`],
@@ -28,7 +28,7 @@ describe(`checkOfferAvailability`, () => {
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -42,11 +42,11 @@ describe(`checkOfferAvailability`, () => {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     }};
 
     expect(Selectors.checkOffersAvailability(state)).toBeTruthy();
@@ -58,7 +58,7 @@ describe(`checkOfferAvailability`, () => {
       currentOfferId: 1,
       sortOrder: SortingVariants.POPULAR,
       offers: [],
-      offersReviews: []
+      offersReviews: [],
     }};
 
     expect(Selectors.checkOffersAvailability(state)).toBeFalsy();
@@ -78,8 +78,8 @@ it(`Should return locations`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -90,14 +90,14 @@ it(`Should return locations`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -111,8 +111,8 @@ it(`Should return locations`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -122,8 +122,8 @@ it(`Should return locations`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -132,7 +132,7 @@ it(`Should return locations`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -146,8 +146,8 @@ it(`Should return locations`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -157,8 +157,8 @@ it(`Should return locations`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -175,15 +175,15 @@ it(`Should return locations`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [
       {
@@ -194,14 +194,14 @@ it(`Should return locations`, () => {
             id: 12,
             isPro: true,
             name: `Isaac`,
-            avatarUrl: `img/3.jpg`
+            avatarUrl: `img/3.jpg`,
           },
           rating: 3,
           comment: `The house is very good`,
-          date: `2019-10-24T08:29:32.094Z`
-        }
-      }
-    ]
+          date: `2019-10-24T08:29:32.094Z`,
+        },
+      },
+    ],
   }};
   expect(Selectors.getLocations(state)).toEqual([`Amsterdam`, `Brussels`]);
 });
@@ -219,8 +219,8 @@ it(`Should return current location`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -231,14 +231,14 @@ it(`Should return current location`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -252,8 +252,8 @@ it(`Should return current location`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -263,8 +263,8 @@ it(`Should return current location`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -273,7 +273,7 @@ it(`Should return current location`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -287,8 +287,8 @@ it(`Should return current location`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -298,8 +298,8 @@ it(`Should return current location`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -316,15 +316,15 @@ it(`Should return current location`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [
       {
@@ -335,14 +335,14 @@ it(`Should return current location`, () => {
             id: 12,
             isPro: true,
             name: `Isaac`,
-            avatarUrl: `img/3.jpg`
+            avatarUrl: `img/3.jpg`,
           },
           rating: 3,
           comment: `The house is very good`,
-          date: `2019-10-24T08:29:32.094Z`
-        }
-      }
-    ]
+          date: `2019-10-24T08:29:32.094Z`,
+        },
+      },
+    ],
   }};
   expect(Selectors.getCurrentLocation(state)).toEqual(state[NAME_SPACE].currentLocation);
 });
@@ -355,7 +355,7 @@ it(`Should return current sort Order`, () => {
     offers: [
     ],
     offersReviews: [
-    ]
+    ],
   }};
   expect(Selectors.getSortOrder(state)).toEqual(SortingVariants.POPULAR);
 });
@@ -374,19 +374,19 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [
-            `img/room.jpg`
+            `img/room.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -396,14 +396,14 @@ describe(`getCurrentOffers`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
         },
 
         {
@@ -413,19 +413,19 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [
-            `img/room.jpg`
+            `img/room.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -435,14 +435,14 @@ describe(`getCurrentOffers`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
         },
 
         {
@@ -452,12 +452,12 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 50.846557,
               longitude: 4.351697,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/apartment-01.jpg`,
           images: [
-            `img/apartment-01.jpg`
+            `img/apartment-01.jpg`,
           ],
           title: `House in countryside`,
           isFavorite: false,
@@ -468,23 +468,23 @@ describe(`getCurrentOffers`, () => {
           maxAdults: 1,
           price: 143,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 25,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
+            avatarUrl: `img/avatar-angelina.jpg`,
           },
           description: `Cozy warm bed.`,
           location: {
             latitude: 50.828556999999996,
             longitude: 4.362697,
-            zoom: 16
-          }
-        }
+            zoom: 16,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     }};
     const offersInCurrentLocation = [
       {
@@ -494,19 +494,19 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
-          `img/room.jpg`
+          `img/room.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -516,14 +516,14 @@ describe(`getCurrentOffers`, () => {
         bedrooms: 3,
         maxAdults: 6,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -533,19 +533,19 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
-          `img/room.jpg`
+          `img/room.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -555,15 +555,15 @@ describe(`getCurrentOffers`, () => {
         bedrooms: 3,
         maxAdults: 6,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ];
     expect(Selectors.getCurrentOffers(state)).toEqual(offersInCurrentLocation);
   });
@@ -581,19 +581,19 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [
-            `img/room.jpg`
+            `img/room.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -603,14 +603,14 @@ describe(`getCurrentOffers`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
         },
 
         {
@@ -620,19 +620,19 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [
-            `img/room.jpg`
+            `img/room.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -642,14 +642,14 @@ describe(`getCurrentOffers`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
         },
 
         {
@@ -659,12 +659,12 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/apartment-01.jpg`,
           images: [
-            `img/apartment-01.jpg`
+            `img/apartment-01.jpg`,
           ],
           title: `House in countryside`,
           isFavorite: false,
@@ -675,23 +675,23 @@ describe(`getCurrentOffers`, () => {
           maxAdults: 1,
           price: 143,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 25,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
+            avatarUrl: `img/avatar-angelina.jpg`,
           },
           description: `Cozy warm bed.`,
           location: {
             latitude: 52.377540000000005,
             longitude: 4.843976,
-            zoom: 16
-          }
-        }
+            zoom: 16,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     }};
     const expectedSortedOffers = [
       {
@@ -701,19 +701,19 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
-          `img/room.jpg`
+          `img/room.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -723,14 +723,14 @@ describe(`getCurrentOffers`, () => {
         bedrooms: 3,
         maxAdults: 6,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -740,19 +740,19 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
-          `img/room.jpg`
+          `img/room.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -762,14 +762,14 @@ describe(`getCurrentOffers`, () => {
         bedrooms: 3,
         maxAdults: 6,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -779,12 +779,12 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `House in countryside`,
         isFavorite: false,
@@ -795,21 +795,21 @@ describe(`getCurrentOffers`, () => {
         maxAdults: 1,
         price: 143,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 52.377540000000005,
           longitude: 4.843976,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ];
     expect(Selectors.getCurrentOffers(state)).toEqual(expectedSortedOffers);
   });
@@ -827,19 +827,19 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [
-            `img/room.jpg`
+            `img/room.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -849,14 +849,14 @@ describe(`getCurrentOffers`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
         },
 
         {
@@ -866,19 +866,19 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [
-            `img/room.jpg`
+            `img/room.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -888,14 +888,14 @@ describe(`getCurrentOffers`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
         },
 
         {
@@ -905,12 +905,12 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/apartment-01.jpg`,
           images: [
-            `img/apartment-01.jpg`
+            `img/apartment-01.jpg`,
           ],
           title: `House in countryside`,
           isFavorite: false,
@@ -921,23 +921,23 @@ describe(`getCurrentOffers`, () => {
           maxAdults: 1,
           price: 143,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 25,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
+            avatarUrl: `img/avatar-angelina.jpg`,
           },
           description: `Cozy warm bed.`,
           location: {
             latitude: 52.377540000000005,
             longitude: 4.843976,
-            zoom: 16
-          }
-        }
+            zoom: 16,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     }};
     const expectedSortedOffers = [
       {
@@ -947,12 +947,12 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `House in countryside`,
         isFavorite: false,
@@ -963,20 +963,20 @@ describe(`getCurrentOffers`, () => {
         maxAdults: 1,
         price: 143,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 52.377540000000005,
           longitude: 4.843976,
-          zoom: 16
-        }
+          zoom: 16,
+        },
       },
 
       {
@@ -986,19 +986,19 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
-          `img/room.jpg`
+          `img/room.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1008,14 +1008,14 @@ describe(`getCurrentOffers`, () => {
         bedrooms: 3,
         maxAdults: 6,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1025,19 +1025,19 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
-          `img/room.jpg`
+          `img/room.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1047,15 +1047,15 @@ describe(`getCurrentOffers`, () => {
         bedrooms: 3,
         maxAdults: 6,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ];
     expect(Selectors.getCurrentOffers(state)).toEqual(expectedSortedOffers);
   });
@@ -1073,19 +1073,19 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [
-            `img/room.jpg`
+            `img/room.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -1095,14 +1095,14 @@ describe(`getCurrentOffers`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
         },
 
         {
@@ -1112,19 +1112,19 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/room.jpg`,
           images: [
-            `img/room.jpg`
+            `img/room.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -1134,14 +1134,14 @@ describe(`getCurrentOffers`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
         },
 
         {
@@ -1151,12 +1151,12 @@ describe(`getCurrentOffers`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `img/apartment-01.jpg`,
           images: [
-            `img/apartment-01.jpg`
+            `img/apartment-01.jpg`,
           ],
           title: `House in countryside`,
           isFavorite: false,
@@ -1167,23 +1167,23 @@ describe(`getCurrentOffers`, () => {
           maxAdults: 1,
           price: 143,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 25,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
+            avatarUrl: `img/avatar-angelina.jpg`,
           },
           description: `Cozy warm bed.`,
           location: {
             latitude: 52.377540000000005,
             longitude: 4.843976,
-            zoom: 16
-          }
-        }
+            zoom: 16,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     }};
     const expectedSortedOffers = [
       {
@@ -1193,19 +1193,19 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
-          `img/room.jpg`
+          `img/room.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1215,14 +1215,14 @@ describe(`getCurrentOffers`, () => {
         bedrooms: 3,
         maxAdults: 6,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1232,12 +1232,12 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `House in countryside`,
         isFavorite: false,
@@ -1248,20 +1248,20 @@ describe(`getCurrentOffers`, () => {
         maxAdults: 1,
         price: 143,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 52.377540000000005,
           longitude: 4.843976,
-          zoom: 16
-        }
+          zoom: 16,
+        },
       },
 
       {
@@ -1271,19 +1271,19 @@ describe(`getCurrentOffers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
-          `img/room.jpg`
+          `img/room.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1293,15 +1293,15 @@ describe(`getCurrentOffers`, () => {
         bedrooms: 3,
         maxAdults: 6,
         goods: [
-          `Laptop friendly workspace`
+          `Laptop friendly workspace`,
         ],
         host: {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ];
     expect(Selectors.getCurrentOffers(state)).toEqual(expectedSortedOffers);
   });
@@ -1320,8 +1320,8 @@ it(`Should return offers count in current location`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -1330,7 +1330,7 @@ it(`Should return offers count in current location`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1344,8 +1344,8 @@ it(`Should return offers count in current location`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1355,8 +1355,8 @@ it(`Should return offers count in current location`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -1365,7 +1365,7 @@ it(`Should return offers count in current location`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1379,8 +1379,8 @@ it(`Should return offers count in current location`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1390,8 +1390,8 @@ it(`Should return offers count in current location`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -1408,17 +1408,17 @@ it(`Should return offers count in current location`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
-    offersReviews: []
+    offersReviews: [],
   };
   const state = {[NAME_SPACE]: mock};
   expect(Selectors.getOffersCountInCurrentLocation(state)).toEqual(2);
@@ -1441,8 +1441,8 @@ it(`Should return current offer id`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -1453,14 +1453,14 @@ it(`Should return current offer id`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1474,8 +1474,8 @@ it(`Should return current offer id`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1485,8 +1485,8 @@ it(`Should return current offer id`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -1495,7 +1495,7 @@ it(`Should return current offer id`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1509,8 +1509,8 @@ it(`Should return current offer id`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1520,8 +1520,8 @@ it(`Should return current offer id`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -1538,15 +1538,15 @@ it(`Should return current offer id`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [{
       id: 1,
@@ -1554,12 +1554,12 @@ it(`Should return current offer id`, () => {
         id: 12,
         isPro: true,
         name: `Isaac`,
-        avatarUrl: `img/3.jpg`
+        avatarUrl: `img/3.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-24T08:29:32.094Z`
-    }]
+      date: `2019-10-24T08:29:32.094Z`,
+    }],
   }};
   expect(Selectors.getCurrentOfferId(state)).toEqual(2);
 });
@@ -1577,8 +1577,8 @@ it(`Should return correct bool value - Is available offer with given id or not?`
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -1589,14 +1589,14 @@ it(`Should return correct bool value - Is available offer with given id or not?`
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1610,8 +1610,8 @@ it(`Should return correct bool value - Is available offer with given id or not?`
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1621,8 +1621,8 @@ it(`Should return correct bool value - Is available offer with given id or not?`
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -1631,7 +1631,7 @@ it(`Should return correct bool value - Is available offer with given id or not?`
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1645,8 +1645,8 @@ it(`Should return correct bool value - Is available offer with given id or not?`
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1656,8 +1656,8 @@ it(`Should return correct bool value - Is available offer with given id or not?`
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -1674,15 +1674,15 @@ it(`Should return correct bool value - Is available offer with given id or not?`
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [{
       id: 1,
@@ -1690,12 +1690,12 @@ it(`Should return correct bool value - Is available offer with given id or not?`
         id: 12,
         isPro: true,
         name: `Isaac`,
-        avatarUrl: `img/3.jpg`
+        avatarUrl: `img/3.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-24T08:29:32.094Z`
-    }]
+      date: `2019-10-24T08:29:32.094Z`,
+    }],
   };
   const state = {[NAME_SPACE]: mock};
   expect(Selectors.checkOfferAvailability(state)).toBeTruthy();
@@ -1718,8 +1718,8 @@ it(`Should return current offer city name`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -1730,14 +1730,14 @@ it(`Should return current offer city name`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1751,8 +1751,8 @@ it(`Should return current offer city name`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1762,8 +1762,8 @@ it(`Should return current offer city name`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -1772,7 +1772,7 @@ it(`Should return current offer city name`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1786,8 +1786,8 @@ it(`Should return current offer city name`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1797,8 +1797,8 @@ it(`Should return current offer city name`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -1815,15 +1815,15 @@ it(`Should return current offer city name`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [{
       id: 1,
@@ -1831,12 +1831,12 @@ it(`Should return current offer city name`, () => {
         id: 12,
         isPro: true,
         name: `Isaac`,
-        avatarUrl: `img/3.jpg`
+        avatarUrl: `img/3.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-24T08:29:32.094Z`
-    }]
+      date: `2019-10-24T08:29:32.094Z`,
+    }],
   }};
   expect(Selectors.getCurrentOfferCityName(state)).toEqual(state[NAME_SPACE].offers[0].city.name);
 });
@@ -1854,8 +1854,8 @@ it(`Should return first offer city location`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -1866,14 +1866,14 @@ it(`Should return first offer city location`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1887,8 +1887,8 @@ it(`Should return first offer city location`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1898,8 +1898,8 @@ it(`Should return first offer city location`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -1908,7 +1908,7 @@ it(`Should return first offer city location`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -1922,8 +1922,8 @@ it(`Should return first offer city location`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -1933,8 +1933,8 @@ it(`Should return first offer city location`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -1951,15 +1951,15 @@ it(`Should return first offer city location`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [{
       id: 1,
@@ -1967,12 +1967,12 @@ it(`Should return first offer city location`, () => {
         id: 12,
         isPro: true,
         name: `Isaac`,
-        avatarUrl: `img/3.jpg`
+        avatarUrl: `img/3.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-24T08:29:32.094Z`
-    }]
+      date: `2019-10-24T08:29:32.094Z`,
+    }],
   }};
   expect(Selectors.getFirstOfferCityLocation(state))
     .toEqual(state[NAME_SPACE].offers[0].city.location);
@@ -1991,8 +1991,8 @@ it(`Should return Current ofer city location`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2003,14 +2003,14 @@ it(`Should return Current ofer city location`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2024,8 +2024,8 @@ it(`Should return Current ofer city location`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -2035,8 +2035,8 @@ it(`Should return Current ofer city location`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -2045,7 +2045,7 @@ it(`Should return Current ofer city location`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2059,8 +2059,8 @@ it(`Should return Current ofer city location`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -2070,8 +2070,8 @@ it(`Should return Current ofer city location`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -2088,15 +2088,15 @@ it(`Should return Current ofer city location`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [{
       id: 1,
@@ -2104,12 +2104,12 @@ it(`Should return Current ofer city location`, () => {
         id: 12,
         isPro: true,
         name: `Isaac`,
-        avatarUrl: `img/3.jpg`
+        avatarUrl: `img/3.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-24T08:29:32.094Z`
-    }]
+      date: `2019-10-24T08:29:32.094Z`,
+    }],
   }};
   expect(Selectors.getCurrentOfferCityLocation(state))
     .toEqual(state[NAME_SPACE].offers[2].city.location);
@@ -2128,8 +2128,8 @@ it(`Should return correct count current offer images for gallery`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2140,14 +2140,14 @@ it(`Should return correct count current offer images for gallery`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2161,8 +2161,8 @@ it(`Should return correct count current offer images for gallery`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -2172,8 +2172,8 @@ it(`Should return correct count current offer images for gallery`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -2182,7 +2182,7 @@ it(`Should return correct count current offer images for gallery`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2196,8 +2196,8 @@ it(`Should return correct count current offer images for gallery`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -2207,8 +2207,8 @@ it(`Should return correct count current offer images for gallery`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -2225,15 +2225,15 @@ it(`Should return correct count current offer images for gallery`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [{
       id: 1,
@@ -2241,12 +2241,12 @@ it(`Should return correct count current offer images for gallery`, () => {
         id: 12,
         isPro: true,
         name: `Isaac`,
-        avatarUrl: `img/3.jpg`
+        avatarUrl: `img/3.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-24T08:29:32.094Z`
-    }]
+      date: `2019-10-24T08:29:32.094Z`,
+    }],
   }};
   const imagesForGallery = [
     `img/room.jpg`,
@@ -2254,7 +2254,7 @@ it(`Should return correct count current offer images for gallery`, () => {
     `img/room.jpg`,
     `img/apartment-01.jpg`,
     `img/studio-01.jpg`,
-    `img/apartment-03.jpg`
+    `img/apartment-03.jpg`,
   ];
   expect(Selectors.getCurrentOfferImagesForGallery(state)).toEqual(imagesForGallery);
 });
@@ -2272,8 +2272,8 @@ it(`Should return correct bool value for isPremiumFlag for current location`, ()
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2284,14 +2284,14 @@ it(`Should return correct bool value for isPremiumFlag for current location`, ()
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2305,12 +2305,12 @@ it(`Should return correct bool value for isPremiumFlag for current location`, ()
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
 
   expect(Selectors.getCurrentOfferIsPremiumFlag(state)).toBeFalsy();
@@ -2329,8 +2329,8 @@ it(`Should return current offer title`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2341,14 +2341,14 @@ it(`Should return current offer title`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2362,12 +2362,12 @@ it(`Should return current offer title`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
 
   expect(Selectors.getCurrentOfferTitle(state)).toEqual(`Wood and stone place`);
@@ -2386,8 +2386,8 @@ it(`Should return current offer type`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2398,14 +2398,14 @@ it(`Should return current offer type`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2419,12 +2419,12 @@ it(`Should return current offer type`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
   expect(Selectors.getCurrentOfferType(state)).toEqual(`apartment`);
 });
@@ -2442,8 +2442,8 @@ it(`Should return current offer rating in percent`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2454,14 +2454,14 @@ it(`Should return current offer rating in percent`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2475,12 +2475,12 @@ it(`Should return current offer rating in percent`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
   expect(Selectors.getCurrentOfferRatingInPercent(state)).toEqual(80);
 });
@@ -2498,8 +2498,8 @@ it(`Should return current normalized rating`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2510,14 +2510,14 @@ it(`Should return current normalized rating`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2531,12 +2531,12 @@ it(`Should return current normalized rating`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
   expect(Selectors.getCurrentOfferNormalizedRating(state)).toEqual(4);
 });
@@ -2554,8 +2554,8 @@ it(`Should return current offer bedrooms`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2566,14 +2566,14 @@ it(`Should return current offer bedrooms`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2587,11 +2587,11 @@ it(`Should return current offer bedrooms`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
-    offersReviews: []
+    offersReviews: [],
   }};
   expect(Selectors.getCurrentOfferBedrooms(state)).toEqual(7);
 });
@@ -2609,8 +2609,8 @@ it(`Should return current offer max adults count`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2621,14 +2621,14 @@ it(`Should return current offer max adults count`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2642,11 +2642,11 @@ it(`Should return current offer max adults count`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
-    offersReviews: []
+    offersReviews: [],
   }};
 
   expect(Selectors.getCurrentOfferMaxAdults(state)).toEqual(6);
@@ -2665,8 +2665,8 @@ it(`Should return current offer price`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2677,14 +2677,14 @@ it(`Should return current offer price`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2698,11 +2698,11 @@ it(`Should return current offer price`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
-    offersReviews: []
+    offersReviews: [],
   }};
 
   expect(Selectors.getCurrentOfferPrice(state)).toEqual(80);
@@ -2721,8 +2721,8 @@ it(`Should return current offer goods`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2733,14 +2733,14 @@ it(`Should return current offer goods`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2754,12 +2754,12 @@ it(`Should return current offer goods`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
 
   expect(Selectors.getCurrentOfferGoods(state)).toEqual([`Laptop friendly workspace`]);
@@ -2778,8 +2778,8 @@ it(`Should return current offer description`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2790,14 +2790,14 @@ it(`Should return current offer description`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2811,11 +2811,11 @@ it(`Should return current offer description`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
-    offersReviews: []
+    offersReviews: [],
   }};
   expect(Selectors.getCurrentOfferDescription(state))
     .toEqual(`Relax, rejuvenate and unplug.`);
@@ -2834,8 +2834,8 @@ it(`Should return current offer host name`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2846,14 +2846,14 @@ it(`Should return current offer host name`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2867,12 +2867,12 @@ it(`Should return current offer host name`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
 
   expect(Selectors.getCurrentOfferHostName(state)).toEqual(`Oleg`);
@@ -2891,8 +2891,8 @@ it(`Should return current offer host isPro flag`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2903,14 +2903,14 @@ it(`Should return current offer host isPro flag`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2924,11 +2924,11 @@ it(`Should return current offer host isPro flag`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
-    offersReviews: []
+    offersReviews: [],
   }};
 
   expect(Selectors.getCurrentOfferHostIsPro(state)).toBeFalsy();
@@ -2947,8 +2947,8 @@ it(`Should return current offer host avatar url`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -2959,14 +2959,14 @@ it(`Should return current offer host avatar url`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -2980,11 +2980,11 @@ it(`Should return current offer host avatar url`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
-    offersReviews: []
+    offersReviews: [],
   }};
 
   expect(Selectors.getCurrentOfferHostAvatarUrl(state)).toEqual(`img/avatar-max.jpg`);
@@ -3003,8 +3003,8 @@ it(`Should return comments for offer page`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -3015,14 +3015,14 @@ it(`Should return comments for offer page`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3036,8 +3036,8 @@ it(`Should return comments for offer page`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -3047,8 +3047,8 @@ it(`Should return comments for offer page`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -3057,7 +3057,7 @@ it(`Should return comments for offer page`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3071,9 +3071,9 @@ it(`Should return comments for offer page`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
       {
@@ -3085,11 +3085,11 @@ it(`Should return comments for offer page`, () => {
               id: 12,
               isPro: true,
               name: `Isaac`,
-              avatarUrl: `img/3.jpg`
+              avatarUrl: `img/3.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-14T08:29:32.094Z`
+            date: `2019-10-14T08:29:32.094Z`,
           },
           {
             id: 2,
@@ -3097,11 +3097,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Alex`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-15T08:29:32.094Z`
+            date: `2019-10-15T08:29:32.094Z`,
           },
           {
             id: 3,
@@ -3109,11 +3109,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: true,
               name: `Coala`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-16T08:29:32.094Z`
+            date: `2019-10-16T08:29:32.094Z`,
           },
           {
             id: 4,
@@ -3121,11 +3121,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Jane`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-17T08:29:32.094Z`
+            date: `2019-10-17T08:29:32.094Z`,
           },
           {
             id: 5,
@@ -3133,11 +3133,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Ulia`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-18T08:29:32.094Z`
+            date: `2019-10-18T08:29:32.094Z`,
           },
           {
             id: 6,
@@ -3145,11 +3145,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Alex`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-19T08:29:32.094Z`
+            date: `2019-10-19T08:29:32.094Z`,
           },
           {
             id: 7,
@@ -3157,11 +3157,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Michail`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-20T08:29:32.094Z`
+            date: `2019-10-20T08:29:32.094Z`,
           },
           {
             id: 8,
@@ -3169,11 +3169,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Petr`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-21T08:29:32.094Z`
+            date: `2019-10-21T08:29:32.094Z`,
           },
           {
             id: 9,
@@ -3181,11 +3181,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Alex`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-22T08:29:32.094Z`
+            date: `2019-10-22T08:29:32.094Z`,
           },
           {
             id: 10,
@@ -3193,11 +3193,11 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Alex`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-23T08:29:32.094Z`
+            date: `2019-10-23T08:29:32.094Z`,
           },
           {
             id: 11,
@@ -3205,15 +3205,15 @@ it(`Should return comments for offer page`, () => {
               id: 13,
               isPro: false,
               name: `Oksana`,
-              avatarUrl: `img/oksana.jpg`
+              avatarUrl: `img/oksana.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-24T08:29:32.094Z`
-          }
-        ]
-      }
-    ]
+            date: `2019-10-24T08:29:32.094Z`,
+          },
+        ],
+      },
+    ],
   }};
 
   const expectedCommentsForOfferPage = [
@@ -3223,11 +3223,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: false,
         name: `Alex`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-23T08:29:32.094Z`
+      date: `2019-10-23T08:29:32.094Z`,
     },
     {
       id: 9,
@@ -3235,11 +3235,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: false,
         name: `Alex`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-22T08:29:32.094Z`
+      date: `2019-10-22T08:29:32.094Z`,
     },
     {
       id: 8,
@@ -3247,11 +3247,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: false,
         name: `Petr`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-21T08:29:32.094Z`
+      date: `2019-10-21T08:29:32.094Z`,
     },
     {
       id: 7,
@@ -3259,11 +3259,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: false,
         name: `Michail`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-20T08:29:32.094Z`
+      date: `2019-10-20T08:29:32.094Z`,
     },
     {
       id: 6,
@@ -3271,11 +3271,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: false,
         name: `Alex`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-19T08:29:32.094Z`
+      date: `2019-10-19T08:29:32.094Z`,
     },
     {
       id: 5,
@@ -3283,11 +3283,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: false,
         name: `Ulia`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-18T08:29:32.094Z`
+      date: `2019-10-18T08:29:32.094Z`,
     },
     {
       id: 4,
@@ -3295,11 +3295,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: false,
         name: `Jane`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-17T08:29:32.094Z`
+      date: `2019-10-17T08:29:32.094Z`,
     },
     {
       id: 3,
@@ -3307,11 +3307,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: true,
         name: `Coala`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-16T08:29:32.094Z`
+      date: `2019-10-16T08:29:32.094Z`,
     },
     {
       id: 2,
@@ -3319,11 +3319,11 @@ it(`Should return comments for offer page`, () => {
         id: 13,
         isPro: false,
         name: `Alex`,
-        avatarUrl: `img/alex.jpg`
+        avatarUrl: `img/alex.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-15T08:29:32.094Z`
+      date: `2019-10-15T08:29:32.094Z`,
     },
     {
       id: 1,
@@ -3331,12 +3331,12 @@ it(`Should return comments for offer page`, () => {
         id: 12,
         isPro: true,
         name: `Isaac`,
-        avatarUrl: `img/3.jpg`
+        avatarUrl: `img/3.jpg`,
       },
       rating: 3,
       comment: `The house is very good`,
-      date: `2019-10-14T08:29:32.094Z`
-    }
+      date: `2019-10-14T08:29:32.094Z`,
+    },
   ];
 
   expect(Selectors.getCommentsForOfferPage(state)).toEqual(expectedCommentsForOfferPage);
@@ -3355,8 +3355,8 @@ it(`Should return comments count for current offer`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -3367,14 +3367,14 @@ it(`Should return comments count for current offer`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3388,9 +3388,9 @@ it(`Should return comments count for current offer`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
-      }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
     ],
     offersReviews: [
       {
@@ -3402,11 +3402,11 @@ it(`Should return comments count for current offer`, () => {
               id: 12,
               isPro: true,
               name: `Isaac`,
-              avatarUrl: `img/3.jpg`
+              avatarUrl: `img/3.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-14T08:29:32.094Z`
+            date: `2019-10-14T08:29:32.094Z`,
           },
           {
             id: 2,
@@ -3414,14 +3414,14 @@ it(`Should return comments count for current offer`, () => {
               id: 13,
               isPro: false,
               name: `Alex`,
-              avatarUrl: `img/alex.jpg`
+              avatarUrl: `img/alex.jpg`,
             },
             rating: 3,
             comment: `The house is very good`,
-            date: `2019-10-15T08:29:32.094Z`
-          }
-        ]
-      }
+            date: `2019-10-15T08:29:32.094Z`,
+          },
+        ],
+      },
     ]}};
   expect(Selectors.getCommentsCount(state)).toEqual(2);
 });
@@ -3439,8 +3439,8 @@ it(`Shuld return nearest offers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -3451,14 +3451,14 @@ it(`Shuld return nearest offers`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3472,8 +3472,8 @@ it(`Shuld return nearest offers`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -3483,8 +3483,8 @@ it(`Shuld return nearest offers`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -3493,7 +3493,7 @@ it(`Shuld return nearest offers`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3507,8 +3507,8 @@ it(`Shuld return nearest offers`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -3518,8 +3518,8 @@ it(`Shuld return nearest offers`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -3536,14 +3536,14 @@ it(`Shuld return nearest offers`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
+          zoom: 16,
+        },
       },
 
       {
@@ -3553,12 +3553,12 @@ it(`Shuld return nearest offers`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `House in countryside`,
         isFavorite: false,
@@ -3570,24 +3570,24 @@ it(`Shuld return nearest offers`, () => {
         price: 143,
         goods: [
           `Laptop friendly workspace`,
-          `Breakfast`
+          `Breakfast`,
         ],
         host: {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
 
   const expectedOffers = [
@@ -3598,8 +3598,8 @@ it(`Shuld return nearest offers`, () => {
         location: {
           latitude: 52.37454,
           longitude: 4.897976,
-          zoom: 13
-        }
+          zoom: 13,
+        },
       },
       previewImage: `img/room.jpg`,
       images: [`img/room.jpg`],
@@ -3608,7 +3608,7 @@ it(`Shuld return nearest offers`, () => {
       location: {
         latitude: 52.367540000000005,
         longitude: 4.883976,
-        zoom: 16
+        zoom: 16,
       },
       isPremium: false,
       isFavorite: false,
@@ -3622,12 +3622,358 @@ it(`Shuld return nearest offers`, () => {
         id: 2,
         name: `Oleg`,
         isPro: false,
-        avatarUrl: `img/avatar-max.jpg`
-      }
-    }
+        avatarUrl: `img/avatar-max.jpg`,
+      },
+    },
   ];
 
   expect(Selectors.getNearestOffers(state)).toEqual(expectedOffers);
+});
+
+describe(`checkFavoriteOffersAvailability`, () => {
+  it(`Should return false because we don't have favorite offers`, () => {
+    const state = {[NAME_SPACE]: {
+      currentLocation: `Amsterdam`,
+      currentOfferId: 1,
+      sortOrder: SortingVariants.POPULAR,
+      offers: [
+        {
+          id: 1,
+          city: {
+            name: `Amsterdam`,
+            location: {
+              latitude: 52.37454,
+              longitude: 4.897976,
+              zoom: 13,
+            },
+          },
+          previewImage: `img/room.jpg`,
+          images: [`img/room.jpg`],
+          title: `Wood and stone place`,
+          description: `Relax, rejuvenate and unplug.`,
+          location: {
+            latitude: 52.367540000000005,
+            longitude: 4.883976,
+            zoom: 16,
+          },
+          isPremium: false,
+          isFavorite: false,
+          rating: 4.2,
+          price: 80,
+          type: `apartment`,
+          bedrooms: 3,
+          maxAdults: 6,
+          goods: [`Laptop friendly workspace`],
+          host: {
+            id: 2,
+            name: `Oleg`,
+            isPro: false,
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
+      ],
+      offersReviews: [],
+    }};
+    expect(Selectors.checkFavoriteOffersAvailability(state)).toBeFalsy();
+  });
+
+  it(`Should return true because we have favorite offers`, () => {
+    const state = {[NAME_SPACE]: {
+      currentLocation: `Amsterdam`,
+      currentOfferId: 1,
+      sortOrder: SortingVariants.POPULAR,
+      offers: [
+        {
+          id: 1,
+          city: {
+            name: `Amsterdam`,
+            location: {
+              latitude: 52.37454,
+              longitude: 4.897976,
+              zoom: 13,
+            },
+          },
+          previewImage: `img/room.jpg`,
+          images: [`img/room.jpg`],
+          title: `Wood and stone place`,
+          description: `Relax, rejuvenate and unplug.`,
+          location: {
+            latitude: 52.367540000000005,
+            longitude: 4.883976,
+            zoom: 16,
+          },
+          isPremium: false,
+          isFavorite: true,
+          rating: 4.2,
+          price: 80,
+          type: `apartment`,
+          bedrooms: 3,
+          maxAdults: 6,
+          goods: [`Laptop friendly workspace`],
+          host: {
+            id: 2,
+            name: `Oleg`,
+            isPro: false,
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
+      ],
+      offersReviews: [],
+    }};
+    expect(Selectors.checkFavoriteOffersAvailability(state)).toBeTruthy();
+  });
+});
+
+it(`Should return locations with favorite offers`, () => {
+  const state = {[NAME_SPACE]: {
+    currentLocation: `Amsterdam`,
+    currentOfferId: 1,
+    sortOrder: SortingVariants.POPULAR,
+    offers: [
+      {
+        id: 1,
+        city: {
+          name: `Amsterdam`,
+          location: {
+            latitude: 52.37454,
+            longitude: 4.897976,
+            zoom: 13,
+          },
+        },
+        previewImage: `img/room.jpg`,
+        images: [
+          `img/room.jpg`,
+        ],
+        title: `Wood and stone place`,
+        description: `Relax, rejuvenate and unplug.`,
+        location: {
+          latitude: 52.367540000000005,
+          longitude: 4.883976,
+          zoom: 16,
+        },
+        isPremium: false,
+        isFavorite: false,
+        rating: 4.2,
+        price: 80,
+        type: `apartment`,
+        bedrooms: 3,
+        maxAdults: 6,
+        goods: [
+          `Laptop friendly workspace`,
+        ],
+        host: {
+          id: 2,
+          name: `Oleg`,
+          isPro: false,
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
+
+      {
+        id: 2,
+        city: {
+          name: `Amsterdam`,
+          location: {
+            latitude: 52.37454,
+            longitude: 4.897976,
+            zoom: 13,
+          },
+        },
+        previewImage: `img/room.jpg`,
+        images: [
+          `img/room.jpg`,
+        ],
+        title: `Wood and stone place`,
+        description: `Relax, rejuvenate and unplug.`,
+        location: {
+          latitude: 52.367540000000005,
+          longitude: 4.883976,
+          zoom: 16,
+        },
+        isPremium: false,
+        isFavorite: true,
+        rating: 4.2,
+        price: 80,
+        type: `apartment`,
+        bedrooms: 3,
+        maxAdults: 6,
+        goods: [
+          `Laptop friendly workspace`,
+        ],
+        host: {
+          id: 2,
+          name: `Oleg`,
+          isPro: false,
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
+
+      {
+        id: 3,
+        city: {
+          name: `Brussels`,
+          location: {
+            latitude: 50.846557,
+            longitude: 4.351697,
+            zoom: 13,
+          },
+        },
+        previewImage: `img/apartment-01.jpg`,
+        images: [
+          `img/apartment-01.jpg`,
+        ],
+        title: `House in countryside`,
+        isFavorite: true,
+        isPremium: false,
+        rating: 2.8,
+        type: `room`,
+        bedrooms: 1,
+        maxAdults: 1,
+        price: 143,
+        goods: [`Laptop friendly workspace`],
+        host: {
+          id: 25,
+          name: `Angelina`,
+          isPro: true,
+          avatarUrl: `img/avatar-angelina.jpg`,
+        },
+        description: `Cozy warm bed.`,
+        location: {
+          latitude: 50.828556999999996,
+          longitude: 4.362697,
+          zoom: 16,
+        },
+      },
+
+      {
+        "id": 4,
+        "city": {
+          "name": `Brussels`,
+          "location": {
+            "latitude": 50.846557,
+            "longitude": 4.351697,
+            "zoom": 13,
+          },
+        },
+        "previewImage": `/img/apartment-02.jpg`,
+        "images": [
+          `/img/apartment-02.jpg`,
+        ],
+        "title": `Loft Studio in the Central Area`,
+        "isFavorite": false,
+        "isPremium": false,
+        "rating": 2.4,
+        "type": `room`,
+        "bedrooms": 1,
+        "maxAdults": 2,
+        "price": 198,
+        "goods": [
+          `Towels`,
+        ],
+        "host": {
+          "id": 25,
+          "name": `Angelina`,
+          "isPro": true,
+          "avatarUrl": `img/avatar-angelina.jpg`,
+        },
+        "description": `This is a place for dreamers to reset, reflect, and create.`,
+        "location": {
+          "latitude": 50.867557,
+          "longitude": 4.371696999999999,
+          "zoom": 16,
+        },
+      },
+    ],
+    offersReviews: [
+    ],
+  }};
+  const expectedResult = [
+    {
+      location: `Amsterdam`,
+      offers: [
+        {
+          id: 2,
+          city: {
+            name: `Amsterdam`,
+            location: {
+              latitude: 52.37454,
+              longitude: 4.897976,
+              zoom: 13,
+            },
+          },
+          previewImage: `img/room.jpg`,
+          images: [
+            `img/room.jpg`,
+          ],
+          title: `Wood and stone place`,
+          description: `Relax, rejuvenate and unplug.`,
+          location: {
+            latitude: 52.367540000000005,
+            longitude: 4.883976,
+            zoom: 16,
+          },
+          isPremium: false,
+          isFavorite: true,
+          rating: 4.2,
+          price: 80,
+          type: `apartment`,
+          bedrooms: 3,
+          maxAdults: 6,
+          goods: [
+            `Laptop friendly workspace`,
+          ],
+          host: {
+            id: 2,
+            name: `Oleg`,
+            isPro: false,
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
+      ],
+    },
+    {
+      location: `Brussels`,
+      offers: [
+        {
+          id: 3,
+          city: {
+            name: `Brussels`,
+            location: {
+              latitude: 50.846557,
+              longitude: 4.351697,
+              zoom: 13,
+            },
+          },
+          previewImage: `img/apartment-01.jpg`,
+          images: [
+            `img/apartment-01.jpg`,
+          ],
+          title: `House in countryside`,
+          isFavorite: true,
+          isPremium: false,
+          rating: 2.8,
+          type: `room`,
+          bedrooms: 1,
+          maxAdults: 1,
+          price: 143,
+          goods: [`Laptop friendly workspace`],
+          host: {
+            id: 25,
+            name: `Angelina`,
+            isPro: true,
+            avatarUrl: `img/avatar-angelina.jpg`,
+          },
+          description: `Cozy warm bed.`,
+          location: {
+            latitude: 50.828556999999996,
+            longitude: 4.362697,
+            zoom: 16,
+          },
+        },
+      ],
+    },
+  ];
+  expect(Selectors.getLocationsWithFavoriteOffers(state)).toEqual(expectedResult);
 });
 
 it(`Should return markers for map on main page`, () => {
@@ -3643,8 +3989,8 @@ it(`Should return markers for map on main page`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -3655,14 +4001,14 @@ it(`Should return markers for map on main page`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3676,8 +4022,8 @@ it(`Should return markers for map on main page`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -3687,8 +4033,8 @@ it(`Should return markers for map on main page`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -3697,7 +4043,7 @@ it(`Should return markers for map on main page`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3711,8 +4057,8 @@ it(`Should return markers for map on main page`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -3722,8 +4068,8 @@ it(`Should return markers for map on main page`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -3740,14 +4086,14 @@ it(`Should return markers for map on main page`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
+          zoom: 16,
+        },
       },
 
       {
@@ -3757,12 +4103,12 @@ it(`Should return markers for map on main page`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `House in countryside`,
         isFavorite: false,
@@ -3774,36 +4120,36 @@ it(`Should return markers for map on main page`, () => {
         price: 143,
         goods: [
           `Laptop friendly workspace`,
-          `Breakfast`
+          `Breakfast`,
         ],
         host: {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
   expect(Selectors.getCityMapMarkers(state)).toEqual([
     {
       id: 1,
       latitude: 52.367540000000005,
-      longitude: 4.883976
+      longitude: 4.883976,
     },
     {
       id: 2,
       latitude: 52.367540000000005,
-      longitude: 4.883976
-    }
+      longitude: 4.883976,
+    },
   ]);
 });
 
@@ -3820,8 +4166,8 @@ it(`Should return markers for map on offer page`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [
@@ -3832,14 +4178,14 @@ it(`Should return markers for map on offer page`, () => {
           `img/studio-01.jpg`,
           `img/apartment-03.jpg`,
           `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `Wood and stone place`,
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3853,8 +4199,8 @@ it(`Should return markers for map on offer page`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -3864,8 +4210,8 @@ it(`Should return markers for map on offer page`, () => {
           location: {
             latitude: 52.37454,
             longitude: 4.897976,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/room.jpg`,
         images: [`img/room.jpg`],
@@ -3874,7 +4220,7 @@ it(`Should return markers for map on offer page`, () => {
         location: {
           latitude: 52.367540000000005,
           longitude: 4.883976,
-          zoom: 16
+          zoom: 16,
         },
         isPremium: false,
         isFavorite: false,
@@ -3888,8 +4234,8 @@ it(`Should return markers for map on offer page`, () => {
           id: 2,
           name: `Oleg`,
           isPro: false,
-          avatarUrl: `img/avatar-max.jpg`
-        }
+          avatarUrl: `img/avatar-max.jpg`,
+        },
       },
 
       {
@@ -3899,8 +4245,8 @@ it(`Should return markers for map on offer page`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [`img/apartment-01.jpg`],
@@ -3917,14 +4263,14 @@ it(`Should return markers for map on offer page`, () => {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Cozy warm bed.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
+          zoom: 16,
+        },
       },
 
       {
@@ -3934,12 +4280,12 @@ it(`Should return markers for map on offer page`, () => {
           location: {
             latitude: 50.846557,
             longitude: 4.351697,
-            zoom: 13
-          }
+            zoom: 13,
+          },
         },
         previewImage: `img/apartment-01.jpg`,
         images: [
-          `img/apartment-01.jpg`
+          `img/apartment-01.jpg`,
         ],
         title: `House in countryside`,
         isFavorite: false,
@@ -3951,35 +4297,35 @@ it(`Should return markers for map on offer page`, () => {
         price: 143,
         goods: [
           `Laptop friendly workspace`,
-          `Breakfast`
+          `Breakfast`,
         ],
         host: {
           id: 25,
           name: `Angelina`,
           isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`
+          avatarUrl: `img/avatar-angelina.jpg`,
         },
         description: `Relax, rejuvenate and unplug.`,
         location: {
           latitude: 50.828556999999996,
           longitude: 4.362697,
-          zoom: 16
-        }
-      }
+          zoom: 16,
+        },
+      },
     ],
     offersReviews: [
-    ]
+    ],
   }};
   expect(Selectors.getPropertyMapMarkers(state)).toEqual([
     {
       id: 2,
       latitude: 52.367540000000005,
-      longitude: 4.883976
+      longitude: 4.883976,
     },
     {
       id: 1,
       latitude: 52.367540000000005,
-      longitude: 4.883976
-    }
+      longitude: 4.883976,
+    },
   ]);
 });

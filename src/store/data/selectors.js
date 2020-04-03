@@ -16,7 +16,7 @@ export const getLocations = createSelector(
     _getOffers,
     (offers) => {
       const locations = offers.map((it) => it.city.name);
-      return [...new Set(locations)];
+      return [...new Set(locations)].sort();
     }
 );
 
@@ -188,6 +188,24 @@ export const getNearestOffers = createSelector(
     (offer, offers) => offer && offers ? getNearestOffersUtil(offer, offers) : []
 );
 
+const _getFavoriteOffers = (state) => state[NAME_SPACE].offers.filter((offer) => offer.isFavorite);
+
+const _getFavoriteLocations = createSelector(
+    _getFavoriteOffers,
+    (offers) => [...new Set(offers.map((it) => it.city.name))].sort()
+);
+
+export const checkFavoriteOffersAvailability = (state) => !!_getFavoriteOffers(state).length;
+
+export const getLocationsWithFavoriteOffers = createSelector(
+    _getFavoriteOffers,
+    _getFavoriteLocations,
+    (offers, locations) => locations.map((location) => ({
+      location,
+      offers: offers.filter((offer) => offer.city.name === location),
+    }))
+);
+
 export const getCityMapMarkers = createSelector(
     getCurrentOffers,
     (offers) => {
@@ -204,7 +222,7 @@ export const getPropertyMapMarkers = createSelector(
       const markers = nearestOffers.map((it) => ({
         id: it.id,
         latitude: it.location.latitude,
-        longitude: it.location.longitude
+        longitude: it.location.longitude,
       }));
       markers.push(currentMark);
       return markers;
