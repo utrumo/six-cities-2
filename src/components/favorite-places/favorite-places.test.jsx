@@ -7,7 +7,7 @@ import NameSpace from '../../store/name-spaces.js';
 import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
 import FavoritePlaces from './favorite-places.jsx';
 
-it(`FavoritesPlaces Component should renders correctly`, () => {
+it(`FavoritePlaces component should renders correctly`, () => {
   const offers = [
     {
       id: 1,
