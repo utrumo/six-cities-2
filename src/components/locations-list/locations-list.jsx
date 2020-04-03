@@ -24,16 +24,16 @@ const LocationsList = ({locations, currentLocation, onClick}) => (
 LocationsList.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.string),
   currentLocation: PropTypes.string,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   locations: getLocations(state),
-  currentLocation: getCurrentLocation(state)
+  currentLocation: getCurrentLocation(state),
 });
 
 const mapDispatchToProps = {
-  onClick: ActionCreator.changeLocation
+  onClick: ActionCreator.changeLocation,
 };
 
 export {LocationsList};

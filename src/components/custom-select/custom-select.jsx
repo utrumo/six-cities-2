@@ -7,12 +7,12 @@ const Classes = {
   OPTIONS: `places__options`,
   OPTIONS_OPENED: `places__options--opened`,
   OPTION: `places__option`,
-  OPTION_ACTIVE: `places__option--active`
+  OPTION_ACTIVE: `places__option--active`,
 };
 
 const Events = {
   CLICK: `click`,
-  KEY_DOWN: `keydown`
+  KEY_DOWN: `keydown`,
 };
 
 const Keys = {
@@ -23,7 +23,7 @@ const Keys = {
   ARROW_UP: `ArrowUp`,
   ARROW_DOWN: `ArrowDown`,
   ARROW_RIGHT: `ArrowRight`,
-  ARROW_LEFT: `ArrowLeft`
+  ARROW_LEFT: `ArrowLeft`,
 };
 
 const STEP = 1;
@@ -41,7 +41,7 @@ class CustomSelect extends PureComponent {
 
     this.state = {
       isOpened: false,
-      index
+      index,
     };
 
     this._select = createRef();
@@ -226,7 +226,7 @@ CustomSelect.propTypes = {
   label: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 
 export default CustomSelect;

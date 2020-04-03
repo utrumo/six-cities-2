@@ -16,11 +16,11 @@ const PropertyMarks = ({isPremium}) => (
 
 
 PropertyMarks.propTypes = {
-  isPremium: PropTypes.bool
+  isPremium: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
-  isPremium: getCurrentOfferIsPremiumFlag(state)
+  isPremium: getCurrentOfferIsPremiumFlag(state),
 });
 
 export {PropertyMarks};

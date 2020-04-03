@@ -16,7 +16,7 @@ const mock = {
   price: 120,
   type: `apartment`,
   onMouseMove: jest.fn(),
-  onButtonClick: jest.fn()
+  onButtonClick: jest.fn(),
 };
 
 describe(`Premium mark`, () => {
@@ -59,7 +59,7 @@ describe(`Optional classes`, () => {
   it(`Should correct render additional css classes are has in props`, () => {
     const classes = {
       own: `firstTestClass`,
-      imageWrapper: `secondTestClass`
+      imageWrapper: `secondTestClass`,
     };
     const tree = shallow(<PlaceCard {...mock} additionalClasses={classes}/>);
     expect(tree.find(`.place-card`).hasClass(classes.own)).toBeTruthy();

@@ -9,12 +9,12 @@ const PlacesFound = ({city, count}) => (
 
 PlacesFound.propTypes = {
   city: PropTypes.string.isRequired,
-  count: PropTypes.number.isRequired
+  count: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   city: getCurrentLocation(state),
-  count: getOffersCountInCurrentLocation(state)
+  count: getOffersCountInCurrentLocation(state),
 });
 
 export {PlacesFound};

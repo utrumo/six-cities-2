@@ -1,6 +1,6 @@
 const Rating = {
   MIN_VALUE: 0,
-  MAX_VALUE: 5
+  MAX_VALUE: 5,
 };
 const HUNDRED_PERCENT = 100;
 const ONE_PERCENT_OF_MAX_RATING = Rating.MAX_VALUE / HUNDRED_PERCENT;

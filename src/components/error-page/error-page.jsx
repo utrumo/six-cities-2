@@ -4,7 +4,7 @@ import PageHeader from '../page-header/page-header.jsx';
 
 const Classes = {
   STATUS: `cities__status`,
-  DESCRIPTION: `cities__status-description`
+  DESCRIPTION: `cities__status-description`,
 };
 
 const ErrorPage = ({status, description}) => (
@@ -29,15 +29,15 @@ const ErrorPage = ({status, description}) => (
 
 ErrorPage.defaultProps = {
   status: 404,
-  description: `Page not found`
+  description: `Page not found`,
 };
 
 ErrorPage.propTypes = {
   status: PropTypes.oneOfType([
     PropTypes.number.isRequired,
-    PropTypes.string.isRequired
+    PropTypes.string.isRequired,
   ]),
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 };
 
 export default ErrorPage;

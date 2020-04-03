@@ -23,8 +23,8 @@ it(`NearPlaces renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [`/img/apartment-02.jpg`],
@@ -33,7 +33,7 @@ it(`NearPlaces renders correctly`, () => {
           location: {
             latitude: 52.364540000000005,
             longitude: 4.9019759999999994,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: true,
           isFavorite: false,
@@ -47,8 +47,8 @@ it(`NearPlaces renders correctly`, () => {
             id: 1,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
-          }
+            avatarUrl: `img/avatar-angelina.jpg`,
+          },
         },
         {
           id: 2,
@@ -57,8 +57,8 @@ it(`NearPlaces renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/room.jpg`,
           images: [`/img/apartment-03.jpg`],
@@ -67,7 +67,7 @@ it(`NearPlaces renders correctly`, () => {
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -81,18 +81,18 @@ it(`NearPlaces renders correctly`, () => {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
       ],
       favorites: [],
-      offersReviews: []
+      offersReviews: [],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(

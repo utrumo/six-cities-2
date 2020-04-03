@@ -6,7 +6,7 @@ import {
   getCurrentOfferTitle,
   getCurrentOfferType,
   getCurrentOfferId,
-  getCurrentOfferIsFavoriteFlag
+  getCurrentOfferIsFavoriteFlag,
 } from '../../store/data/selectors.js';
 import {connect} from 'react-redux';
 import {Operation} from '../../store/data/data.js';
@@ -59,18 +59,18 @@ PropertyName.propTypes = {
   type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
   id: PropTypes.number.isRequired,
   isFavorite: PropTypes.bool.isRequired,
-  onButtonClick: PropTypes.func.isRequired
+  onButtonClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   title: getCurrentOfferTitle(state),
   type: getCurrentOfferType(state),
   id: getCurrentOfferId(state),
-  isFavorite: getCurrentOfferIsFavoriteFlag(state)
+  isFavorite: getCurrentOfferIsFavoriteFlag(state),
 });
 
 const mapDispatchToProps = {
-  onButtonClick: Operation.toggleFavoriteStatus
+  onButtonClick: Operation.toggleFavoriteStatus,
 };
 
 export {PropertyName};

@@ -6,7 +6,7 @@ import {
   getCurrentOfferHostName,
   getCurrentOfferHostIsPro,
   getCurrentOfferHostAvatarUrl,
-  getCurrentOfferDescription
+  getCurrentOfferDescription,
 } from '../../store/data/selectors.js';
 
 const PropertyHost = ({name, isPro, url, description}) => (
@@ -39,14 +39,14 @@ PropertyHost.propTypes = {
   name: PropTypes.string.isRequired,
   isPro: PropTypes.bool.isRequired,
   url: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   name: getCurrentOfferHostName(state),
   isPro: getCurrentOfferHostIsPro(state),
   url: getCurrentOfferHostAvatarUrl(state),
-  description: getCurrentOfferDescription(state)
+  description: getCurrentOfferDescription(state),
 });
 
 export {PropertyHost};

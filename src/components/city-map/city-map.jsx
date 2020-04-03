@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {
   getFirstOfferCityLocation,
   getCityMapMarkers,
-  getCurrentOfferId
+  getCurrentOfferId,
 } from '../../store/data/selectors.js';
 
 import Map from '../map/map.jsx';
@@ -26,20 +26,20 @@ CitiyMap.propTypes = {
   view: PropTypes.exact({
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,
-    zoom: PropTypes.number.isRequired
+    zoom: PropTypes.number.isRequired,
   }),
 
   markers: PropTypes.arrayOf(PropTypes.exact({
     id: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired
-  }))
+    longitude: PropTypes.number.isRequired,
+  })),
 };
 
 const mapStateToProps = (state) => ({
   view: getFirstOfferCityLocation(state),
   markers: getCityMapMarkers(state),
-  activeCardId: getCurrentOfferId(state)
+  activeCardId: getCurrentOfferId(state),
 });
 
 export {CitiyMap};

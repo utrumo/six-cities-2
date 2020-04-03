@@ -18,11 +18,11 @@ const PropertyInside = ({goods}) => (
 );
 
 PropertyInside.propTypes = {
-  goods: PropTypes.arrayOf(PropTypes.string).isRequired
+  goods: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  goods: getCurrentOfferGoods(state)
+  goods: getCurrentOfferGoods(state),
 });
 
 export {PropertyInside};

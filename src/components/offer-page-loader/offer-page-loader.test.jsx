@@ -24,8 +24,8 @@ it(`Offer page with wrong offer id renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-02.jpg`,
           images: [
@@ -34,14 +34,14 @@ it(`Offer page with wrong offer id renders correctly`, () => {
             `/img/apartment-01.jpg`,
             `/img/apartment-03.jpg`,
             `/img/room.jpg`,
-            `/img/apartment-01.jpg`
+            `/img/apartment-01.jpg`,
           ],
           title: `Canal View Prinsengracht`,
           description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
           location: {
             latitude: 52.36354,
             longitude: 4.889976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -53,14 +53,14 @@ it(`Offer page with wrong offer id renders correctly`, () => {
           goods: [
             `Laptop friendly workspace`,
             `Washer`,
-            `Breakfast`
+            `Breakfast`,
           ],
           host: {
             id: 3,
             name: `Max`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
-          }
+            avatarUrl: `img/avatar-angelina.jpg`,
+          },
 
         },
         {
@@ -70,8 +70,8 @@ it(`Offer page with wrong offer id renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-03.jpg`,
           images: [
@@ -80,14 +80,14 @@ it(`Offer page with wrong offer id renders correctly`, () => {
             `/img/apartment-01.jpg`,
             `/img/apartment-02.jpg`,
             `/img/studio-01.jpg`,
-            `/img/apartment-03.jpg`
+            `/img/apartment-03.jpg`,
           ],
           title: `Nice, cozy, warm big bed apartment`,
           description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
           location: {
             latitude: 52.37454,
             longitude: 4.881976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: true,
           isFavorite: false,
@@ -105,23 +105,23 @@ it(`Offer page with wrong offer id renders correctly`, () => {
             `Breakfast`,
             `Dishwasher`,
             `Coffee machine`,
-            `Fridge`
+            `Fridge`,
           ],
           host: {
             id: 4,
             name: `Max`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(
@@ -149,8 +149,8 @@ it(`Offer page renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [
@@ -160,14 +160,14 @@ it(`Offer page renders correctly`, () => {
             `/img/studio-01.jpg`,
             `/img/apartment-03.jpg`,
             `/img/apartment-01.jpg`,
-            `/img/apartment-01.jpg`
+            `/img/apartment-01.jpg`,
           ],
           title: `Beautiful & luxurious apartment at great location`,
           description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
           location: {
             latitude: 52.364540000000005,
             longitude: 4.9019759999999994,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: true,
           isFavorite: false,
@@ -185,14 +185,14 @@ it(`Offer page renders correctly`, () => {
             `Air conditioning`,
             `Baby seat`,
             `Towels`,
-            `Coffee machine`
+            `Coffee machine`,
           ],
           host: {
             id: 1,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
-          }
+            avatarUrl: `img/avatar-angelina.jpg`,
+          },
         },
 
         {
@@ -202,8 +202,8 @@ it(`Offer page renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/room.jpg`,
           images: [
@@ -212,14 +212,14 @@ it(`Offer page renders correctly`, () => {
             `/img/apartment-02.jpg`,
             `/img/room.jpg`,
             `/img/apartment-01.jpg`,
-            `/img/apartment-03.jpg`
+            `/img/apartment-03.jpg`,
           ],
           title: `Wood and stone place`,
           description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
           location: {
             latitude: 52.367540000000005,
             longitude: 4.883976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -229,15 +229,15 @@ it(`Offer page renders correctly`, () => {
           bedrooms: 3,
           maxAdults: 6,
           goods: [
-            `Laptop friendly workspace`
+            `Laptop friendly workspace`,
           ],
           host: {
             id: 2,
             name: `Oleg`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
       ],
       offersReviews: [
         {
@@ -248,20 +248,20 @@ it(`Offer page renders correctly`, () => {
               id: 12,
               isPro: false,
               name: `Alex`,
-              avatarUrl: `/img/avatar-alex.jpg`
+              avatarUrl: `/img/avatar-alex.jpg`,
             },
             rating: 4,
             comment: `Greate place`,
-            date: `2019-10-31T08:29:32.047Z`
-          }]
-        }
-      ]
+            date: `2019-10-31T08:29:32.047Z`,
+          }],
+        },
+      ],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(

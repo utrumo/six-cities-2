@@ -26,16 +26,16 @@ ReviewsList.propTypes = {
       id: PropTypes.number.isRequired,
       isPro: PropTypes.bool.isRequired,
       name: PropTypes.string.isRequired,
-      avatarUrl: PropTypes.string.isRequired
+      avatarUrl: PropTypes.string.isRequired,
     }).isRequired,
     rating: PropTypes.number.isRequired,
     comment: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired
-  })).isRequired
+    date: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  reviews: getCommentsForOfferPage(state)
+  reviews: getCommentsForOfferPage(state),
 });
 
 export {ReviewsList};

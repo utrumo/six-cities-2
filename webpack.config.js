@@ -5,14 +5,14 @@ module.exports = {
   entry: `./src/index.jsx`,
   output: {
     filename: `bundle.js`,
-    path: join(__dirname, `public`)
+    path: join(__dirname, `public`),
   },
   devServer: {
     contentBase: join(__dirname, `public`),
     compress: false,
     open: true,
     port: 1337,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -20,23 +20,23 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: `babel-loader`
-        }
+          loader: `babel-loader`,
+        },
       },
       {
         test: /\.css$/,
         use: [
           `style-loader`,
-          `css-loader`
-        ]
+          `css-loader`,
+        ],
       },
       {
         test: /\.png$/,
         use: [
-          `file-loader`
-        ]
-      }
-    ]
+          `file-loader`,
+        ],
+      },
+    ],
   },
-  devtool: `source-map`
+  devtool: `source-map`,
 };

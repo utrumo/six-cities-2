@@ -5,19 +5,19 @@ leaflet.icon = () => {};
 leaflet.map = () => {
   return {
     setView: () => {},
-    remove: () => {}
+    remove: () => {},
   };
 };
 
 leaflet.marker = () => {
   return {
-    addTo: () => {}
+    addTo: () => {},
   };
 };
 
 leaflet.tileLayer = () => {
   return {
-    addTo: () => {}
+    addTo: () => {},
   };
 };
 

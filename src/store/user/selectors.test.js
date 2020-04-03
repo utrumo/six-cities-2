@@ -1,7 +1,7 @@
 import {
   getAuthorizationStatus,
   getEmailValidationError,
-  getEmail
+  getEmail,
 } from './selectors.js';
 import NameSpace from '../name-spaces.js';
 
@@ -12,8 +12,8 @@ it(`getAuthorizationStatus should return correct status`, () => {
     [NAME_SPACE]: {
       isAuthorized: true,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   };
   expect(getAuthorizationStatus(store)).toEqual(true);
 });
@@ -24,8 +24,8 @@ it(`getEmailValidationError shold return correct value`, () => {
     [NAME_SPACE]: {
       isAuthorized: false,
       emailValidationError: error,
-      profile: {}
-    }
+      profile: {},
+    },
   };
   expect(getEmailValidationError(store)).toEqual(error);
 });
@@ -41,9 +41,9 @@ it(`getEmail shold return correct user email`, () => {
         email: userEmail,
         name: `test`,
         avatarUrl: `/static/avatar/3.jpg`,
-        isPro: false
-      }
-    }
+        isPro: false,
+      },
+    },
   };
   expect(getEmail(store)).toEqual(userEmail);
 });

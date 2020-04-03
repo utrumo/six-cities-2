@@ -52,11 +52,11 @@ ReviewsItem.propTypes = {
     id: PropTypes.number.isRequired,
     isPro: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
-    avatarUrl: PropTypes.string.isRequired
+    avatarUrl: PropTypes.string.isRequired,
   }).isRequired,
   rating: PropTypes.number.isRequired,
   comment: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired
+  date: PropTypes.string.isRequired,
 };
 
 export default ReviewsItem;

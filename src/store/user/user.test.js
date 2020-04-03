@@ -11,7 +11,7 @@ describe(`ActionCreator`, () => {
       "email": `test@test.ru`,
       "name": `test`,
       "avatar_url": `/static/avatar/3.jpg`,
-      "is_pro": false
+      "is_pro": false,
     };
     const expectedResult = {
       type: ActionType.ADD_USER_PROFILE,
@@ -20,8 +20,8 @@ describe(`ActionCreator`, () => {
         email: `test@test.ru`,
         name: `test`,
         avatarUrl: `/static/avatar/3.jpg`,
-        isPro: false
-      }
+        isPro: false,
+      },
     };
 
     const result = ActionCreator.addUserProfile(profile);
@@ -32,7 +32,7 @@ describe(`ActionCreator`, () => {
   it(`changeAuthorizationStatus: Should return correct action with given payload`, () => {
     expect(ActionCreator.changeAuthorizationStatus(true)).toEqual({
       type: ActionType.CHANGE_AUTHORIZATION_FLAG,
-      payload: true
+      payload: true,
     });
   });
 
@@ -40,7 +40,7 @@ describe(`ActionCreator`, () => {
     const message = `Error`;
     expect(ActionCreator.changeEmailValidationMessage(message)).toEqual({
       type: ActionType.CHANGE_EMAIL_VALIDATION_ERROR,
-      payload: message
+      payload: message,
     });
   });
 });
@@ -57,7 +57,7 @@ describe(`Operation`, () => {
       "email": `test@test.ru`,
       "name": `test`,
       "avatar_url": `/static/avatar/3.jpg`,
-      "is_pro": false
+      "is_pro": false,
     };
     const expectedProfileAction = {
       type: ActionType.ADD_USER_PROFILE,
@@ -66,12 +66,12 @@ describe(`Operation`, () => {
         email: `test@test.ru`,
         name: `test`,
         avatarUrl: `/static/avatar/3.jpg`,
-        isPro: false
-      }
+        isPro: false,
+      },
     };
     const expectedChangeAuthorizationAction = {
       type: ActionType.CHANGE_AUTHORIZATION_FLAG,
-      payload: true
+      payload: true,
     };
 
     apiMock
@@ -91,15 +91,15 @@ describe(`Operation`, () => {
     const api = createAPI(jest.fn());
     const apiMock = new MockAdapter(api);
     const response = {
-      "error": `child "email" fails because ["email" must be a valid email]`
+      "error": `child "email" fails because ["email" must be a valid email]`,
     };
     const expectedProfileAction = {
       type: ActionType.CHANGE_EMAIL_VALIDATION_ERROR,
-      payload: `Must be a valid email`
+      payload: `Must be a valid email`,
     };
     const expectedChangeAuthorizationAction = {
       type: ActionType.CHANGE_AUTHORIZATION_FLAG,
-      payload: false
+      payload: false,
     };
 
     apiMock
@@ -119,7 +119,7 @@ describe(`Reducer`, () => {
     initState = {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
+      profile: {},
     };
   });
 
@@ -137,8 +137,8 @@ describe(`Reducer`, () => {
         email: `test@test.ru`,
         name: `test`,
         avatarUrl: `/static/avatar/3.jpg`,
-        isPro: false
-      }
+        isPro: false,
+      },
     };
     const nextState = {
       isAuthorized: false,
@@ -148,8 +148,8 @@ describe(`Reducer`, () => {
         email: `test@test.ru`,
         name: `test`,
         avatarUrl: `/static/avatar/3.jpg`,
-        isPro: false
-      }
+        isPro: false,
+      },
     };
 
     expect(reducer(initState, action)).toEqual(nextState);
@@ -158,12 +158,12 @@ describe(`Reducer`, () => {
   it(`Reducer should change isAuthorized flag by given value`, () => {
     const action = {
       type: ActionType.CHANGE_AUTHORIZATION_FLAG,
-      payload: true
+      payload: true,
     };
     const nextState = {
       isAuthorized: true,
       emailValidationError: ``,
-      profile: {}
+      profile: {},
     };
 
     expect(reducer(initState, action)).toEqual(nextState);
@@ -172,12 +172,12 @@ describe(`Reducer`, () => {
   it(`Reducer should change emailValidationError flag by given value`, () => {
     const action = {
       type: ActionType.CHANGE_EMAIL_VALIDATION_ERROR,
-      payload: `Error`
+      payload: `Error`,
     };
     const nextState = {
       isAuthorized: false,
       emailValidationError: `Error`,
-      profile: {}
+      profile: {},
     };
 
     expect(reducer(initState, action)).toEqual(nextState);

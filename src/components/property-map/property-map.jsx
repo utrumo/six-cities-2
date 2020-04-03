@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {
   getCurrentOfferId,
   getCurrentOfferCityLocation,
-  getPropertyMapMarkers
+  getPropertyMapMarkers,
 } from '../../store/data/selectors.js';
 
 const MAP_CONTAINER_STYLE = {paddingLeft: `initial`, paddingRight: `initial`};
@@ -24,19 +24,19 @@ PropertyMap.propTypes = {
   view: PropTypes.exact({
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,
-    zoom: PropTypes.number.isRequired
+    zoom: PropTypes.number.isRequired,
   }),
   markers: PropTypes.arrayOf(PropTypes.exact({
     id: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired
-  }))
+    longitude: PropTypes.number.isRequired,
+  })),
 };
 
 const mapStateToProps = (state) => ({
   activeCardId: getCurrentOfferId(state),
   view: getCurrentOfferCityLocation(state),
-  markers: getPropertyMapMarkers(state)
+  markers: getPropertyMapMarkers(state),
 });
 
 export {PropertyMap};

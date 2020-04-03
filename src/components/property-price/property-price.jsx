@@ -12,11 +12,11 @@ const PropertyPrice = ({price}) => (
 );
 
 PropertyPrice.propTypes = {
-  price: PropTypes.number.isRequired
+  price: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  price: getCurrentOfferPrice(state)
+  price: getCurrentOfferPrice(state),
 });
 
 export {PropertyPrice};

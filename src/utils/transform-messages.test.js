@@ -2,7 +2,7 @@ import {transformEmailError} from './transform-messages';
 
 const TestMessages = {
   EMPTY_EMAIL: `child "email" fails because ["email" is not allowed to be empty]`,
-  WRONG_EMAIL: `child "email" fails because ["email" must be a valid email]`
+  WRONG_EMAIL: `child "email" fails because ["email" must be a valid email]`,
 };
 
 it(`Should correct transform EMPTY_EMAIL message`, () => {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {
   getCurrentOfferBedrooms,
-  getCurrentOfferMaxAdults
+  getCurrentOfferMaxAdults,
 } from '../../store/data/selectors.js';
 
 const PropertyFeatures = ({bedrooms, maxAdults}) => (
@@ -18,12 +18,12 @@ const PropertyFeatures = ({bedrooms, maxAdults}) => (
 
 PropertyFeatures.propTypes = {
   bedrooms: PropTypes.number.isRequired,
-  maxAdults: PropTypes.number.isRequired
+  maxAdults: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   bedrooms: getCurrentOfferBedrooms(state),
-  maxAdults: getCurrentOfferMaxAdults(state)
+  maxAdults: getCurrentOfferMaxAdults(state),
 });
 
 export {PropertyFeatures};

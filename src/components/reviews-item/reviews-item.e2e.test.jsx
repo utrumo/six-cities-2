@@ -12,11 +12,11 @@ const mock = {
     id: 17,
     isPro: false,
     name: `Max`,
-    avatarUrl: `/img/avatar-max.jpg`
+    avatarUrl: `/img/avatar-max.jpg`,
   },
   rating: 4,
   comment: `What an amazing view!`,
-  date: `2019-11-18T20:49:50.988Z`
+  date: `2019-11-18T20:49:50.988Z`,
 };
 
 describe(`ReviewsItem`, () => {
@@ -26,8 +26,8 @@ describe(`ReviewsItem`, () => {
         id: 17,
         isPro: false,
         name: `Alex`,
-        avatarUrl: `/img/avatar.jpg`
-      }
+        avatarUrl: `/img/avatar.jpg`,
+      },
     });
     const imgEl = shallow(<ReviewsItem {...props}/>).find(`img`);
     expect(imgEl.props().src).toEqual(props.user.avatarUrl);
@@ -39,8 +39,8 @@ describe(`ReviewsItem`, () => {
         id: 17,
         isPro: false,
         name: `Max`,
-        avatarUrl: `/img/avatar.jpg`
-      }
+        avatarUrl: `/img/avatar.jpg`,
+      },
     });
     const elWithName = shallow(<ReviewsItem {...props}/>).find(`.reviews__user-name`);
     expect(elWithName.text()).toEqual(props.user.name);
@@ -48,7 +48,7 @@ describe(`ReviewsItem`, () => {
 
   it(`Must render correct user rating`, () => {
     const props = Object.assign({}, mock, {
-      rating: 3 // from 5 star => 60%
+      rating: 3, // from 5 star => 60%
     });
     const indicator = shallow(<ReviewsItem {...props}/>)
       .find(`.reviews__stars span`).at(0);
@@ -58,7 +58,7 @@ describe(`ReviewsItem`, () => {
 
   it(`Must render correct user comment`, () => {
     const props = Object.assign({}, mock, {
-      comment: `testMessage`
+      comment: `testMessage`,
     });
     const elWithName = shallow(<ReviewsItem {...props}/>).find(`.reviews__text`);
 
@@ -67,7 +67,7 @@ describe(`ReviewsItem`, () => {
 
   it(`Must render correct time tag text`, () => {
     const props = Object.assign({}, mock, {
-      date: `2019-11-20T13:49:50.988Z`
+      date: `2019-11-20T13:49:50.988Z`,
     });
     const timeEl = shallow(<ReviewsItem {...props}/>).find(`time`);
 
@@ -76,7 +76,7 @@ describe(`ReviewsItem`, () => {
 
   it(`Must render correct time tag attribute`, () => {
     const props = Object.assign({}, mock, {
-      date: `2019-12-19T13:49:50.988Z`
+      date: `2019-12-19T13:49:50.988Z`,
     });
     const timeEl = shallow(<ReviewsItem {...props}/>).find(`time`);
 

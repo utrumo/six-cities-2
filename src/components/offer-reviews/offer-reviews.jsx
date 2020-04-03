@@ -127,11 +127,11 @@ const OfferReviews = (props) => {
 };
 
 OfferReviews.propTypes = {
-  commentsCount: PropTypes.number.isRequired
+  commentsCount: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  commentsCount: getCommentsCount(state)
+  commentsCount: getCommentsCount(state),
 });
 
 export {OfferReviews};

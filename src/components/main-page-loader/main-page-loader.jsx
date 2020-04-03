@@ -10,7 +10,7 @@ import {Operation} from '../../store/data/data.js';
 
 const noOffers = {
   status: `No places to stay available`,
-  description: `We could not find any property available at the moment`
+  description: `We could not find any property available at the moment`,
 };
 
 const MainPageLoader = ({isOffersAvailable, currentLocation, onOffersAvailable}) => {
@@ -29,16 +29,16 @@ const MainPageLoader = ({isOffersAvailable, currentLocation, onOffersAvailable})
 MainPageLoader.propTypes = {
   isOffersAvailable: PropTypes.bool.isRequired,
   onOffersAvailable: PropTypes.func.isRequired,
-  currentLocation: PropTypes.string.isRequired
+  currentLocation: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   isOffersAvailable: checkOffersAvailability(state),
-  currentLocation: getCurrentLocation(state)
+  currentLocation: getCurrentLocation(state),
 });
 
 const mapDispatchToProps = {
-  onOffersAvailable: Operation.checkCurrentLocationOnMainPage
+  onOffersAvailable: Operation.checkCurrentLocationOnMainPage,
 };
 
 export {MainPageLoader};

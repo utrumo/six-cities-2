@@ -5,13 +5,13 @@ const MAX_NEAREST_OFFERS = 3;
 const getDistList = (offer, offers) => {
   const start = {
     latitude: offer.location.latitude,
-    longitude: offer.location.longitude
+    longitude: offer.location.longitude,
   };
   const clearOffers = offers.filter((it) => it.id !== offer.id);
 
   return clearOffers.map(({id, location: {latitude, longitude}}) => ({
     id,
-    dist: haversine(start, {latitude, longitude})
+    dist: haversine(start, {latitude, longitude}),
   }));
 };
 

@@ -15,7 +15,7 @@ class SigInPage extends PureComponent {
     this.state = {
       email: ``,
       password: ``,
-      isSeended: false
+      isSeended: false,
     };
 
     this._email = createRef();
@@ -129,16 +129,16 @@ class SigInPage extends PureComponent {
 SigInPage.propTypes = {
   emailValidationError: PropTypes.string.isRequired,
   onEmailChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  emailValidationError: getEmailValidationError(state)
+  emailValidationError: getEmailValidationError(state),
 });
 
 const mapDispatchToProps = {
   onSubmit: Operation.authorize,
-  onEmailChange: ActionCreator.changeEmailValidationMessage
+  onEmailChange: ActionCreator.changeEmailValidationMessage,
 };
 
 export {SigInPage};

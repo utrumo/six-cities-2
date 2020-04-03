@@ -17,11 +17,11 @@ const PropertyGallery = ({images}) => (
 );
 
 PropertyGallery.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  images: getCurrentOfferImagesForGallery(state)
+  images: getCurrentOfferImagesForGallery(state),
 });
 
 export {PropertyGallery};

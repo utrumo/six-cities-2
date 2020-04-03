@@ -23,8 +23,8 @@ it(`Should renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-01.jpg`,
           images: [
@@ -34,14 +34,14 @@ it(`Should renders correctly`, () => {
             `/img/studio-01.jpg`,
             `/img/apartment-03.jpg`,
             `/img/apartment-01.jpg`,
-            `/img/apartment-01.jpg`
+            `/img/apartment-01.jpg`,
           ],
           title: `Beautiful & luxurious apartment at great location`,
           description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
           location: {
             latitude: 52.364540000000005,
             longitude: 4.9019759999999994,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: true,
           isFavorite: false,
@@ -59,23 +59,23 @@ it(`Should renders correctly`, () => {
             `Air conditioning`,
             `Baby seat`,
             `Towels`,
-            `Coffee machine`
+            `Coffee machine`,
           ],
           host: {
             id: 1,
             name: `Angelina`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-angelina.jpg`,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(<Provider store={store}>

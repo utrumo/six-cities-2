@@ -15,9 +15,9 @@ const mock = {
       isFavorite: true,
       rating: 4.4,
       price: 110,
-      type: `apartment`
-    }
-  ]
+      type: `apartment`,
+    },
+  ],
 };
 
 describe(`Optional classes`, () => {

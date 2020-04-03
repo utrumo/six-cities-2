@@ -29,16 +29,16 @@ OfferPageLoader.propTypes = {
   id: PropTypes.string.isRequired,
   isOfferAvailable: PropTypes.bool.isRequired,
   onOfferRequest: PropTypes.func.isRequired,
-  onOfferAvailable: PropTypes.func.isRequired
+  onOfferAvailable: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  isOfferAvailable: checkOfferAvailability(state)
+  isOfferAvailable: checkOfferAvailability(state),
 });
 
 const mapDispatchToProps = {
   onOfferRequest: Operation.checkCurrentOfferId,
-  onOfferAvailable: Operation.checkCurrentLocationOnOfferPage
+  onOfferAvailable: Operation.checkCurrentLocationOnOfferPage,
 };
 
 export {OfferPageLoader};

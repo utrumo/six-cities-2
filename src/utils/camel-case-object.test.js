@@ -5,13 +5,13 @@ const testObject = {
     'nested_property': [
       `first`,
       `second`, {
-        'third': `nested`
-      }
-    ]
+        'third': `nested`,
+      },
+    ],
   },
   'third_property': [
-    `first`
-  ]
+    `first`,
+  ],
 };
 
 const resultObject = {
@@ -19,13 +19,13 @@ const resultObject = {
     'nestedProperty': [
       `first`,
       `second`, {
-        'third': `nested`
-      }
-    ]
+        'third': `nested`,
+      },
+    ],
   },
   'thirdProperty': [
-    `first`
-  ]
+    `first`,
+  ],
 };
 
 it(`Must create new object with camelCase properties`, () => {

@@ -10,7 +10,7 @@ it(`PropertyGallery renders correctly`, () => {
     `/img/studio-01.jpg`,
     `/img/apartment-03.jpg`,
     `/img/apartment-01.jpg`,
-    `/img/apartment-05.jpg`
+    `/img/apartment-05.jpg`,
   ];
   const tree = renderer.create(<PropertyGallery images={images} />) .toJSON();
   expect(tree).toMatchSnapshot();

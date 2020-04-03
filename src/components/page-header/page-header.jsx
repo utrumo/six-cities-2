@@ -51,17 +51,17 @@ const PageHeader = ({isAuthorized, email}) => (
 
 PageHeader.defaultProps = {
   isAuthorized: false,
-  email: ``
+  email: ``,
 };
 
 PageHeader.propTypes = {
   isAuthorized: PropTypes.bool.isRequired,
-  email: PropTypes.string.isRequired
+  email: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   isAuthorized: getAuthorizationStatus(state),
-  email: getEmail(state)
+  email: getEmail(state),
 });
 
 export {PageHeader};

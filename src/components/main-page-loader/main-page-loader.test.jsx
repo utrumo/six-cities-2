@@ -17,13 +17,13 @@ it(`Main page without offers renders correctly`, () => {
       currentOfferId: DEFAULT_NUMBER_VALUE,
       sortOrder: SortingVariants.POPULAR,
       offers: [],
-      offersReviews: []
+      offersReviews: [],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(
@@ -51,8 +51,8 @@ it(`Main page with offers renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-02.jpg`,
           images: [
@@ -61,14 +61,14 @@ it(`Main page with offers renders correctly`, () => {
             `/img/apartment-01.jpg`,
             `/img/apartment-03.jpg`,
             `/img/room.jpg`,
-            `/img/apartment-01.jpg`
+            `/img/apartment-01.jpg`,
           ],
           title: `Canal View Prinsengracht`,
           description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
           location: {
             latitude: 52.36354,
             longitude: 4.889976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: false,
           isFavorite: false,
@@ -80,14 +80,14 @@ it(`Main page with offers renders correctly`, () => {
           goods: [
             `Laptop friendly workspace`,
             `Washer`,
-            `Breakfast`
+            `Breakfast`,
           ],
           host: {
             id: 3,
             name: `Max`,
             isPro: true,
-            avatarUrl: `img/avatar-angelina.jpg`
-          }
+            avatarUrl: `img/avatar-angelina.jpg`,
+          },
 
         },
         {
@@ -97,8 +97,8 @@ it(`Main page with offers renders correctly`, () => {
             location: {
               latitude: 52.37454,
               longitude: 4.897976,
-              zoom: 13
-            }
+              zoom: 13,
+            },
           },
           previewImage: `/img/apartment-03.jpg`,
           images: [
@@ -107,14 +107,14 @@ it(`Main page with offers renders correctly`, () => {
             `/img/apartment-01.jpg`,
             `/img/apartment-02.jpg`,
             `/img/studio-01.jpg`,
-            `/img/apartment-03.jpg`
+            `/img/apartment-03.jpg`,
           ],
           title: `Nice, cozy, warm big bed apartment`,
           description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
           location: {
             latitude: 52.37454,
             longitude: 4.881976,
-            zoom: 16
+            zoom: 16,
           },
           isPremium: true,
           isFavorite: false,
@@ -132,23 +132,23 @@ it(`Main page with offers renders correctly`, () => {
             `Breakfast`,
             `Dishwasher`,
             `Coffee machine`,
-            `Fridge`
+            `Fridge`,
           ],
           host: {
             id: 4,
             name: `Max`,
             isPro: false,
-            avatarUrl: `img/avatar-max.jpg`
-          }
-        }
+            avatarUrl: `img/avatar-max.jpg`,
+          },
+        },
       ],
-      offersReviews: []
+      offersReviews: [],
     },
     [NameSpace.USER]: {
       isAuthorized: false,
       emailValidationError: ``,
-      profile: {}
-    }
+      profile: {},
+    },
   });
   const tree = renderer
     .create(

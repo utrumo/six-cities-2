@@ -6,5 +6,5 @@ import {reducer as user} from './user/user.js';
 
 export default combineReducers({
   [NameSpace.DATA]: data,
-  [NameSpace.USER]: user
+  [NameSpace.USER]: user,
 });

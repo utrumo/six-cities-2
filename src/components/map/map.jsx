@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {ImagePath} from '../../shared/const';
 
 const MAP_OPTIONS = {
-  zoomControl: false
+  zoomControl: false,
 };
 
 const TileOptions = {
@@ -14,24 +14,24 @@ const TileOptions = {
     attribution: `&copy;
         <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
         contributors &copy;
-        <a href="https://carto.com/attributions">CARTO</a>`
-  }
+        <a href="https://carto.com/attributions">CARTO</a>`,
+  },
 };
 
 const Container = {
   ID: `map`,
-  STYLE: {height: `100%`}
+  STYLE: {height: `100%`},
 };
 
 const Icon = {
   NORMAL: leaflet.icon({
     iconUrl: ImagePath.MAP_PIN,
-    iconSize: [30, 30]
+    iconSize: [30, 30],
   }),
   ACTIVE: leaflet.icon({
     iconUrl: ImagePath.MAP_ACTIVE_PIN,
-    iconSize: [30, 30]
-  })
+    iconSize: [30, 30],
+  }),
 };
 
 class Map extends PureComponent {
@@ -90,7 +90,7 @@ class Map extends PureComponent {
 
       this._addedMarkers.push({
         id,
-        instance: this._addMarker(latitude, longitude, isActive)
+        instance: this._addMarker(latitude, longitude, isActive),
       });
     });
   }
@@ -166,14 +166,14 @@ Map.propTypes = {
   view: PropTypes.exact({
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,
-    zoom: PropTypes.number.isRequired
+    zoom: PropTypes.number.isRequired,
   }).isRequired,
   markers: PropTypes.arrayOf(PropTypes.exact({
     id: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired
+    longitude: PropTypes.number.isRequired,
   })).isRequired,
-  activeCardId: PropTypes.number
+  activeCardId: PropTypes.number,
 };
 
 export default Map;

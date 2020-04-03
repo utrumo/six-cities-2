@@ -42,7 +42,7 @@ class Location extends PureComponent {
 Location.propTypes = {
   location: PropTypes.string.isRequired,
   current: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Location;

@@ -15,7 +15,7 @@ const PlacesSorting = ({value, onChange}) => (
         POPULAR,
         PRICE_LOW_TO_HIGHT,
         PRICE_HIGHT_TO_LOW,
-        TOP_RATED
+        TOP_RATED,
       ]}
       onChange={onChange}
       value={value}
@@ -25,15 +25,15 @@ const PlacesSorting = ({value, onChange}) => (
 
 PlacesSorting.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  value: getSortOrder(state)
+  value: getSortOrder(state),
 });
 
 const mapDispatchToProps = {
-  onChange: ActionCreator.changeSortOrder
+  onChange: ActionCreator.changeSortOrder,
 };
 
 export {PlacesSorting};
