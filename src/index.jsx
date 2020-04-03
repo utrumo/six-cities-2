@@ -1,6 +1,6 @@
 import {createBrowserHistory} from 'history';
 import createAPI from './api.js';
-import {UrlPath} from './shared/const.js';
+// import {UrlPath} from './shared/const.js';
 
 import {compose} from 'recompose';
 import {createStore, applyMiddleware} from 'redux';
@@ -8,8 +8,8 @@ import reducer from './store/reducer.js';
 import thunk from 'redux-thunk';
 
 import {Operation as DataOperation} from './store/data/data.js';
-import {Operation as UserOperation} from './store/user/user.js';
-// import ActionCreator from './store/action-creator.js';
+// import {ActionCreator as DataActionCreator} from './store/data/data.js';
+import {ActionCreator as UserActionCreator, Operation as UserOperation} from './store/user/user.js';
 // import mockOffers from './mocks/offers';
 // import mockOffersReviews from './mocks/reviews.js';
 
@@ -19,12 +19,15 @@ import {Provider} from 'react-redux';
 import {Router} from 'react-router-dom';
 import App from './components/app/app.jsx';
 
+const UNAUTHORIZED = false;
+
 const init = () => {
   const history = createBrowserHistory();
   const api = createAPI(() => {
-    if (history.location.pathname === UrlPath.FAVORITES) {
-      history.push(UrlPath.LOGIN);
-    }
+    store.dispatch(UserActionCreator.changeAuthorizationStatus(UNAUTHORIZED));
+    // if (history.location.pathname === UrlPath.FAVORITES) {
+    //   history.push(UrlPath.LOGIN);
+    // }
   });
   const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
@@ -36,8 +39,8 @@ const init = () => {
 
   store.dispatch(UserOperation.loadProfile());
   store.dispatch(DataOperation.loadOffers());
-  // store.dispatch(ActionCreator.addOffers(mockOffers));
-  // store.dispatch(ActionCreator.addComments(mockOffersReviews));
+  // store.dispatch(DataActionCreator.addOffers(mockOffers));
+  // store.dispatch(DataActionCreator.addComments(mockOffersReviews));
 
   ReactDom.render((
     <Provider store={store}>
