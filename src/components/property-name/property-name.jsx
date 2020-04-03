@@ -70,7 +70,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onButtonClick: Operation.toggleFavoritStatus
+  onButtonClick: Operation.toggleFavoriteStatus
 };
 
 export {PropertyName};

@@ -3,7 +3,7 @@ import NameSpace from '../name-spaces.js';
 import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
 import MockAdapter from 'axios-mock-adapter';
 import createAPI from '../../api.js';
-import {ResponseCode, UrlPath} from '../../shared/const.js';
+import {ResponseCode, UrlPath, ApiPath} from '../../shared/const.js';
 
 const NAME_SPACE = NameSpace.DATA;
 
@@ -128,6 +128,79 @@ describe(`ActionCreator`, () => {
     expect(action).toEqual(expectedAction);
   });
 
+  it(`replaceOffer: Should return correct action for replace offer`, () => {
+    const offer = {
+      "id": 6,
+      "city": {
+        "name": `Brussels`,
+        "location": {
+          "latitude": 50.846557,
+          "longitude": 4.351697,
+          "zoom": 13,
+        },
+      },
+      "preview_image": `img/apartment-01.jpg`,
+      "images": [`img/apartment-01.jpg`],
+      "title": `House in countryside`,
+      "is_favorite": false,
+      "is_premium": false,
+      "rating": 2.8,
+      "type": `room`,
+      "bedrooms": 1,
+      "maxAdults": 1,
+      "price": 143,
+      "goods": [`Laptop friendly workspace`],
+      "host": {
+        'id': 25,
+        'name': `Angelina`,
+        "isPro": true,
+        "avatar_url": `img/avatar-angelina.jpg`,
+      },
+      "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
+      'location': {
+        "latitude": 50.828556999999996,
+        "longitude": 4.362697,
+        'zoom': 16,
+      },
+    };
+    const camelCasedOffer = {
+      id: 6,
+      city: {
+        name: `Brussels`,
+        location: {
+          latitude: 50.846557,
+          longitude: 4.351697,
+          zoom: 13,
+        },
+      },
+      previewImage: `img/apartment-01.jpg`,
+      images: [`img/apartment-01.jpg`],
+      title: `House in countryside`,
+      isFavorite: false,
+      isPremium: false,
+      rating: 2.8,
+      type: `room`,
+      bedrooms: 1,
+      maxAdults: 1,
+      price: 143,
+      goods: [`Laptop friendly workspace`],
+      host: {
+        id: 25,
+        name: `Angelina`,
+        isPro: true,
+        avatarUrl: `img/avatar-angelina.jpg`,
+      },
+      description: `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
+      location: {
+        latitude: 50.828556999999996,
+        longitude: 4.362697,
+        zoom: 16,
+      },
+    };
+    expect(ActionCreator.replaceOffer(offer))
+      .toEqual({type: ActionType.REPLACE_OFFER, payload: camelCasedOffer});
+  });
+
   it(`changeLocation: Should return correct action for change location`, () => {
     const city = `New York`;
     const action = ActionCreator.changeLocation(city);
@@ -153,7 +226,6 @@ describe(`Operation`, () => {
         currentOfferId: 1,
         sortOrder: SortingVariants.POPULAR,
         offers: [],
-        favorites: [],
         offersReviews: []
       }});
       const requestedOfferId = 2;
@@ -174,7 +246,6 @@ describe(`Operation`, () => {
         currentOfferId: 1,
         sortOrder: SortingVariants.POPULAR,
         offers: [],
-        favorites: [],
         offersReviews: []
       }});
       const requestedOfferId = 1;
@@ -271,6 +342,132 @@ describe(`Operation`, () => {
       });
   });
 
+  it(`toggleFavoriteStatus: Should dispatch correct action`, () => {
+    const offer = {
+      id: 6,
+      city: {
+        name: `Brussels`,
+        location: {
+          latitude: 50.846557,
+          longitude: 4.351697,
+          zoom: 13,
+        },
+      },
+      previewImage: `img/apartment-01.jpg`,
+      images: [`img/apartment-01.jpg`],
+      title: `House in countryside`,
+      isFavorite: false,
+      isPremium: false,
+      rating: 2.8,
+      type: `room`,
+      bedrooms: 1,
+      maxAdults: 1,
+      price: 143,
+      goods: [`Laptop friendly workspace`],
+      host: {
+        id: 25,
+        name: `Angelina`,
+        isPro: true,
+        avatarUrl: `img/avatar-angelina.jpg`,
+      },
+      description: `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
+      location: {
+        latitude: 50.828556999999996,
+        longitude: 4.362697,
+        zoom: 16,
+      },
+    };
+    const oppositFavoriteStatus = Number(!offer.isFavorite);
+    const response = {
+      "id": 6,
+      "city": {
+        "name": `Brussels`,
+        "location": {
+          "latitude": 50.846557,
+          "longitude": 4.351697,
+          "zoom": 13,
+        },
+      },
+      "preview_image": `img/apartment-01.jpg`,
+      "images": [`img/apartment-01.jpg`],
+      "title": `House in countryside`,
+      "is_favorite": true,
+      "is_premium": false,
+      "rating": 2.8,
+      "type": `room`,
+      "bedrooms": 1,
+      "max_adults": 1,
+      "price": 143,
+      "goods": [`Laptop friendly workspace`],
+      "host": {
+        "id": 25,
+        "name": `Angelina`,
+        "is_pro": true,
+        "avatarUrl": `img/avatar-angelina.jpg`,
+      },
+      "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
+      "location": {
+        "latitude": 50.828556999999996,
+        "longitude": 4.362697,
+        "zoom": 16,
+      },
+    };
+    const camelcasedResponse = {
+      id: 6,
+      city: {
+        name: `Brussels`,
+        location: {
+          latitude: 50.846557,
+          longitude: 4.351697,
+          zoom: 13,
+        },
+      },
+      previewImage: `img/apartment-01.jpg`,
+      images: [`img/apartment-01.jpg`],
+      title: `House in countryside`,
+      isFavorite: true,
+      isPremium: false,
+      rating: 2.8,
+      type: `room`,
+      bedrooms: 1,
+      maxAdults: 1,
+      price: 143,
+      goods: [`Laptop friendly workspace`],
+      host: {
+        id: 25,
+        name: `Angelina`,
+        isPro: true,
+        avatarUrl: `img/avatar-angelina.jpg`,
+      },
+      description: `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
+      location: {
+        latitude: 50.828556999999996,
+        longitude: 4.362697,
+        zoom: 16,
+      },
+    };
+    const expectedAction = {
+      type: ActionType.REPLACE_OFFER,
+      payload: camelcasedResponse,
+    };
+    const onUnauthorized = jest.fn();
+    const dispatch = jest.fn();
+    const getState = jest.fn();
+
+    const api = createAPI(onUnauthorized);
+    const apiMock = new MockAdapter(api);
+    const url = `${ApiPath.FAVORITE}/${offer.id}/${oppositFavoriteStatus}`;
+    apiMock
+      .onPost(url)
+      .reply(ResponseCode.OK, response);
+
+    const favoriteStatusToggler = Operation.toggleFavoriteStatus(offer.id, offer.isFavorite);
+    return favoriteStatusToggler(dispatch, getState, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenNthCalledWith(1, expectedAction);
+      });
+  });
+
   describe(`checkCurrentLocationOnOfferPage`, () => {
     it(`Should dispatch correct change location action`, () => {
       const dispatch = jest.fn();
@@ -312,7 +509,6 @@ describe(`Operation`, () => {
             zoom: 16
           }
         }],
-        favorites: [],
         offersReviews: []
       }});
       const expectedResult = {
@@ -364,7 +560,6 @@ describe(`Operation`, () => {
             zoom: 16
           }
         }],
-        favorites: [],
         offersReviews: []
       }});
 
@@ -414,7 +609,6 @@ describe(`Operation`, () => {
             zoom: 16
           }
         }],
-        favorites: [],
         offersReviews: []
       }});
       const expectedResult = {
@@ -466,7 +660,6 @@ describe(`Operation`, () => {
             zoom: 16
           }
         }],
-        favorites: [],
         offersReviews: []
       }});
 
@@ -481,7 +674,6 @@ describe(`reducer`, () => {
   beforeEach(() => {
     initState = {
       offers: [],
-      favorites: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -535,7 +727,6 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers,
-      favorites: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -545,7 +736,7 @@ describe(`reducer`, () => {
     expect(reducer(initState, action)).toEqual(nextState);
   });
 
-  it(`Reducer should replace offersReviews by given in payload`, () => {
+  it(`Reducer should replace comments by given in payload`, () => {
     const offersReviews = [{
       id: 2,
       comments: [{
@@ -567,7 +758,6 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers: [],
-      favorites: [],
       offersReviews,
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -585,7 +775,6 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers: [],
-      favorites: [],
       offersReviews: [],
       currentLocation: location,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -603,7 +792,6 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers: [],
-      favorites: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: offerId,
@@ -620,7 +808,6 @@ describe(`reducer`, () => {
     };
     const nextState = {
       offers: [],
-      favorites: [],
       offersReviews: [],
       currentLocation: ``,
       currentOfferId: DEFAULT_NUMBER_VALUE,
@@ -628,6 +815,131 @@ describe(`reducer`, () => {
     };
 
     expect(reducer(initState, action)).toEqual(nextState);
+  });
+
+  it(`Reducer should replace offer in offers`, () => {
+    const firstOffer = {
+      id: 1,
+      city: {
+        name: `Brussels`,
+        location: {
+          latitude: 50.846557,
+          longitude: 4.351697,
+          zoom: 13,
+        },
+      },
+      previewImage: `img/apartment-01.jpg`,
+      images: [`img/apartment-01.jpg`],
+      title: `House in countryside`,
+      isFavorite: false,
+      isPremium: false,
+      rating: 2.8,
+      type: `room`,
+      bedrooms: 1,
+      maxAdults: 1,
+      price: 143,
+      goods: [`Laptop friendly workspace`],
+      host: {
+        id: 25,
+        name: `Angelina`,
+        isPro: true,
+        avatarUrl: `img/avatar-angelina.jpg`,
+      },
+      description: `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
+      location: {
+        latitude: 50.828556999999996,
+        longitude: 4.362697,
+        zoom: 16,
+      },
+    };
+    const secondOffer = {
+      id: 2,
+      city: {
+        name: `Amsterdam`,
+        location: {
+          latitude: 50.846557,
+          longitude: 4.351697,
+          zoom: 13,
+        },
+      },
+      previewImage: `img/apartment-02.jpg`,
+      images: [`img/apartment-02.jpg`],
+      title: `House in countryside`,
+      isFavorite: true,
+      isPremium: false,
+      rating: 2.8,
+      type: `room`,
+      bedrooms: 1,
+      maxAdults: 1,
+      price: 143,
+      goods: [`Laptop friendly workspace`],
+      host: {
+        id: 25,
+        name: `Angelina`,
+        isPro: true,
+        avatarUrl: `img/avatar-angelina.jpg`,
+      },
+      description: `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
+      location: {
+        latitude: 50.828556999999996,
+        longitude: 4.362697,
+        zoom: 16,
+      },
+    };
+    const newVersionOfSecondOffer = {
+      id: 2,
+      city: {
+        name: `Amsterdam`,
+        location: {
+          latitude: 50.846557,
+          longitude: 4.351697,
+          zoom: 13,
+        },
+      },
+      previewImage: `img/apartment-05.jpg`,
+      images: [`img/apartment-01.jpg`],
+      title: `Big House`,
+      isFavorite: false,
+      isPremium: true,
+      rating: 2.8,
+      type: `room`,
+      bedrooms: 1,
+      maxAdults: 1,
+      price: 143,
+      goods: [`Laptop friendly workspace`],
+      host: {
+        id: 25,
+        name: `Jack`,
+        isPro: true,
+        avatarUrl: `img/avatar-jack.jpg`,
+      },
+      description: `Relax, rejuvenate and unplug in this ultimate rustic getaway.`,
+      location: {
+        latitude: 50.828556999999996,
+        longitude: 4.362697,
+        zoom: 16,
+      },
+    };
+    const state = {
+      offers: [firstOffer, secondOffer],
+      offersReviews: [],
+      currentLocation: ``,
+      currentOfferId: DEFAULT_NUMBER_VALUE,
+      sortOrder: SortingVariants.TOP_RATED,
+    };
+    const resultState = {
+      offers: [firstOffer, newVersionOfSecondOffer],
+      offersReviews: [],
+      currentLocation: ``,
+      currentOfferId: DEFAULT_NUMBER_VALUE,
+      sortOrder: SortingVariants.TOP_RATED,
+    };
+    const action = {
+      type: ActionType.REPLACE_OFFER,
+      payload: newVersionOfSecondOffer,
+    };
+
+    expect(reducer(state, action)).toEqual(resultState);
   });
 });
 

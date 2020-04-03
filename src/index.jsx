@@ -36,7 +36,6 @@ const init = () => {
 
   store.dispatch(UserOperation.loadProfile());
   store.dispatch(DataOperation.loadOffers());
-  // store.dispatch(DataOperation.loadFavorites());
   // store.dispatch(ActionCreator.addOffers(mockOffers));
   // store.dispatch(ActionCreator.addComments(mockOffersReviews));
 

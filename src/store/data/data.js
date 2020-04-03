@@ -11,7 +11,6 @@ const ActionType = {
   CHANGE_CURRENT_OFFER_ID: `CHANGE_CURRENT_OFFER_ID`,
   ADD_OFFERS: `ADD_OFFERS`,
   ADD_COMMENTS: `ADD_COMMENTS`,
-  ADD_FAVORITES: `ADD_FAVORITES`,
   REPLACE_OFFER: `REPLACE_OFFER`,
   CHANGE_LOCATION: `CHANGE_LOCATION`,
   CHANGE_SORT_ORDER: `CHANGE_SORT_ORDER`
@@ -36,13 +35,6 @@ const ActionCreator = {
     return {
       type: ActionType.ADD_COMMENTS,
       payload: makeCamelCaseObject(comments)
-    };
-  },
-
-  addFavorites(favorites) {
-    return {
-      type: ActionType.ADD_FAVORITES,
-      payload: makeCamelCaseObject(favorites)
     };
   },
 
@@ -79,36 +71,21 @@ const Operation = {
   },
 
   loadOffers() {
-    return (dispatch, _gateState, api) => (
-      api
+    return (dispatch, _gateState, api) => api
       .get(ApiPath.HOTELS)
       .then((response) => {
         dispatch(ActionCreator.addOffers(response.data));
-      })
-    );
+      });
   },
 
-  loadFavorites() {
-    return (dispatch, _getState, api) => {
-      api
-        .get(ApiPath.FAVORITE)
-        .then((response) => {
-          dispatch(ActionCreator.addFavorites(response.data));
-        })
-        .catch(() => {});
-    };
-  },
-
-  toggleFavoritStatus(offerId, status) {
-    const oppositStatus = Number(!status);
-    return (dispatch, _getState, api) => {
-      api
-      .post(`${ApiPath.FAVORITE}/${offerId}/${(oppositStatus)}`)
+  toggleFavoriteStatus(offerId, favoriteStatus) {
+    const oppositFavoriteStatus = Number(!favoriteStatus);
+    return (dispatch, _getState, api) => api
+      .post(`${ApiPath.FAVORITE}/${offerId}/${(oppositFavoriteStatus)}`)
       .then((response) => {
         dispatch(ActionCreator.replaceOffer(response.data));
       })
       .catch(() => {});
-    };
   },
 
   checkCurrentLocationOnOfferPage() {
@@ -143,7 +120,6 @@ const initState = {
   currentOfferId: DEFAULT_NUMBER_VALUE,
   sortOrder: SortingVariants.POPULAR,
   offers: [],
-  favorites: [],
   offersReviews: []
 };
 
@@ -159,10 +135,6 @@ const reducer = (state = initState, action) => {
 
     case ActionType.ADD_COMMENTS: return Object.assign({}, state, {
       offersReviews: action.payload
-    });
-
-    case ActionType.ADD_FAVORITES: return Object.assign({}, state, {
-      favorites: action.payload
     });
 
     case ActionType.REPLACE_OFFER: return Object.assign({}, state, {
