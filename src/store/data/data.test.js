@@ -258,7 +258,8 @@ describe(`Operation`, () => {
 
   it(`loadOffers: Should coreect load offers from remote server`, () => {
     const dispatch = jest.fn();
-    const api = createAPI(dispatch);
+    const onUnauthorized = jest.fn();
+    const api = createAPI(onUnauthorized);
     const apiMock = new MockAdapter(api);
     const offersLoader = Operation.loadOffers();
     const response = [{
