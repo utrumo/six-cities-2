@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-import {MemoryRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
+import {MemoryRouter as Router} from 'react-router-dom';
 import NameSpace from '../../store/name-spaces.js';
 import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
 import FavoritePlaces from './favorite-places.jsx';
