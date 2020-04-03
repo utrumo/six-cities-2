@@ -12,8 +12,8 @@ const ADDITIONAL_CLASSES = {
   },
 };
 
-const FavoritesPlaces = (props) => (
+const FavoritePlaces = (props) => (
   <PlacesList {...props} additionalClasses={ADDITIONAL_CLASSES} />
 );
 
-export default FavoritesPlaces;
+export default FavoritePlaces;
