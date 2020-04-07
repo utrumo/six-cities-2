@@ -2,7 +2,7 @@ import {createBrowserHistory} from 'history';
 import createAPI from './api.js';
 // import {UrlPath} from './shared/const.js';
 
-import {compose} from 'recompose';
+import {compose} from 'redux';
 import {createStore, applyMiddleware} from 'redux';
 import reducer from './store/reducer.js';
 import thunk from 'redux-thunk';
