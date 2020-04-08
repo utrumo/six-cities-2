@@ -7,7 +7,7 @@ env:
 extends: ['htmlacademy/node']
 
 parserOptions:
-  ecmaVersion: 6
+  ecmaVersion: 2018
 
 rules:
   comma-dangle:
