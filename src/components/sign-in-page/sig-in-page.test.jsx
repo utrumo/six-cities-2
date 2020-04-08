@@ -63,7 +63,7 @@ it(`Should renders correctlry`, () => {
     .create(
         <Provider store={store}>
           <Router>
-            <SigInPage />
+            <SigInPage location={{state: {}}} />
           </Router>
         </Provider>
     )
