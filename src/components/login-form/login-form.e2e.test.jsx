@@ -1,7 +1,7 @@
 import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {SigInPage} from './sig-in-page.jsx';
+import {LoginForm} from './login-form.jsx';
 
 configure({adapter: new Adapter()});
 
@@ -10,7 +10,7 @@ it(`Should call onSubmit if form submit`, () => {
   const email = `test@test.ru`;
   const password = `password`;
   const wrapper = shallow(
-      <SigInPage
+      <LoginForm
         emailValidationError=""
         onEmailChange={jest.fn()}
         onSubmit={onSubmit}
@@ -25,7 +25,7 @@ it(`Should call onSubmit if form submit`, () => {
 it(`Should call onEmailChange with empty string if email changed`, () => {
   const onEmailChange = jest.fn();
   const wrapper = shallow(
-      <SigInPage
+      <LoginForm
         emailValidationError="Error"
         onEmailChange={onEmailChange}
         onSubmit={jest.fn()}

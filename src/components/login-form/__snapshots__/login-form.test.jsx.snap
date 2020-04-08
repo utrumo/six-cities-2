@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should renders correctlry 1`] = `
+<form
+  className="login__form form"
+  onSubmit={[Function]}
+>
+  <div
+    className="login__input-wrapper form__input-wrapper"
+  >
+    <label
+      className="visually-hidden"
+    >
+      E-mail
+    </label>
+    <input
+      className="login__input form__input"
+      name="email"
+      onChange={[Function]}
+      pattern=".+@.+\\\\..{2,}"
+      placeholder="Email"
+      required={true}
+      type="email"
+      value=""
+    />
+  </div>
+  <div
+    className="login__input-wrapper form__input-wrapper"
+  >
+    <label
+      className="visually-hidden"
+    >
+      Password
+    </label>
+    <input
+      className="login__input form__input"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      required={true}
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    className="login__submit form__submit button"
+    style={Object {}}
+    type="submit"
+  >
+    Sign in
+  </button>
+</form>
+`;

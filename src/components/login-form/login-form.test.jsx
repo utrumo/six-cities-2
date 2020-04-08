@@ -5,7 +5,7 @@ import {SortingVariants} from 'shared/const.js';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import NameSpace from 'store/name-spaces.js';
-import SigInPage from './sig-in-page.jsx';
+import LoginForm from './login-form.jsx';
 
 const mockStore = configureStore();
 
@@ -63,7 +63,7 @@ it(`Should renders correctlry`, () => {
     .create(
         <Provider store={store}>
           <Router>
-            <SigInPage />
+            <LoginForm onEmailChange={jest.fn()} onSubmit={jest.fn()} />
           </Router>
         </Provider>
     )
