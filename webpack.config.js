@@ -1,14 +1,24 @@
 'use strict';
 const {join} = require(`path`);
+const SRC = join(__dirname, `src`);
+const PUBLIC = join(__dirname, `public`);
 
 module.exports = {
-  entry: `./src/index.jsx`,
+  context: SRC,
+  resolve: {
+    extensions: [`.jsx`, `.js`],
+    modules: [
+      SRC,
+      `node_modules`,
+    ],
+  },
+  entry: `index.jsx`,
   output: {
     filename: `bundle.js`,
-    path: join(__dirname, `public`),
+    path: PUBLIC,
   },
   devServer: {
-    contentBase: join(__dirname, `public`),
+    contentBase: PUBLIC,
     compress: false,
     open: true,
     port: 1337,
