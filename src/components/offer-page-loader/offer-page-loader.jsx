@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import ErrorPage from '../error-page/error-page.jsx';
 import OfferPage from '../offer-page/offer-page.jsx';
-
-import {connect} from 'react-redux';
 import {Operation} from '../../store/data/data.js';
 import {checkOfferAvailability} from '../../store/data/selectors.js';
 
-const OfferPageLoader = ({id, onOfferRequest, isOfferAvailable, onOfferAvailable}) => {
+const OfferPageLoader = (props) => {
+  const {match: {params: {id}}, onOfferRequest, isOfferAvailable, onOfferAvailable} = props;
   const requestedOfferId = Number(id);
 
   if (Number.isNaN(requestedOfferId)) {
@@ -26,7 +26,11 @@ const OfferPageLoader = ({id, onOfferRequest, isOfferAvailable, onOfferAvailable
 };
 
 OfferPageLoader.propTypes = {
-  id: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
   isOfferAvailable: PropTypes.bool.isRequired,
   onOfferRequest: PropTypes.func.isRequired,
   onOfferAvailable: PropTypes.func.isRequired,

@@ -17,9 +17,7 @@ const App = () => (
     <Route exact path={UrlPath.ROOT} render={() => <MainPageLoader />} />
     <AuthRoute exact path={UrlPath.LOGIN} render={() => <SigInPage />} />
     <Route exact path={UrlPath.FAVORITES} component={PrivateFavoritesPageLoader} />
-    <Route exact path={`${UrlPath.OFFER}/:id`} render={({match: {params: {id}}}) => (
-      <OfferPageLoader id={id} />
-    )} />
+    <Route exact path={`${UrlPath.OFFER}/:id`} component={OfferPageLoader} />
     <Route render={() => <ErrorPage />} />
   </Switch>
 );

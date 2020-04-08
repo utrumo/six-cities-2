@@ -127,7 +127,7 @@ it(`Offer page with wrong offer id renders correctly`, () => {
     .create(
         <Provider store={store}>
           <Router initialEntries={[`/offers/2`] }>
-            <OfferPageLoader id="2" />
+            <OfferPageLoader match={{params: {id: `2`}}} />
           </Router>
         </Provider>
     )
@@ -267,7 +267,7 @@ it(`Offer page renders correctly`, () => {
     .create(
         <Provider store={store}>
           <Router initialEntries={[`/offers/1`] }>
-            <OfferPageLoader id="1" />
+            <OfferPageLoader match={{params: {id: `1`}}} />
           </Router>
         </Provider>
     )
