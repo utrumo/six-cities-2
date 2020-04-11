@@ -69,8 +69,14 @@
     "reselect": "4.0.0"
   },
   "jest": {
-    "moduleFileExtensions": ["js", "jsx"],
-    "moduleDirectories": ["src", "node_modules"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
     "moduleNameMapper": {
       "\\.css$": "<rootDir>/src/__mocks__/style-mock.js"
     }
