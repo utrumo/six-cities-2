@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-import NameSpace from '../../store/name-spaces.js';
+import NameSpace from 'store/name-spaces.js';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
-import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
-import MainPage from './main-page.jsx';
+import {DEFAULT_NUMBER_VALUE, SortingVariants} from 'shared/const.js';
+import MainContent from './main-content.jsx';
 
 const mockStore = configureStore();
 
@@ -53,7 +53,7 @@ it(`MainPage component renders correctly`, () => {
     .create(
         <Provider store={store}>
           <Router>
-            <MainPage />
+            <MainContent />
           </Router>
         </Provider>
     )

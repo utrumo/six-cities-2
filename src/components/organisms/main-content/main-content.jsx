@@ -1,16 +1,13 @@
 import React from 'react';
 
-import PageHeader from '../page-header/page-header.jsx';
-import LocationsList from '../locations-list/locations-list.jsx';
-import PlacesFound from '../places-found/places-found.jsx';
-import PlacesSorting from '../places-soritng/places-sorting.jsx';
-import CityPlaces from '../city-places/city-places.jsx';
-import CityMap from '../city-map/city-map.jsx';
+import LocationsList from 'components/locations-list/locations-list.jsx';
+import PlacesFound from 'components/places-found/places-found.jsx';
+import PlacesSorting from 'components/places-soritng/places-sorting.jsx';
+import CityPlaces from 'components/city-places/city-places.jsx';
+import CityMap from 'components/city-map/city-map.jsx';
 
-const MainPage = () => (
-  <div className="page page--gray page--main">
-    <PageHeader />
-    <main className="page__main page__main--index">
+const MainContent = () => (
+  <>
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <LocationsList />
@@ -28,8 +25,7 @@ const MainPage = () => (
           </div>
         </div>
       </div>
-    </main>
-  </div>
+  </>
 );
 
-export default MainPage;
+export default MainContent;

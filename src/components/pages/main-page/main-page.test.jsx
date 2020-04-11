@@ -2,11 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import NameSpace from '../../store/name-spaces.js';
 import {Provider} from 'react-redux';
 import {MemoryRouter as Router} from 'react-router-dom';
-import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
-import MainPageLoader from './main-page-loader.jsx';
+
+import NameSpace from 'store/name-spaces.js';
+import {DEFAULT_NUMBER_VALUE, SortingVariants} from 'shared/const.js';
+import MainPage from './main-page.jsx';
 
 const mockStore = configureStore([thunk]);
 
@@ -29,7 +30,7 @@ it(`Main page without offers renders correctly`, () => {
     .create(
         <Provider store={store}>
           <Router initialEntries={[`/`] }>
-            <MainPageLoader />
+            <MainPage />
           </Router>
         </Provider>
     )
@@ -154,7 +155,7 @@ it(`Main page with offers renders correctly`, () => {
     .create(
         <Provider store={store}>
           <Router initialEntries={[`/`]}>
-            <MainPageLoader />
+            <MainPage />
           </Router>
         </Provider>
     )
