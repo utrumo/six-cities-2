@@ -5,7 +5,7 @@ import NameSpace from 'store/name-spaces.js';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {SortingVariants} from 'shared/const.js';
-import OfferPage from './offer-page.jsx';
+import OfferContent from './offer-content.jsx';
 
 const mockStore = configureStore();
 
@@ -93,7 +93,7 @@ it(`shold correct renderer after relaunch`, () => {
     .create(
         <Provider store={store}>
           <Router>
-            <OfferPage />
+            <OfferContent />
           </Router>
         </Provider>
     )

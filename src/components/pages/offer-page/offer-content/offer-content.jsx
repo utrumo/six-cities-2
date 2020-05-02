@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PageHeader from '@ui/page-header/page-header.jsx';
 import OfferReviews from '../offer-reviews/offer-reviews.jsx';
 import PropertyGallery from '../property-gallery/property-gallery.jsx';
 import PropertyMarks from '../property-marks/property-marks.jsx';
@@ -13,31 +12,28 @@ import PropertyHost from '../property-host/property-host.jsx';
 import PropertyMap from '../property-map/property-map.jsx';
 import NearPlaces from '../near-places/near-places.jsx';
 
-const OfferPage = () => (
-  <div className="page">
-    <PageHeader />
-    <main className="page__main page__main--property">
-      <section className="property">
-        <PropertyGallery />
-        <div className="property__container container">
-          <div className="property__wrapper">
-            <PropertyMarks />
-            <PropertyName />
-            <PropertyRating />
-            <PropertyFeatures />
-            <PropertyPrice />
-            <PropertyInside />
-            <PropertyHost />
-            <OfferReviews />
-          </div>
+const OfferContent = () => (
+  <main className="page__main page__main--property">
+    <section className="property">
+      <PropertyGallery />
+      <div className="property__container container">
+        <div className="property__wrapper">
+          <PropertyMarks />
+          <PropertyName />
+          <PropertyRating />
+          <PropertyFeatures />
+          <PropertyPrice />
+          <PropertyInside />
+          <PropertyHost />
+          <OfferReviews />
         </div>
-        <PropertyMap />
-      </section>
-      <div className="container">
-        <NearPlaces />
       </div>
-    </main>
-  </div>
+      <PropertyMap />
+    </section>
+    <div className="container">
+      <NearPlaces />
+    </div>
+  </main>
 );
 
-export default OfferPage;
+export default OfferContent;

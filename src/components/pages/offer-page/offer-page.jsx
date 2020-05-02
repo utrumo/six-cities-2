@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import ErrorPage from '../error-page/error-page.jsx';
-import OfferPage from './offer-page/offer-page.jsx';
+import PageTemplate from '@ui/page-template/page-template.jsx';
+import PageHeader from '@ui/page-header/page-header.jsx';
+import OfferContent from './offer-content/offer-content.jsx';
 import {Operation} from 'store/data/data.js';
 import {checkOfferAvailability} from 'store/data/selectors.js';
 
-const OfferPageLoader = (props) => {
+const OfferPage = (props) => {
   const {match: {params: {id}}, onOfferRequest, isOfferAvailable, onOfferAvailable} = props;
   const requestedOfferId = Number(id);
 
@@ -22,10 +24,14 @@ const OfferPageLoader = (props) => {
   }
 
   onOfferAvailable();
-  return <OfferPage />;
+  return (
+    <PageTemplate header={<PageHeader />}>
+      <OfferContent />
+    </PageTemplate>
+  );
 };
 
-OfferPageLoader.propTypes = {
+OfferPage.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -45,5 +51,5 @@ const mapDispatchToProps = {
   onOfferAvailable: Operation.checkCurrentLocationOnOfferPage,
 };
 
-export {OfferPageLoader};
-export default connect(mapStateToProps, mapDispatchToProps)(OfferPageLoader);
+export {OfferPage};
+export default connect(mapStateToProps, mapDispatchToProps)(OfferPage);

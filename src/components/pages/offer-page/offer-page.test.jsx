@@ -2,11 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import NameSpace from 'store/name-spaces.js';
 import {Provider} from 'react-redux';
 import {MemoryRouter as Router} from 'react-router-dom';
+
+import NameSpace from 'store/name-spaces.js';
 import {SortingVariants} from 'shared/const.js';
-import OfferPageLoader from './offer-page-loader.jsx';
+import OfferPage from './offer-page.jsx';
 
 const mockStore = configureStore([thunk]);
 
@@ -127,7 +128,7 @@ it(`Offer page with wrong offer id renders correctly`, () => {
     .create(
         <Provider store={store}>
           <Router initialEntries={[`/offers/2`] }>
-            <OfferPageLoader match={{params: {id: `2`}}} />
+            <OfferPage match={{params: {id: `2`}}} />
           </Router>
         </Provider>
     )
@@ -267,7 +268,7 @@ it(`Offer page renders correctly`, () => {
     .create(
         <Provider store={store}>
           <Router initialEntries={[`/offers/1`] }>
-            <OfferPageLoader match={{params: {id: `1`}}} />
+            <OfferPage match={{params: {id: `1`}}} />
           </Router>
         </Provider>
     )
