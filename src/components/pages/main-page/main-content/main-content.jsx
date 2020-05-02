@@ -7,25 +7,25 @@ import CityPlaces from '../city-places/city-places.jsx';
 import CityMap from '../city-map/city-map.jsx';
 
 const MainContent = () => (
-  <>
-      <h1 className="visually-hidden">Cities</h1>
-      <div className="tabs">
-        <LocationsList />
-      </div>
-      <div className="cities">
-        <div className="cities__places-container container">
-          <section className="cities__places places">
-            <h2 className="visually-hidden">Places</h2>
-            <PlacesFound />
-            <PlacesSorting />
-            <CityPlaces />
-          </section>
-          <div className="cities__right-section">
-            <CityMap />
-          </div>
+  <main className="page__main page__main--index">
+    <h1 className="visually-hidden">Cities</h1>
+    <div className="tabs">
+      <LocationsList />
+    </div>
+    <div className="cities">
+      <div className="cities__places-container container">
+        <section className="cities__places places">
+          <h2 className="visually-hidden">Places</h2>
+          <PlacesFound />
+          <PlacesSorting />
+          <CityPlaces />
+        </section>
+        <div className="cities__right-section">
+          <CityMap />
         </div>
       </div>
-  </>
+    </div>
+  </main>
 );
 
 export default MainContent;

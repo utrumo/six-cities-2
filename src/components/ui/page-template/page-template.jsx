@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const PageTemplate = ({additionalClasses: {page, main} = {}, header, footer, children}) => (
+const PageTemplate = ({className, header, footer, children}) => (
   <>
     {/*
     <div style={{display: `none`}}>
@@ -19,22 +19,17 @@ const PageTemplate = ({additionalClasses: {page, main} = {}, header, footer, chi
       </svg>
     </div>
     */}
-    <div className={classnames(`page`, page)}>
+    <div className={classnames(`page`, className)}>
       {header}
-      <main className={classnames(`page__main`, main)}>
-        {children}
-      </main>
+      {children}
       {footer}
     </div>
   </>
 );
 
-const {node, shape, string} = PropTypes;
+const {node, string} = PropTypes;
 PageTemplate.propTypes = {
-  additionalClasses: shape({
-    page: string,
-    main: string,
-  }),
+  className: string,
   header: node,
   children: node.isRequired,
   footer: node,

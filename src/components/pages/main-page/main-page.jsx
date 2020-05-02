@@ -17,10 +17,7 @@ const MainPage = ({isOffersAvailable, currentLocation, onOffersAvailable}) => {
 
   return (
     <PageTemplate
-      additionalClasses={{
-        page: `page--gray page--main`,
-        main: `page__main--index${currentLocation ? `` : ` page__main--index-empty`}`,
-      }}
+      className="page--gray page--main"
       header={<PageHeader />}
     >
       {
