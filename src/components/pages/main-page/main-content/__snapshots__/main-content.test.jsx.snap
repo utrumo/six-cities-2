@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MainPage component renders correctly 1`] = `
-Array [
+<main
+  className="page__main page__main--index"
+>
   <h1
     className="visually-hidden"
   >
     Cities
-  </h1>,
+  </h1>
   <div
     className="tabs"
   >
@@ -36,7 +38,7 @@ Array [
         </li>
       </ul>
     </section>
-  </div>,
+  </div>
   <div
     className="cities"
   >
@@ -246,6 +248,6 @@ Array [
         </section>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</main>
 `;

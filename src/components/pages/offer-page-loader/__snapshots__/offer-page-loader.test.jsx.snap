@@ -795,7 +795,7 @@ exports[`Offer page with wrong offer id renders correctly 1`] = `
     <h1
       className="visually-hidden"
     >
-      Cities
+      Error page
     </h1>
     <div
       className="cities"
