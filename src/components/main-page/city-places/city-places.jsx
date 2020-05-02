@@ -1,8 +1,8 @@
 import React from 'react';
-import PlacesList from '../places-list/places-list.jsx';
+import PlacesList from '@ui/places-list/places-list.jsx';
 import {connect} from 'react-redux';
-import {getCurrentOffers} from '../../store/data/selectors.js';
-import {ActionCreator} from '../../store/data/data.js';
+import {getCurrentOffers} from 'store/data/selectors.js';
+import {ActionCreator} from 'store/data/data.js';
 
 const ADDITIONAL_CLASSES = {
   own: [`cities__places-list`, `tabs__content`],

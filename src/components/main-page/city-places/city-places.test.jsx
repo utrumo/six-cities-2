@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-import {SortingVariants} from '../../shared/const.js';
-import NameSpace from '../../store/name-spaces.js';
+import {SortingVariants} from 'shared/const.js';
+import NameSpace from 'store/name-spaces.js';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import CityPlaces from './city-places.jsx';

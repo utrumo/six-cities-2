@@ -2,10 +2,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import NameSpace from '../../store/name-spaces.js';
+import NameSpace from 'store/name-spaces.js';
 import {Provider} from 'react-redux';
 import {MemoryRouter as Router} from 'react-router-dom';
-import {DEFAULT_NUMBER_VALUE, SortingVariants} from '../../shared/const.js';
+import {DEFAULT_NUMBER_VALUE, SortingVariants} from 'shared/const.js';
 import App from './app.jsx';
 
 const mockStore = configureStore([thunk]);

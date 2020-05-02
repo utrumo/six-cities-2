@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import {UrlPath} from 'shared/const.js';
-import MainPage from 'components/pages/main-page/main-page.jsx';
+import MainPage from 'components/main-page/main-page.jsx';
 import SigInPage from 'components/sign-in-page/sig-in-page.jsx';
 import withAuth from 'hocs/with-auth/with-auth.js';
 import FavoritesPageLoader from 'components/favorites-page-loader/favorites-page-loader.jsx';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import PageTemplate from 'components/templates/page-template/page-template.jsx';
-import PageHeader from 'components/organisms/page-header/page-header.jsx';
+import PageHeader from '@ui/page-header/page-header.jsx';
 import MainContent from './main-content/main-content.jsx';
 import MainEmptyContent from './main-empty-content/main-empty-content.jsx';
 

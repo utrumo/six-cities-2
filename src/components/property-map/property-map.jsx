@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Map from '../map/map.jsx';
+import Map from '@ui/map/map.jsx';
 
 import {connect} from 'react-redux';
 import {

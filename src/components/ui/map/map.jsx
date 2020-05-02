@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import PropTypes from 'prop-types';
-import {ImagePath} from '../../shared/const';
+import {ImagePath} from 'shared/const';
 
 const MAP_OPTIONS = {
   zoomControl: false,

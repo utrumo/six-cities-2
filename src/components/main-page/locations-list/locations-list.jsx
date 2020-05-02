@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Location from '../location/location.jsx';
 
 import {connect} from 'react-redux';
-import {getLocations, getCurrentLocation} from '../../store/data/selectors.js';
-import {ActionCreator} from '../../store/data/data.js';
+import {getLocations, getCurrentLocation} from 'store/data/selectors.js';
+import {ActionCreator} from 'store/data/data.js';
 
 const LocationsList = ({locations, currentLocation, onClick}) => (
   <section className="locations container">

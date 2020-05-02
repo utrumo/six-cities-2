@@ -78,7 +78,8 @@
       "node_modules"
     ],
     "moduleNameMapper": {
-      "\\.css$": "<rootDir>/src/__mocks__/style-mock.js"
+      "\\.css$": "<rootDir>/src/__mocks__/style-mock.js",
+      "@ui/(.*)$":"<rootDir>/src/components/ui/$1"
     }
   }
 }

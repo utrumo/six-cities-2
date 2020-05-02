@@ -1,5 +1,5 @@
 import React from 'react';
-import PlacesList from '../places-list/places-list.jsx';
+import PlacesList from '@ui/places-list/places-list.jsx';
 
 const ADDITIONAL_CLASSES = {
   own: `favorites__places`,

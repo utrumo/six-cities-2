@@ -1,7 +1,7 @@
 import React from 'react';
-import PlacesList from '../places-list/places-list.jsx';
+import PlacesList from '@ui/places-list/places-list.jsx';
 import {connect} from 'react-redux';
-import {getNearestOffers} from '../../store/data/selectors.js';
+import {getNearestOffers} from 'store/data/selectors.js';
 
 const ADDITIONAL_CLASSES = {
   own: `near-places__list`,

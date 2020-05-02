@@ -11,6 +11,9 @@ module.exports = {
       SRC,
       `node_modules`,
     ],
+    alias: {
+      '@ui': join(__dirname, `src/components/ui`),
+    },
   },
   entry: `index.jsx`,
   output: {

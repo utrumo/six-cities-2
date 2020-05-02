@@ -1,10 +1,10 @@
 import React from 'react';
 
-import LocationsList from 'components/locations-list/locations-list.jsx';
-import PlacesFound from 'components/places-found/places-found.jsx';
-import PlacesSorting from 'components/places-soritng/places-sorting.jsx';
-import CityPlaces from 'components/city-places/city-places.jsx';
-import CityMap from 'components/city-map/city-map.jsx';
+import LocationsList from '../locations-list/locations-list.jsx';
+import PlacesFound from '../places-found/places-found.jsx';
+import PlacesSorting from '../places-sorting/places-sorting.jsx';
+import CityPlaces from '../city-places/city-places.jsx';
+import CityMap from '../city-map/city-map.jsx';
 
 const MainContent = () => (
   <>

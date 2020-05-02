@@ -2,11 +2,11 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
-import {DEFAULT_NUMBER_VALUE, OfferTypeToPresentName} from '../../shared/const';
-import {getRatingInPercent} from '../../utils/rating-to-percent';
+import {DEFAULT_NUMBER_VALUE, OfferTypeToPresentName} from 'shared/const';
+import {getRatingInPercent} from 'utils/rating-to-percent';
 
 import {connect} from 'react-redux';
-import {Operation} from '../../store/data/data.js';
+import {Operation} from 'store/data/data.js';
 
 const OFFER_SECTION = `/offer/`;
 const DEFAULT_IMAGE_SIZES = {

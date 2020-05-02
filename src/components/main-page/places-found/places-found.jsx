@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getCurrentLocation, getOffersCountInCurrentLocation} from '../../store/data/selectors.js';
+import {getCurrentLocation, getOffersCountInCurrentLocation} from 'store/data/selectors.js';
 
 const PlacesFound = ({city, count}) => (
   <b className="places__found">{count} places to stay in {city}</b>

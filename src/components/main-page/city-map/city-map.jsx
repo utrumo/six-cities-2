@@ -6,9 +6,9 @@ import {
   getFirstOfferCityLocation,
   getCityMapMarkers,
   getCurrentOfferId,
-} from '../../store/data/selectors.js';
+} from 'store/data/selectors.js';
 
-import Map from '../map/map.jsx';
+import Map from '@ui/map/map.jsx';
 
 const CitiyMap = ({view, markers, activeCardId}) => (
   <section className="cities__map map">

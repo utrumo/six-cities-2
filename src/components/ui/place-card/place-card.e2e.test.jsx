@@ -2,7 +2,7 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {PlaceCard} from './place-card.jsx';
-import {DEFAULT_NUMBER_VALUE} from '../../shared/const.js';
+import {DEFAULT_NUMBER_VALUE} from 'shared/const.js';
 
 configure({adapter: new Adapter()});
 

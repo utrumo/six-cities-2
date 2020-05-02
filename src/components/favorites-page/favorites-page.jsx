@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PageHeader from 'components/organisms/page-header/page-header.jsx';
+import PageHeader from '@ui/page-header/page-header.jsx';
 import FavoritesLocationsItems from '../favorites-locations-items/favorites-locations-items.jsx';
 import PageFooter from '../page-footer/page-footer.jsx';
 

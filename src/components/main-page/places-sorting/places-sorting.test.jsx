@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {PlacesSorting} from './places-sorting.jsx';
-import {SortingVariants} from '../../shared/const.js';
+import {SortingVariants} from 'shared/const.js';
 
 it(`Should renders correctly`, () => {
   const tree = renderer
