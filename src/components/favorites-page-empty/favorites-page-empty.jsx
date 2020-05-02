@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from '../page-header/page-header.jsx';
+import PageHeader from 'components/organisms/page-header/page-header.jsx';
 import PageFooter from '../page-footer/page-footer.jsx';
 
 const FavoritesPageEmpty = () => (

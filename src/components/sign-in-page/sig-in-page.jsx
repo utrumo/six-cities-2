@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
-import PageHeader from 'components/page-header/page-header.jsx';
+import PageHeader from 'components/organisms/page-header/page-header.jsx';
 import LoginForm from 'components/login-form/login-form.jsx';
 import {UrlPath} from 'shared/const.js';
 

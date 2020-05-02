@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {ImagePath, UrlPath} from '../../shared/const';
+import {ImagePath, UrlPath} from 'shared/const';
 
 import {connect} from 'react-redux';
-import {getAuthorizationStatus, getEmail} from '../../store/user/selectors.js';
+import {getAuthorizationStatus, getEmail} from 'store/user/selectors.js';
 
 const PageHeader = ({isAuthorized, email}) => (
   <header className="header">

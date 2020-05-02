@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PageHeader from '../page-header/page-header.jsx';
+import PageHeader from 'components/organisms/page-header/page-header.jsx';
 import OfferReviews from '../offer-reviews/offer-reviews.jsx';
 import PropertyGallery from '../property-gallery/property-gallery.jsx';
 import PropertyMarks from '../property-marks/property-marks.jsx';
