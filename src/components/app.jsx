@@ -1,13 +1,14 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
-import {UrlPath} from 'shared/const.js';
-import MainPage from 'components/main-page/main-page.jsx';
-import SigInPage from 'components/sign-in-page/sig-in-page.jsx';
 import withAuth from 'hocs/with-auth/with-auth.js';
-import FavoritesPageLoader from 'components/favorites-page-loader/favorites-page-loader.jsx';
-import OfferPageLoader from 'components/offer-page-loader/offer-page-loader.jsx';
-import ErrorPage from 'components/error-page/error-page.jsx';
+import {UrlPath} from 'shared/const.js';
+
+import MainPage from './pages/main-page/main-page.jsx';
+import SigInPage from './pages/sign-in-page/sig-in-page.jsx';
+import FavoritesPageLoader from './pages/favorites-page-loader/favorites-page-loader.jsx';
+import OfferPageLoader from './pages/offer-page-loader/offer-page-loader.jsx';
+import ErrorPage from './pages/error-page/error-page.jsx';
 
 const PrivateFavoritesPageLoader = withAuth(FavoritesPageLoader);
 
