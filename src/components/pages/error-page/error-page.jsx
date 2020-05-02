@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import PageTemplate from '@ui/page-template/page-template.jsx';
 import PageHeader from '@ui/page-header/page-header.jsx';
 
 const Classes = {
@@ -8,10 +10,12 @@ const Classes = {
 };
 
 const ErrorPage = ({status, description}) => (
-  <div className="page page--gray page--main">
-    <PageHeader />
+  <PageTemplate
+    className="page--gray page--main"
+    header={<PageHeader />}
+  >
     <main className="page__main page__main--index page__main--index-empty">
-      <h1 className="visually-hidden">Cities</h1>
+      <h1 className="visually-hidden">Error page</h1>
       <div className="cities">
         <div className="cities__places-container cities__places-container--empty container">
           <section className="cities__no-places">
@@ -24,7 +28,7 @@ const ErrorPage = ({status, description}) => (
         </div>
       </div>
     </main>
-  </div>
+  </PageTemplate>
 );
 
 ErrorPage.defaultProps = {
