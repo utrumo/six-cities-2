@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import PageTemplate from 'components/templates/page-template/page-template.jsx';
 import PageHeader from 'components/page-header/page-header.jsx';
-import MainContent from 'components/organisms/main-content/main-content.jsx';
-import MainEmptyContent from 'components/organisms/main-empty-content/main-empty-content.jsx';
+import MainContent from './main-content/main-content.jsx';
+import MainEmptyContent from './main-empty-content/main-empty-content.jsx';
 
 import {connect} from 'react-redux';
 import {checkOffersAvailability, getCurrentLocation} from 'store/data/selectors.js';
