@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FavoritesPageLoader should render favorites empty page if hasn't favorite offers 1`] = `
+exports[`FavoritesPage should render favorites empty page if hasn't favorite offers 1`] = `
 <div
   className="page page--favorites-empty"
 >
