@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 import {checkOffersAvailability, getCurrentLocation} from 'store/data/selectors.js';
 import {Operation} from 'store/data/data.js';
 
-const MainPageLoader = ({isOffersAvailable, currentLocation, onOffersAvailable}) => {
+const MainPage = ({isOffersAvailable, currentLocation, onOffersAvailable}) => {
   if (isOffersAvailable) {
     onOffersAvailable();
   }
@@ -32,7 +32,7 @@ const MainPageLoader = ({isOffersAvailable, currentLocation, onOffersAvailable})
   );
 };
 
-MainPageLoader.propTypes = {
+MainPage.propTypes = {
   isOffersAvailable: PropTypes.bool.isRequired,
   onOffersAvailable: PropTypes.func.isRequired,
   currentLocation: PropTypes.string.isRequired,
@@ -47,5 +47,5 @@ const mapDispatchToProps = {
   onOffersAvailable: Operation.checkCurrentLocationOnMainPage,
 };
 
-export {MainPageLoader};
-export default connect(mapStateToProps, mapDispatchToProps)(MainPageLoader);
+export {MainPage};
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
