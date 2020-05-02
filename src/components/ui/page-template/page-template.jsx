@@ -4,7 +4,6 @@ import classnames from 'classnames';
 
 const PageTemplate = ({className, header, footer, children}) => (
   <>
-    {/*
     <div style={{display: `none`}}>
       <svg xmlns="http://www.w3.org/2000/svg">
         <symbol id="icon-arrow-select" viewBox="0 0 7 4">
@@ -18,7 +17,6 @@ const PageTemplate = ({className, header, footer, children}) => (
         </symbol>
       </svg>
     </div>
-    */}
     <div className={classnames(`page`, className)}>
       {header}
       {children}
