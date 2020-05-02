@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
+
+import PageTemplate from '@ui/page-template/page-template.jsx';
 import PageHeader from '@ui/page-header/page-header.jsx';
 import LoginForm from './login-form/login-form.jsx';
 import {UrlPath} from 'shared/const.js';
@@ -13,8 +15,10 @@ const SigInPage = (props) => {
   return props.isAuthorized
     ? <Redirect to={from} />
     : (
-      <div className="page page--gray page--login">
-        <PageHeader />
+      <PageTemplate
+        className="page--gray page--login"
+        header={<PageHeader />}
+      >
         <main className="page__main page__main--login">
           <div className="page__login-container container">
             <section className="login">
@@ -30,7 +34,7 @@ const SigInPage = (props) => {
             </section>
           </div>
         </main>
-      </div>
+      </PageTemplate>
     );
 };
 
