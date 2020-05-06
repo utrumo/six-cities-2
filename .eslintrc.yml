@@ -1,13 +1,11 @@
 root: true
 
 env:
-  es6: true
+  es2020: true
   node: true
 
-extends: ['htmlacademy/node']
-
-parserOptions:
-  ecmaVersion: 2018
+extends:
+ - htmlacademy/node
 
 rules:
   comma-dangle:
