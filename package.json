@@ -8,6 +8,7 @@
     "eslint:fix": "npm run eslint -- --fix",
     "jest": "jest --verbose",
     "jest:update": "npm run jest -- -u",
+    "jest:watch": "npm run jest -- --watch",
     "test": "npm run eslint && npm run jest",
     "test:fix": "npm run eslint:fix && num run jest:update",
     "build": "webpack --mode production",
