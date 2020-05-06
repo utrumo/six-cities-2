@@ -2,8 +2,7 @@ import React, {PureComponent, createRef} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {ActionCreator, Operation} from 'store/user/user.js';
-import {getEmailValidationError} from 'store/user/selectors.js';
+import {UserSelector, UserOperation} from 'store';
 
 const EMAIL = `email`;
 class LoginForm extends PureComponent {
@@ -114,12 +113,12 @@ LoginForm.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  emailValidationError: getEmailValidationError(state),
+  emailValidationError: UserSelector.getEmailValidationError(state),
 });
 
 const mapDispatchToProps = {
-  onSubmit: Operation.authorize,
-  onEmailChange: ActionCreator.changeEmailValidationMessage,
+  onSubmit: UserSelector.authorize,
+  onEmailChange: UserOperation.changeEmailValidationMessage,
 };
 
 export {LoginForm};

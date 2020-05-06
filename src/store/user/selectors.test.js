@@ -1,9 +1,5 @@
-import {
-  getAuthorizationStatus,
-  getEmailValidationError,
-  getEmail,
-} from './selectors.js';
-import NameSpace from '../name-spaces.js';
+import NameSpace from 'store/name-spaces';
+import * as selectors from './selectors';
 
 const NAME_SPACE = NameSpace.USER;
 
@@ -15,7 +11,7 @@ it(`getAuthorizationStatus should return correct status`, () => {
       profile: {},
     },
   };
-  expect(getAuthorizationStatus(store)).toEqual(true);
+  expect(selectors.getAuthorizationStatus(store)).toEqual(true);
 });
 
 it(`getEmailValidationError shold return correct value`, () => {
@@ -27,7 +23,7 @@ it(`getEmailValidationError shold return correct value`, () => {
       profile: {},
     },
   };
-  expect(getEmailValidationError(store)).toEqual(error);
+  expect(selectors.getEmailValidationError(store)).toEqual(error);
 });
 
 it(`getEmail shold return correct user email`, () => {
@@ -45,5 +41,5 @@ it(`getEmail shold return correct user email`, () => {
       },
     },
   };
-  expect(getEmail(store)).toEqual(userEmail);
+  expect(selectors.getEmail(store)).toEqual(userEmail);
 });
