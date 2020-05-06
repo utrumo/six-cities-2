@@ -30,7 +30,7 @@ it(`PlaceCard component renders correctly`, () => {
             onMouseMove={jest.fn()}
             onButtonClick={jest.fn()}
           />
-        </Router>
+        </Router>,
     )
     .toJSON();
   expect(placeCard).toMatchSnapshot();

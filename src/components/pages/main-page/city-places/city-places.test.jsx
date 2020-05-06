@@ -100,7 +100,7 @@ it(`CityPlaces renders correctly`, () => {
           <Router>
             <CityPlaces />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

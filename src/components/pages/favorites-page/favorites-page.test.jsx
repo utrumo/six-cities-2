@@ -90,7 +90,7 @@ it(`FavoritesPage should render favorites empty page if hasn't favorite offers`,
         <Router>
           <FavoritesPage />
         </Router>
-      </Provider>
+      </Provider>,
   ).toJSON();
   expect(favoritePlaces).toMatchSnapshot();
 });
@@ -175,7 +175,7 @@ it(`FavoritesPageLoader should render favorites page if has favorite offers`, ()
         <Router>
           <FavoritesPage />
         </Router>
-      </Provider>
+      </Provider>,
   ).toJSON();
   expect(favoritePlaces).toMatchSnapshot();
 });

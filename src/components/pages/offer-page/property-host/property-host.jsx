@@ -16,7 +16,7 @@ const PropertyHost = ({name, isPro, url, description}) => (
       <div className={classNames(
           `property__avatar-wrapper`,
           {'property__avatar-wrapper--pro': isPro},
-          `user__avatar-wrapper`
+          `user__avatar-wrapper`,
       )}>
         <img
           className="property__avatar user__avatar"

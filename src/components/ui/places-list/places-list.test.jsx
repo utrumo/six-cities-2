@@ -78,7 +78,7 @@ it(`PlacesList component renders correctly`, () => {
           <Router>
             <PlacesList offers={offers} />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
 

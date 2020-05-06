@@ -32,7 +32,7 @@ class PlacesList extends React.PureComponent {
           isPremium={offer.isPremium}
           isFavorite={offer.isFavorite}
           onMouseMove={this._mouseMoveHandler}
-        />)
+        />),
       )}
     </div>;
   }

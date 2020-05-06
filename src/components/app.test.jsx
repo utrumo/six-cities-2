@@ -85,7 +85,7 @@ it(`Offer page with wrong offer id renders correctly`, () => {
           <Router initialEntries={[`/offers/2`] }>
             <App />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -112,7 +112,7 @@ it(`Main page without offers renders correctly`, () => {
           <Router initialEntries={[`/`] }>
             <App />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -235,7 +235,7 @@ it(`Main page with offers renders correctly`, () => {
           <Router initialEntries={[`/`] }>
             <App />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -376,7 +376,7 @@ it(`Offer page renders correctly`, () => {
           <Router initialEntries={[`/offers/1`] }>
             <App />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

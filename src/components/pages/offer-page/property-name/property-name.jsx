@@ -39,7 +39,7 @@ class PropertyName extends PureComponent {
           className={classNames(
               `property__bookmark-button`,
               {'property__bookmark-button--active': isFavorite},
-              `button`
+              `button`,
           )}
           type="button"
         >

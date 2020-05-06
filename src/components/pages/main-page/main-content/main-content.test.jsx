@@ -55,7 +55,7 @@ it(`MainPage component renders correctly`, () => {
           <Router>
             <MainContent />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
 

@@ -100,7 +100,7 @@ it(`NearPlaces renders correctly`, () => {
           <Router>
             <NearPlaces />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
 

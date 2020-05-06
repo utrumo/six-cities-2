@@ -125,7 +125,7 @@ it(`FavoritePlaces component should renders correctly`, () => {
         <Router>
           <FavoritePlaces offers={offers} />
         </Router>
-      </Provider>
+      </Provider>,
   ).toJSON();
   expect(favoritePlaces).toMatchSnapshot();
 });

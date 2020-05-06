@@ -95,7 +95,7 @@ it(`shold correct renderer after relaunch`, () => {
           <Router>
             <OfferContent />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

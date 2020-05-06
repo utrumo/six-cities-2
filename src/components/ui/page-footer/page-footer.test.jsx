@@ -7,7 +7,7 @@ it(`PageFooter component should renders correctly`, () => {
   const pageFooter = renderer.create(
       <Router>
         <PageFooter />
-      </Router>
+      </Router>,
   ).toJSON();
   expect(pageFooter).toMatchSnapshot();
 });

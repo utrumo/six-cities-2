@@ -65,7 +65,7 @@ it(`Should renders correctlry`, () => {
           <Router>
             <LoginForm onEmailChange={jest.fn()} onSubmit={jest.fn()} />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

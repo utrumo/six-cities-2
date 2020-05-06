@@ -82,7 +82,7 @@ it(`Should renders correctly`, () => {
       <Router>
         <ErrorPage />
       </Router>
-    </Provider>
+    </Provider>,
     )
     .toJSON();
   expect.toMatchSnapshot(tree);

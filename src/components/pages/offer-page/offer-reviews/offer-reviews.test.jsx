@@ -84,7 +84,7 @@ it(`OfferReviews must correct renders after restart`, () => {
     .create(
         <Provider store={store}>
           <OfferReviews />
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

@@ -17,7 +17,7 @@ export const getLocations = createSelector(
     (offers) => {
       const locations = offers.map((it) => it.city.name);
       return [...new Set(locations)].sort();
-    }
+    },
 );
 
 export const getCurrentLocation = (state) => state[NAME_SPACE].currentLocation;
@@ -25,7 +25,7 @@ export const getCurrentLocation = (state) => state[NAME_SPACE].currentLocation;
 const _getOffersInCurrentLocation = createSelector(
     _getOffers,
     getCurrentLocation,
-    (offers, currentLocation) => offers.filter((it) => it.city.name === currentLocation)
+    (offers, currentLocation) => offers.filter((it) => it.city.name === currentLocation),
 );
 
 export const getSortOrder = (state) => state[NAME_SPACE].sortOrder;
@@ -43,7 +43,7 @@ export const getCurrentOffers = createSelector(
           return [...offers].sort((a, b) => b.rating - a.rating);
       }
       return offers;
-    }
+    },
 );
 
 export const getOffersCountInCurrentLocation = (state) => getCurrentOffers(state).length;
@@ -51,7 +51,7 @@ export const getOffersCountInCurrentLocation = (state) => getCurrentOffers(state
 const _getCurrentOffer = createSelector(
     _getOffers,
     getCurrentOfferId,
-    (offers, currentOfferId) => offers.find((it) => it.id === currentOfferId)
+    (offers, currentOfferId) => offers.find((it) => it.id === currentOfferId),
 );
 
 export const checkOfferAvailability = (state) => !!_getCurrentOffer(state);
@@ -80,7 +80,7 @@ export const getCurrentOfferImagesForGallery = createSelector(
     _getCurrentOfferImages,
     (images) => {
       return images.slice(0, MAX_IMAGES_ON_OFFER_PAGE);
-    }
+    },
 );
 
 export const getCurrentOfferIsPremiumFlag = (state) => {
@@ -110,12 +110,12 @@ const _getCurrentOfferRating = (state) => {
 
 export const getCurrentOfferRatingInPercent = createSelector(
     _getCurrentOfferRating,
-    (rating) => getRatingInPercent(rating)
+    (rating) => getRatingInPercent(rating),
 );
 
 export const getCurrentOfferNormalizedRating = createSelector(
     _getCurrentOfferRating,
-    (rating) => getNormalizedRating(rating)
+    (rating) => getNormalizedRating(rating),
 );
 
 export const getCurrentOfferBedrooms = (state) => {
@@ -166,7 +166,7 @@ const _getCurrentOfferComments = createSelector(
     (offersReviews, currentOfferId) => {
       const review = offersReviews.find((it) => it.id === currentOfferId);
       return review ? review.comments : [];
-    }
+    },
 );
 
 export const getCommentsForOfferPage = createSelector(
@@ -175,7 +175,7 @@ export const getCommentsForOfferPage = createSelector(
       return [...comments]
     .slice(0, MAX_REVIEWS_ON_OFFER_PAGE)
     .sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
-    }
+    },
 );
 
 export const getCommentsCount = (state) => {
@@ -185,14 +185,14 @@ export const getCommentsCount = (state) => {
 export const getNearestOffers = createSelector(
     _getCurrentOffer,
     getCurrentOffers,
-    (offer, offers) => offer && offers ? getNearestOffersUtil(offer, offers) : []
+    (offer, offers) => offer && offers ? getNearestOffersUtil(offer, offers) : [],
 );
 
 const _getFavoriteOffers = (state) => state[NAME_SPACE].offers.filter((offer) => offer.isFavorite);
 
 const _getFavoriteLocations = createSelector(
     _getFavoriteOffers,
-    (offers) => [...new Set(offers.map((it) => it.city.name))].sort()
+    (offers) => [...new Set(offers.map((it) => it.city.name))].sort(),
 );
 
 export const checkFavoriteOffersAvailability = (state) => !!_getFavoriteOffers(state).length;
@@ -203,14 +203,14 @@ export const getLocationsWithFavoriteOffers = createSelector(
     (offers, locations) => locations.map((location) => ({
       location,
       offers: offers.filter((offer) => offer.city.name === location),
-    }))
+    })),
 );
 
 export const getCityMapMarkers = createSelector(
     getCurrentOffers,
     (offers) => {
       return offers.map(({id, location: {latitude, longitude}}) => ({id, latitude, longitude}));
-    }
+    },
 );
 
 export const getPropertyMapMarkers = createSelector(

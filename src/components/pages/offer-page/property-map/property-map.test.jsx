@@ -26,7 +26,7 @@ it(`PropertyMap renders correctly`, () => {
           activeCardId={1}
           view={view}
           markers={markers}
-        />
+        />,
     )
     .toJSON();
 

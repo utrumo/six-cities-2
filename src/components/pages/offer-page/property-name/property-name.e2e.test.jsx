@@ -15,7 +15,7 @@ it(`Title renders correctly`, () => {
         id={1}
         isFavorite={true}
         onButtonClick={jest.fn()}
-      />
+      />,
   ).find(`.property__name`);
   expect(titleEl.text()).toEqual(title);
 });
@@ -29,7 +29,7 @@ it(`Must render types correctly`, () => {
         id={1}
         isFavorite={true}
         onButtonClick={jest.fn()}
-      />
+      />,
   )
     .find(`.place-card__type`).text();
   expect(type).toEqual(OfferTypeToPresentName[testType]);
@@ -42,7 +42,7 @@ it(`Must render types correctly`, () => {
         id={1}
         isFavorite={true}
         onButtonClick={jest.fn()}
-      />
+      />,
   )
     .find(`.place-card__type`).text();
   expect(type2).toEqual(OfferTypeToPresentName[testType2]);
@@ -55,7 +55,7 @@ it(`Must render types correctly`, () => {
         id={1}
         isFavorite={true}
         onButtonClick={jest.fn()}
-      />
+      />,
   )
     .find(`.place-card__type`).text();
   expect(type3).toEqual(OfferTypeToPresentName[testType3]);
@@ -68,7 +68,7 @@ it(`Must render types correctly`, () => {
         id={1}
         isFavorite={true}
         onButtonClick={jest.fn()}
-      />
+      />,
   )
     .find(`.place-card__type`).text();
   expect(type4).toEqual(OfferTypeToPresentName[testType4]);

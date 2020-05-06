@@ -29,7 +29,7 @@ it(`FavoritesEmptyContent should renders correctly`, () => {
         <Router>
           <FavoritesEmptyContent />
         </Router>
-      </Provider>
+      </Provider>,
   ).toJSON();
   expect(favoriteLocationsItems).toMatchSnapshot();
 

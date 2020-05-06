@@ -24,7 +24,7 @@ class Location extends PureComponent {
     const classes = classNames(
         `locations__item-link`,
         `tabs__item`,
-        {'tabs__item--active': current}
+        {'tabs__item--active': current},
     );
     const style = current ? STYLE_ACTIVE : null;
     const href = current ? null : `#`;

@@ -32,7 +32,7 @@ it(`Main page without offers renders correctly`, () => {
           <Router initialEntries={[`/`] }>
             <MainPage />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -157,7 +157,7 @@ it(`Main page with offers renders correctly`, () => {
           <Router initialEntries={[`/`]}>
             <MainPage />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

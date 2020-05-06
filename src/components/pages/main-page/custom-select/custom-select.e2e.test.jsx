@@ -8,7 +8,7 @@ configure({adapter: new Adapter()});
 describe(`keyboard keys`, () => {
   it(`Should open popup and call preventDefault if focused and space pressed`, () => {
     const tree = shallow(
-        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const spaceEvt = {preventDefault: jest.fn(), key: Keys.SPACE};
@@ -24,7 +24,7 @@ describe(`keyboard keys`, () => {
 
   it(`Should close popup if esc pressed`, () => {
     const tree = shallow(
-        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const spaceEvt = {preventDefault: jest.fn(), key: Keys.SPACE};
@@ -44,7 +44,7 @@ describe(`keyboard keys`, () => {
 
   it(`Should preventDefault and close popup on tab, if it was opened`, () => {
     const tree = shallow(
-        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const spaceEvt = {preventDefault: jest.fn(), key: Keys.SPACE};
@@ -71,7 +71,7 @@ describe(`keyboard keys`, () => {
 
   it(`Should toggle popup on Enter`, () => {
     const tree = shallow(
-        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const enterEvt = {key: Keys.ENTER};
@@ -90,7 +90,7 @@ describe(`keyboard keys`, () => {
 
   it(`Should preventDefault on any arrows pressed`, () => {
     const tree = shallow(
-        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={[`first`, `second`]} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const upEvt = {preventDefault: jest.fn(), key: Keys.ARROW_UP};
@@ -114,7 +114,7 @@ describe(`keyboard keys`, () => {
   it(`Should select next option on down arrow`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const downEvt = {preventDefault: jest.fn(), key: Keys.ARROW_DOWN};
@@ -127,7 +127,7 @@ describe(`keyboard keys`, () => {
   it(`Should select next option on right arrow`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const rightEvt = {preventDefault: jest.fn(), key: Keys.ARROW_RIGHT};
@@ -140,7 +140,7 @@ describe(`keyboard keys`, () => {
   it(`Should select prev option on up arrow`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const downEvt = {preventDefault: jest.fn(), key: Keys.ARROW_DOWN};
@@ -157,7 +157,7 @@ describe(`keyboard keys`, () => {
   it(`Should select prev option on left arrow`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const downEvt = {preventDefault: jest.fn(), key: Keys.ARROW_DOWN};
@@ -174,7 +174,7 @@ describe(`keyboard keys`, () => {
   it(`Should disable right arrow if popup opened`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const spaceEvt = {preventDefault: jest.fn(), key: Keys.SPACE};
@@ -195,7 +195,7 @@ describe(`keyboard keys`, () => {
   it(`Should disable left arrow if popup opened`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const spaceEvt = {preventDefault: jest.fn(), key: Keys.SPACE};
@@ -221,7 +221,7 @@ describe(`keyboard keys`, () => {
   it(`Shouldn't try to change to next option if current is last`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const rightEvt = {preventDefault: jest.fn(), key: Keys.ARROW_RIGHT};
@@ -237,7 +237,7 @@ describe(`keyboard keys`, () => {
   it(`Shouldn't try to change to prev option if current is first`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const rightEvt = {preventDefault: jest.fn(), key: Keys.ARROW_RIGHT};
@@ -257,7 +257,7 @@ describe(`keyboard keys`, () => {
   it(`Should set active class on current option`, () => {
     const values = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={values} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={values} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const spaceEvt = {preventDefault: jest.fn(), key: Keys.SPACE};
@@ -285,7 +285,7 @@ describe(`keyboard keys`, () => {
     const optionValues = [`first`, `second`];
     const onChange = jest.fn();
     const tree = shallow(
-        <CustomSelect label="testLabel" options={optionValues} onChange={onChange} />
+        <CustomSelect label="testLabel" options={optionValues} onChange={onChange} />,
     );
     const downEvt = {preventDefault: jest.fn(), key: Keys.ARROW_DOWN};
     const header = tree.find(`.${Classes.HEADER}`);
@@ -299,7 +299,7 @@ describe(`keyboard keys`, () => {
     const optionValues = [`first`, `second`];
     const onChange = jest.fn();
     const tree = shallow(
-        <CustomSelect label="testLabel" options={optionValues} onChange={onChange} />
+        <CustomSelect label="testLabel" options={optionValues} onChange={onChange} />,
     );
     const downEvt = {preventDefault: jest.fn(), key: Keys.ARROW_DOWN};
     const upEvt = {preventDefault: jest.fn(), key: Keys.ARROW_UP};
@@ -318,7 +318,7 @@ describe(`Mouse`, () => {
   it(`Should toggle popup if clicked several times`, () => {
     const options = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
 
@@ -349,7 +349,7 @@ describe(`Mouse`, () => {
         <div>
           <button />
           <CustomSelect label="testLabel" options={options} onChange={jest.fn()} />
-        </div>
+        </div>,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const button = tree.find(`button`);
@@ -372,7 +372,7 @@ describe(`Mouse`, () => {
   it(`Should select option by click`, () => {
     const optionValues = [`first`, `second`];
     const tree = shallow(
-        <CustomSelect label="testLabel" options={optionValues} onChange={jest.fn()} />
+        <CustomSelect label="testLabel" options={optionValues} onChange={jest.fn()} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const secondOption = tree.find(`.${Classes.OPTION}`).at(1);
@@ -393,7 +393,7 @@ describe(`Mouse`, () => {
     const optionValues = [`first`, `second`];
     const onChange = jest.fn();
     const tree = shallow(
-        <CustomSelect label="testLabel" options={optionValues} onChange={onChange} />
+        <CustomSelect label="testLabel" options={optionValues} onChange={onChange} />,
     );
     const header = tree.find(`.${Classes.HEADER}`);
     const secondOption = tree.find(`.${Classes.OPTION}`).at(1);
@@ -416,7 +416,7 @@ describe(`Props test`, () => {
     const options = [`first`, `second`];
     const onChange = jest.fn();
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={onChange} value={options[1]} />
+        <CustomSelect label="testLabel" options={options} onChange={onChange} value={options[1]} />,
     );
     const optionsEls = tree.find(`.${Classes.OPTION}`);
 
@@ -428,7 +428,7 @@ describe(`Props test`, () => {
     const options = [`first`, `second`];
     const onChange = jest.fn();
     const tree = shallow(
-        <CustomSelect label="testLabel" options={options} onChange={onChange} value={options[1]} />
+        <CustomSelect label="testLabel" options={options} onChange={onChange} value={options[1]} />,
     );
     let optionEls = tree.find(`.${Classes.OPTION}`);
     expect(optionEls.at(0).hasClass(Classes.OPTION_ACTIVE)).toBeFalsy();

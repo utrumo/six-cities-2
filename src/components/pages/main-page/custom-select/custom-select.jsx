@@ -205,7 +205,7 @@ class CustomSelect extends PureComponent {
         <ul className={classNames(
             Classes.OPTIONS,
             `places__options--custom`,
-            {[Classes.OPTIONS_OPENED]: isOpened}
+            {[Classes.OPTIONS_OPENED]: isOpened},
         )}>
           {options.map((it, i) => (
             <li

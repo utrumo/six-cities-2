@@ -125,7 +125,7 @@ it(`FavoritesLocationsItem should renders correctly`, () => {
         <Router>
           <FavoritesLocationsItems locationName="Amsterdam" offers={offers} />
         </Router>
-      </Provider>
+      </Provider>,
   ).toJSON();
   expect(favoriteLocationsItems).toMatchSnapshot();
 });

@@ -130,7 +130,7 @@ it(`Offer page with wrong offer id renders correctly`, () => {
           <Router initialEntries={[`/offers/2`] }>
             <OfferPage match={{params: {id: `2`}}} />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -270,7 +270,7 @@ it(`Offer page renders correctly`, () => {
           <Router initialEntries={[`/offers/1`] }>
             <OfferPage match={{params: {id: `1`}}} />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

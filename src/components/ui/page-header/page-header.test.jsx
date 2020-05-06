@@ -7,7 +7,7 @@ it(`PageHeader component renders correctly after restart`, () => {
   const pageHeader = renderer.create(
       <Router>
         <PageHeader isMain isAuthorized email="test@test.ru" />
-      </Router>
+      </Router>,
   ).toJSON();
   expect(pageHeader).toMatchSnapshot();
 });

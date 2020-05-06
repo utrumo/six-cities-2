@@ -14,7 +14,7 @@ it(`Should call onSubmit if form submit`, () => {
         emailValidationError=""
         onEmailChange={jest.fn()}
         onSubmit={onSubmit}
-      />
+      />,
   );
   wrapper.setState({email, password});
   const form = wrapper.find(`form`);
@@ -29,7 +29,7 @@ it(`Should call onEmailChange with empty string if email changed`, () => {
         emailValidationError="Error"
         onEmailChange={onEmailChange}
         onSubmit={jest.fn()}
-      />
+      />,
   );
 
   const emailInput = wrapper.find(`[type="email"]`);

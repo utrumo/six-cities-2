@@ -11,7 +11,7 @@ it(`Should render correct child count`, () => {
       <LocationsList
         locations={locations}
         currentLocation="Moscow"
-        onClick={jest.fn()} />
+        onClick={jest.fn()} />,
   );
   const listItems = tree.find(`.tabs__list`).children();
   expect(listItems).toHaveLength(locations.length);

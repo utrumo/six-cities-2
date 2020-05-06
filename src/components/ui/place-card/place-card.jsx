@@ -79,7 +79,7 @@ class PlaceCard extends PureComponent {
               className={classNames(
                   `place-card__bookmark-button`,
                   {'place-card__bookmark-button--active': isFavorite},
-                  `button`
+                  `button`,
               )}
               type="button"
               onClick={this._handleButtonClick}

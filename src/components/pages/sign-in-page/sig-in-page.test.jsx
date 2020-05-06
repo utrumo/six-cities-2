@@ -65,7 +65,7 @@ it(`Should renders correctlry`, () => {
           <Router>
             <SigInPage location={{state: {}}} />
           </Router>
-        </Provider>
+        </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
