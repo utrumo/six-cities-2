@@ -13,7 +13,7 @@ import {checkFavoriteOffersAvailability} from 'store/data/selectors.js';
 const FavoritesPage = ({isFavoriteOffersAvailable}) => {
   return (
     <PageTemplate
-      className={isFavoriteOffersAvailable || `page--favorites-empty`}
+      className={isFavoriteOffersAvailable ? `` : `page--favorites-empty`}
       header={<PageHeader />}
       footer={<PageFooter />}
     >
