@@ -1,7 +1,6 @@
 import React, {PureComponent, createRef} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-
 import {UserSelector, UserOperation} from 'store';
 
 const EMAIL = `email`;
@@ -117,7 +116,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onSubmit: UserSelector.authorize,
+  onSubmit: UserOperation.authorize,
   onEmailChange: UserOperation.changeEmailValidationMessage,
 };
 
