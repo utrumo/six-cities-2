@@ -1,8 +1,144 @@
-import * as Selectors from './selectors.js';
-import NameSpace from '../name-spaces.js';
-import {SortingVariants} from '../../shared/const.js';
+import NameSpace from 'store/name-spaces.js';
+import {SortingVariants} from 'shared/const.js';
+import * as Selector from './selectors.js';
 
 const NAME_SPACE = NameSpace.DATA;
+
+it(`getCurrentOfferId: Should return current offer id`, () => {
+  const state = {[NAME_SPACE]: {
+    currentLocation: `Amsterdam`,
+    currentOfferId: 2,
+    sortOrder: SortingVariants.POPULAR,
+    offers: [
+      {
+        id: 1,
+        city: {
+          name: `Amsterdam`,
+          location: {
+            latitude: 52.37454,
+            longitude: 4.897976,
+            zoom: 13,
+          },
+        },
+        previewImage: `img/room.jpg`,
+        images: [
+          `img/room.jpg`,
+          `img/apartment-02.jpg`,
+          `img/room.jpg`,
+          `img/apartment-01.jpg`,
+          `img/studio-01.jpg`,
+          `img/apartment-03.jpg`,
+          `img/apartment-01.jpg`,
+          `img/apartment-01.jpg`,
+        ],
+        title: `Wood and stone place`,
+        description: `Relax, rejuvenate and unplug.`,
+        location: {
+          latitude: 52.367540000000005,
+          longitude: 4.883976,
+          zoom: 16,
+        },
+        isPremium: false,
+        isFavorite: false,
+        rating: 4.2,
+        price: 80,
+        type: `apartment`,
+        bedrooms: 3,
+        maxAdults: 6,
+        goods: [`Laptop friendly workspace`],
+        host: {
+          id: 2,
+          name: `Oleg`,
+          isPro: false,
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
+
+      {
+        id: 2,
+        city: {
+          name: `Amsterdam`,
+          location: {
+            latitude: 52.37454,
+            longitude: 4.897976,
+            zoom: 13,
+          },
+        },
+        previewImage: `img/room.jpg`,
+        images: [`img/room.jpg`],
+        title: `Wood and stone place`,
+        description: `Relax, rejuvenate and unplug.`,
+        location: {
+          latitude: 52.367540000000005,
+          longitude: 4.883976,
+          zoom: 16,
+        },
+        isPremium: false,
+        isFavorite: false,
+        rating: 4.2,
+        price: 80,
+        type: `apartment`,
+        bedrooms: 3,
+        maxAdults: 6,
+        goods: [`Laptop friendly workspace`],
+        host: {
+          id: 2,
+          name: `Oleg`,
+          isPro: false,
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
+
+      {
+        id: 3,
+        city: {
+          name: `Brussels`,
+          location: {
+            latitude: 50.846557,
+            longitude: 4.351697,
+            zoom: 13,
+          },
+        },
+        previewImage: `img/apartment-01.jpg`,
+        images: [`img/apartment-01.jpg`],
+        title: `House in countryside`,
+        isFavorite: false,
+        isPremium: false,
+        rating: 2.8,
+        type: `room`,
+        bedrooms: 1,
+        maxAdults: 1,
+        price: 143,
+        goods: [`Laptop friendly workspace`],
+        host: {
+          id: 25,
+          name: `Angelina`,
+          isPro: true,
+          avatarUrl: `img/avatar-angelina.jpg`,
+        },
+        description: `Cozy warm bed.`,
+        location: {
+          latitude: 50.828556999999996,
+          longitude: 4.362697,
+          zoom: 16,
+        },
+      },
+    ],
+    offersReviews: [{
+      id: 1,
+      user: {
+        id: 12,
+        isPro: true,
+        name: `Isaac`,
+        avatarUrl: `img/3.jpg`,
+      },
+      rating: 3,
+      comment: `The house is very good`,
+      date: `2019-10-24T08:29:32.094Z`,
+    }],
+  }};
+  expect(Selector.getCurrentOfferId(state)).toEqual(2);
+});
 
 describe(`checkOfferAvailability`, () => {
   it(`Should return true if offers are exists`, () => {
@@ -49,7 +185,7 @@ describe(`checkOfferAvailability`, () => {
       offersReviews: [],
     }};
 
-    expect(Selectors.checkOffersAvailability(state)).toBeTruthy();
+    expect(Selector.checkOffersAvailability(state)).toBeTruthy();
   });
 
   it(`Should return false if offers aren't exists`, () => {
@@ -61,11 +197,11 @@ describe(`checkOfferAvailability`, () => {
       offersReviews: [],
     }};
 
-    expect(Selectors.checkOffersAvailability(state)).toBeFalsy();
+    expect(Selector.checkOffersAvailability(state)).toBeFalsy();
   });
 });
 
-it(`Should return locations`, () => {
+it(`getLocations: Should return locations`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -203,10 +339,10 @@ it(`Should return locations`, () => {
       },
     ],
   }};
-  expect(Selectors.getLocations(state)).toEqual([`Amsterdam`, `Brussels`]);
+  expect(Selector.getLocations(state)).toEqual([`Amsterdam`, `Brussels`]);
 });
 
-it(`Should return current location`, () => {
+it(`getCurrentLocation: Should return current location`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -344,10 +480,10 @@ it(`Should return current location`, () => {
       },
     ],
   }};
-  expect(Selectors.getCurrentLocation(state)).toEqual(state[NAME_SPACE].currentLocation);
+  expect(Selector.getCurrentLocation(state)).toEqual(state[NAME_SPACE].currentLocation);
 });
 
-it(`Should return current sort Order`, () => {
+it(`getSortOrder: Should return current sort Order`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -357,7 +493,7 @@ it(`Should return current sort Order`, () => {
     offersReviews: [
     ],
   }};
-  expect(Selectors.getSortOrder(state)).toEqual(SortingVariants.POPULAR);
+  expect(Selector.getSortOrder(state)).toEqual(SortingVariants.POPULAR);
 });
 
 describe(`getCurrentOffers`, () => {
@@ -565,7 +701,7 @@ describe(`getCurrentOffers`, () => {
         },
       },
     ];
-    expect(Selectors.getCurrentOffers(state)).toEqual(offersInCurrentLocation);
+    expect(Selector.getCurrentOffers(state)).toEqual(offersInCurrentLocation);
   });
 
   it(`Should get offers by price from low to higt`, () => {
@@ -811,7 +947,7 @@ describe(`getCurrentOffers`, () => {
         },
       },
     ];
-    expect(Selectors.getCurrentOffers(state)).toEqual(expectedSortedOffers);
+    expect(Selector.getCurrentOffers(state)).toEqual(expectedSortedOffers);
   });
 
   it(`Should get offers by price from hight to low`, () => {
@@ -1057,7 +1193,7 @@ describe(`getCurrentOffers`, () => {
         },
       },
     ];
-    expect(Selectors.getCurrentOffers(state)).toEqual(expectedSortedOffers);
+    expect(Selector.getCurrentOffers(state)).toEqual(expectedSortedOffers);
   });
 
   it(`Should get offers by rating from top to bottom`, () => {
@@ -1303,11 +1439,11 @@ describe(`getCurrentOffers`, () => {
         },
       },
     ];
-    expect(Selectors.getCurrentOffers(state)).toEqual(expectedSortedOffers);
+    expect(Selector.getCurrentOffers(state)).toEqual(expectedSortedOffers);
   });
 });
 
-it(`Should return offers count in current location`, () => {
+it(`getOffersCountInCurrentLocation: Should return offers count in current location`, () => {
   const mock = {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -1421,150 +1557,14 @@ it(`Should return offers count in current location`, () => {
     offersReviews: [],
   };
   const state = {[NAME_SPACE]: mock};
-  expect(Selectors.getOffersCountInCurrentLocation(state)).toEqual(2);
+  expect(Selector.getOffersCountInCurrentLocation(state)).toEqual(2);
 
   const anotherMock = Object.assign({}, mock, {currentLocation: `Brussels`});
   const nextState = {[NAME_SPACE]: anotherMock};
-  expect(Selectors.getOffersCountInCurrentLocation(nextState)).toEqual(1);
+  expect(Selector.getOffersCountInCurrentLocation(nextState)).toEqual(1);
 });
 
-it(`Should return current offer id`, () => {
-  const state = {[NAME_SPACE]: {
-    currentLocation: `Amsterdam`,
-    currentOfferId: 2,
-    sortOrder: SortingVariants.POPULAR,
-    offers: [
-      {
-        id: 1,
-        city: {
-          name: `Amsterdam`,
-          location: {
-            latitude: 52.37454,
-            longitude: 4.897976,
-            zoom: 13,
-          },
-        },
-        previewImage: `img/room.jpg`,
-        images: [
-          `img/room.jpg`,
-          `img/apartment-02.jpg`,
-          `img/room.jpg`,
-          `img/apartment-01.jpg`,
-          `img/studio-01.jpg`,
-          `img/apartment-03.jpg`,
-          `img/apartment-01.jpg`,
-          `img/apartment-01.jpg`,
-        ],
-        title: `Wood and stone place`,
-        description: `Relax, rejuvenate and unplug.`,
-        location: {
-          latitude: 52.367540000000005,
-          longitude: 4.883976,
-          zoom: 16,
-        },
-        isPremium: false,
-        isFavorite: false,
-        rating: 4.2,
-        price: 80,
-        type: `apartment`,
-        bedrooms: 3,
-        maxAdults: 6,
-        goods: [`Laptop friendly workspace`],
-        host: {
-          id: 2,
-          name: `Oleg`,
-          isPro: false,
-          avatarUrl: `img/avatar-max.jpg`,
-        },
-      },
-
-      {
-        id: 2,
-        city: {
-          name: `Amsterdam`,
-          location: {
-            latitude: 52.37454,
-            longitude: 4.897976,
-            zoom: 13,
-          },
-        },
-        previewImage: `img/room.jpg`,
-        images: [`img/room.jpg`],
-        title: `Wood and stone place`,
-        description: `Relax, rejuvenate and unplug.`,
-        location: {
-          latitude: 52.367540000000005,
-          longitude: 4.883976,
-          zoom: 16,
-        },
-        isPremium: false,
-        isFavorite: false,
-        rating: 4.2,
-        price: 80,
-        type: `apartment`,
-        bedrooms: 3,
-        maxAdults: 6,
-        goods: [`Laptop friendly workspace`],
-        host: {
-          id: 2,
-          name: `Oleg`,
-          isPro: false,
-          avatarUrl: `img/avatar-max.jpg`,
-        },
-      },
-
-      {
-        id: 3,
-        city: {
-          name: `Brussels`,
-          location: {
-            latitude: 50.846557,
-            longitude: 4.351697,
-            zoom: 13,
-          },
-        },
-        previewImage: `img/apartment-01.jpg`,
-        images: [`img/apartment-01.jpg`],
-        title: `House in countryside`,
-        isFavorite: false,
-        isPremium: false,
-        rating: 2.8,
-        type: `room`,
-        bedrooms: 1,
-        maxAdults: 1,
-        price: 143,
-        goods: [`Laptop friendly workspace`],
-        host: {
-          id: 25,
-          name: `Angelina`,
-          isPro: true,
-          avatarUrl: `img/avatar-angelina.jpg`,
-        },
-        description: `Cozy warm bed.`,
-        location: {
-          latitude: 50.828556999999996,
-          longitude: 4.362697,
-          zoom: 16,
-        },
-      },
-    ],
-    offersReviews: [{
-      id: 1,
-      user: {
-        id: 12,
-        isPro: true,
-        name: `Isaac`,
-        avatarUrl: `img/3.jpg`,
-      },
-      rating: 3,
-      comment: `The house is very good`,
-      date: `2019-10-24T08:29:32.094Z`,
-    }],
-  }};
-  expect(Selectors.getCurrentOfferId(state)).toEqual(2);
-});
-
-it(`Should return correct bool value - Is available offer with given id or not?`, () => {
+it(`checkOfferAvailability: Should return correct bool value - Is available offer with given id or not?`, () => {
   const mock = {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -1698,14 +1698,14 @@ it(`Should return correct bool value - Is available offer with given id or not?`
     }],
   };
   const state = {[NAME_SPACE]: mock};
-  expect(Selectors.checkOfferAvailability(state)).toBeTruthy();
+  expect(Selector.checkOfferAvailability(state)).toBeTruthy();
 
   const anotherMock = Object.assign({}, mock, {currentOfferId: 4});
   const anotherStore = {[NAME_SPACE]: anotherMock};
-  expect(Selectors.checkOfferAvailability(anotherStore)).toBeFalsy();
+  expect(Selector.checkOfferAvailability(anotherStore)).toBeFalsy();
 });
 
-it(`Should return current offer city name`, () => {
+it(`getCurrentOfferCityName: Should return current offer city name`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -1838,10 +1838,10 @@ it(`Should return current offer city name`, () => {
       date: `2019-10-24T08:29:32.094Z`,
     }],
   }};
-  expect(Selectors.getCurrentOfferCityName(state)).toEqual(state[NAME_SPACE].offers[0].city.name);
+  expect(Selector.getCurrentOfferCityName(state)).toEqual(state[NAME_SPACE].offers[0].city.name);
 });
 
-it(`Should return first offer city location`, () => {
+it(`getFirstOfferCityLocation: Should return first offer city location`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -1974,11 +1974,11 @@ it(`Should return first offer city location`, () => {
       date: `2019-10-24T08:29:32.094Z`,
     }],
   }};
-  expect(Selectors.getFirstOfferCityLocation(state))
+  expect(Selector.getFirstOfferCityLocation(state))
     .toEqual(state[NAME_SPACE].offers[0].city.location);
 });
 
-it(`Should return Current ofer city location`, () => {
+it(`getCurrentOfferCityLocation: Should return Current ofer city location`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 3,
@@ -2111,11 +2111,11 @@ it(`Should return Current ofer city location`, () => {
       date: `2019-10-24T08:29:32.094Z`,
     }],
   }};
-  expect(Selectors.getCurrentOfferCityLocation(state))
+  expect(Selector.getCurrentOfferCityLocation(state))
     .toEqual(state[NAME_SPACE].offers[2].city.location);
 });
 
-it(`Should return correct count current offer images for gallery`, () => {
+it(`getCurrentOfferImagesForGallery: Should return correct count current offer images for gallery`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2256,10 +2256,10 @@ it(`Should return correct count current offer images for gallery`, () => {
     `img/studio-01.jpg`,
     `img/apartment-03.jpg`,
   ];
-  expect(Selectors.getCurrentOfferImagesForGallery(state)).toEqual(imagesForGallery);
+  expect(Selector.getCurrentOfferImagesForGallery(state)).toEqual(imagesForGallery);
 });
 
-it(`Should return correct bool value for isPremiumFlag for current location`, () => {
+it(`getCurrentOfferIsPremiumFlag: Should return correct bool value for isPremiumFlag for current location`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2313,10 +2313,67 @@ it(`Should return correct bool value for isPremiumFlag for current location`, ()
     ],
   }};
 
-  expect(Selectors.getCurrentOfferIsPremiumFlag(state)).toBeFalsy();
+  expect(Selector.getCurrentOfferIsPremiumFlag(state)).toBeFalsy();
 });
 
-it(`Should return current offer title`, () => {
+it(`getCurrentOfferIsFavoriteFlag: Should return correct bool value for isFavoriteFlag for current location`, () => {
+  const state = {[NAME_SPACE]: {
+    currentLocation: `Amsterdam`,
+    currentOfferId: 1,
+    sortOrder: SortingVariants.POPULAR,
+    offers: [
+      {
+        id: 1,
+        city: {
+          name: `Amsterdam`,
+          location: {
+            latitude: 52.37454,
+            longitude: 4.897976,
+            zoom: 13,
+          },
+        },
+        previewImage: `img/room.jpg`,
+        images: [
+          `img/room.jpg`,
+          `img/apartment-02.jpg`,
+          `img/room.jpg`,
+          `img/apartment-01.jpg`,
+          `img/studio-01.jpg`,
+          `img/apartment-03.jpg`,
+          `img/apartment-01.jpg`,
+          `img/apartment-01.jpg`,
+        ],
+        title: `Wood and stone place`,
+        description: `Relax, rejuvenate and unplug.`,
+        location: {
+          latitude: 52.367540000000005,
+          longitude: 4.883976,
+          zoom: 16,
+        },
+        isPremium: false,
+        isFavorite: true,
+        rating: 4.2,
+        price: 80,
+        type: `apartment`,
+        bedrooms: 3,
+        maxAdults: 6,
+        goods: [`Laptop friendly workspace`],
+        host: {
+          id: 2,
+          name: `Oleg`,
+          isPro: false,
+          avatarUrl: `img/avatar-max.jpg`,
+        },
+      },
+    ],
+    offersReviews: [
+    ],
+  }};
+
+  expect(Selector.getCurrentOfferIsFavoriteFlag(state)).toBeTruthy();
+});
+
+it(`getCurrentOfferTitle: Should return current offer title`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2370,10 +2427,10 @@ it(`Should return current offer title`, () => {
     ],
   }};
 
-  expect(Selectors.getCurrentOfferTitle(state)).toEqual(`Wood and stone place`);
+  expect(Selector.getCurrentOfferTitle(state)).toEqual(`Wood and stone place`);
 });
 
-it(`Should return current offer type`, () => {
+it(`getCurrentOfferType: Should return current offer type`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2426,10 +2483,10 @@ it(`Should return current offer type`, () => {
     offersReviews: [
     ],
   }};
-  expect(Selectors.getCurrentOfferType(state)).toEqual(`apartment`);
+  expect(Selector.getCurrentOfferType(state)).toEqual(`apartment`);
 });
 
-it(`Should return current offer rating in percent`, () => {
+it(`getCurrentOfferRatingInPercent: Should return current offer rating in percent`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2482,10 +2539,10 @@ it(`Should return current offer rating in percent`, () => {
     offersReviews: [
     ],
   }};
-  expect(Selectors.getCurrentOfferRatingInPercent(state)).toEqual(80);
+  expect(Selector.getCurrentOfferRatingInPercent(state)).toEqual(80);
 });
 
-it(`Should return current normalized rating`, () => {
+it(`getCurrentOfferNormalizedRating: Should return current normalized rating`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2538,10 +2595,10 @@ it(`Should return current normalized rating`, () => {
     offersReviews: [
     ],
   }};
-  expect(Selectors.getCurrentOfferNormalizedRating(state)).toEqual(4);
+  expect(Selector.getCurrentOfferNormalizedRating(state)).toEqual(4);
 });
 
-it(`Should return current offer bedrooms`, () => {
+it(`getCurrentOfferBedrooms: Should return current offer bedrooms`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2593,10 +2650,10 @@ it(`Should return current offer bedrooms`, () => {
     ],
     offersReviews: [],
   }};
-  expect(Selectors.getCurrentOfferBedrooms(state)).toEqual(7);
+  expect(Selector.getCurrentOfferBedrooms(state)).toEqual(7);
 });
 
-it(`Should return current offer max adults count`, () => {
+it(`getCurrentOfferMaxAdults: Should return current offer max adults count`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2649,10 +2706,10 @@ it(`Should return current offer max adults count`, () => {
     offersReviews: [],
   }};
 
-  expect(Selectors.getCurrentOfferMaxAdults(state)).toEqual(6);
+  expect(Selector.getCurrentOfferMaxAdults(state)).toEqual(6);
 });
 
-it(`Should return current offer price`, () => {
+it(`getCurrentOfferPrice: Should return current offer price`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2705,10 +2762,10 @@ it(`Should return current offer price`, () => {
     offersReviews: [],
   }};
 
-  expect(Selectors.getCurrentOfferPrice(state)).toEqual(80);
+  expect(Selector.getCurrentOfferPrice(state)).toEqual(80);
 });
 
-it(`Should return current offer goods`, () => {
+it(`getCurrentOfferGoods: Should return current offer goods`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2762,10 +2819,10 @@ it(`Should return current offer goods`, () => {
     ],
   }};
 
-  expect(Selectors.getCurrentOfferGoods(state)).toEqual([`Laptop friendly workspace`]);
+  expect(Selector.getCurrentOfferGoods(state)).toEqual([`Laptop friendly workspace`]);
 });
 
-it(`Should return current offer description`, () => {
+it(`getCurrentOfferDescription: Should return current offer description`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2817,11 +2874,11 @@ it(`Should return current offer description`, () => {
     ],
     offersReviews: [],
   }};
-  expect(Selectors.getCurrentOfferDescription(state))
+  expect(Selector.getCurrentOfferDescription(state))
     .toEqual(`Relax, rejuvenate and unplug.`);
 });
 
-it(`Should return current offer host name`, () => {
+it(`getCurrentOfferHostName: Should return current offer host name`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2875,10 +2932,10 @@ it(`Should return current offer host name`, () => {
     ],
   }};
 
-  expect(Selectors.getCurrentOfferHostName(state)).toEqual(`Oleg`);
+  expect(Selector.getCurrentOfferHostName(state)).toEqual(`Oleg`);
 });
 
-it(`Should return current offer host isPro flag`, () => {
+it(`getCurrentOfferHostIsPro: Should return current offer host isPro flag`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2931,10 +2988,10 @@ it(`Should return current offer host isPro flag`, () => {
     offersReviews: [],
   }};
 
-  expect(Selectors.getCurrentOfferHostIsPro(state)).toBeFalsy();
+  expect(Selector.getCurrentOfferHostIsPro(state)).toBeFalsy();
 });
 
-it(`Should return current offer host avatar url`, () => {
+it(`getCurrentOfferHostAvatarUrl: Should return current offer host avatar url`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -2987,10 +3044,10 @@ it(`Should return current offer host avatar url`, () => {
     offersReviews: [],
   }};
 
-  expect(Selectors.getCurrentOfferHostAvatarUrl(state)).toEqual(`img/avatar-max.jpg`);
+  expect(Selector.getCurrentOfferHostAvatarUrl(state)).toEqual(`img/avatar-max.jpg`);
 });
 
-it(`Should return comments for offer page`, () => {
+it(`getCommentsForOfferPage: Should return comments for offer page`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -3339,10 +3396,10 @@ it(`Should return comments for offer page`, () => {
     },
   ];
 
-  expect(Selectors.getCommentsForOfferPage(state)).toEqual(expectedCommentsForOfferPage);
+  expect(Selector.getCommentsForOfferPage(state)).toEqual(expectedCommentsForOfferPage);
 });
 
-it(`Should return comments count for current offer`, () => {
+it(`getCommentsCount: Should return comments count for current offer`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -3423,10 +3480,10 @@ it(`Should return comments count for current offer`, () => {
         ],
       },
     ]}};
-  expect(Selectors.getCommentsCount(state)).toEqual(2);
+  expect(Selector.getCommentsCount(state)).toEqual(2);
 });
 
-it(`Shuld return nearest offers`, () => {
+it(`getNearestOffers: Shuld return nearest offers`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -3627,7 +3684,7 @@ it(`Shuld return nearest offers`, () => {
     },
   ];
 
-  expect(Selectors.getNearestOffers(state)).toEqual(expectedOffers);
+  expect(Selector.getNearestOffers(state)).toEqual(expectedOffers);
 });
 
 describe(`checkFavoriteOffersAvailability`, () => {
@@ -3674,7 +3731,7 @@ describe(`checkFavoriteOffersAvailability`, () => {
       ],
       offersReviews: [],
     }};
-    expect(Selectors.checkFavoriteOffersAvailability(state)).toBeFalsy();
+    expect(Selector.checkFavoriteOffersAvailability(state)).toBeFalsy();
   });
 
   it(`Should return true because we have favorite offers`, () => {
@@ -3720,11 +3777,11 @@ describe(`checkFavoriteOffersAvailability`, () => {
       ],
       offersReviews: [],
     }};
-    expect(Selectors.checkFavoriteOffersAvailability(state)).toBeTruthy();
+    expect(Selector.checkFavoriteOffersAvailability(state)).toBeTruthy();
   });
 });
 
-it(`Should return locations with favorite offers`, () => {
+it(`getLocationsWithFavoriteOffers: Should return locations with favorite offers`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -3973,10 +4030,10 @@ it(`Should return locations with favorite offers`, () => {
       ],
     },
   ];
-  expect(Selectors.getLocationsWithFavoriteOffers(state)).toEqual(expectedResult);
+  expect(Selector.getLocationsWithFavoriteOffers(state)).toEqual(expectedResult);
 });
 
-it(`Should return markers for map on main page`, () => {
+it(`getCityMapMarkers: Should return markers for map on main page`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -4139,7 +4196,7 @@ it(`Should return markers for map on main page`, () => {
     offersReviews: [
     ],
   }};
-  expect(Selectors.getCityMapMarkers(state)).toEqual([
+  expect(Selector.getCityMapMarkers(state)).toEqual([
     {
       id: 1,
       latitude: 52.367540000000005,
@@ -4153,7 +4210,7 @@ it(`Should return markers for map on main page`, () => {
   ]);
 });
 
-it(`Should return markers for map on offer page`, () => {
+it(`getPropertyMapMarkers: Should return markers for map on offer page`, () => {
   const state = {[NAME_SPACE]: {
     currentLocation: `Amsterdam`,
     currentOfferId: 1,
@@ -4316,7 +4373,7 @@ it(`Should return markers for map on offer page`, () => {
     offersReviews: [
     ],
   }};
-  expect(Selectors.getPropertyMapMarkers(state)).toEqual([
+  expect(Selector.getPropertyMapMarkers(state)).toEqual([
     {
       id: 2,
       latitude: 52.367540000000005,

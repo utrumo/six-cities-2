@@ -1,8 +1,8 @@
-import NameSpace from '../name-spaces.js';
 import {createSelector} from 'reselect';
-import {getNormalizedRating, getRatingInPercent} from '../../utils/rating-to-percent.js';
-import {SortingVariants, MAX_REVIEWS_ON_OFFER_PAGE, MAX_IMAGES_ON_OFFER_PAGE} from '../../shared/const.js';
-import {getNearestOffers as getNearestOffersUtil} from '../../utils/nearest-offers.js';
+import NameSpace from 'store/name-spaces.js';
+import {getNormalizedRating, getRatingInPercent} from 'utils/rating-to-percent.js';
+import {getNearestOffers as getNearestOffersUtil} from 'utils/nearest-offers.js';
+import {SortingVariants, MAX_REVIEWS_ON_OFFER_PAGE, MAX_IMAGES_ON_OFFER_PAGE} from 'shared/const.js';
 
 const NAME_SPACE = NameSpace.DATA;
 
