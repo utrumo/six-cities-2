@@ -1,23 +1,17 @@
 import {createBrowserHistory} from 'history';
-import createAPI from 'api.js';
-// import {UrlPath} from 'shared/const.js';
-
 import {compose} from 'redux';
 import {createStore, applyMiddleware} from 'redux';
-import {reducer} from 'store';
 import thunk from 'redux-thunk';
-
-import {Operation as DataOperation} from 'store/data/data.js';
-// import {ActionCreator as DataActionCreator} from 'store/data/data.js';
-import {UserOperation} from 'store';
-// import mockOffers from 'mocks/offers';
-// import mockOffersReviews from 'mocks/reviews.js';
-
 import React from 'react';
 import ReactDom from 'react-dom';
 import {Provider} from 'react-redux';
 import {Router} from 'react-router-dom';
-import App from './components/app.jsx';
+import createAPI from 'api.js';
+import {reducer, DataOperation, UserOperation} from 'store';
+import App from 'components/app.jsx';
+// import {UrlPath} from 'shared/const.js';
+// import mockOffers from 'mocks/offers';
+// import mockOffersReviews from 'mocks/reviews.js';
 
 const UNAUTHORIZED = false;
 
@@ -39,8 +33,8 @@ const init = () => {
 
   store.dispatch(UserOperation.loadProfile());
   store.dispatch(DataOperation.loadOffers());
-  // store.dispatch(DataActionCreator.addOffers(mockOffers));
-  // store.dispatch(DataActionCreator.addComments(mockOffersReviews));
+  // store.dispatch(DataOperation.addOffers(mockOffers));
+  // store.dispatch(DataOperation.addComments(mockOffersReviews));
 
   ReactDom.render((
     <Provider store={store}>

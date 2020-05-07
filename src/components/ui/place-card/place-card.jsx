@@ -2,11 +2,10 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import {DEFAULT_NUMBER_VALUE, OfferTypeToPresentName} from 'shared/const';
 import {getRatingInPercent} from 'utils/rating-to-percent';
-
-import {connect} from 'react-redux';
-import {Operation} from 'store/data/data.js';
+import {DataOperation} from 'store';
 
 const OFFER_SECTION = `/offer/`;
 const DEFAULT_IMAGE_SIZES = {
@@ -133,7 +132,7 @@ PlaceCard.propTypes = {
 };
 
 const mapDispatchToProps = {
-  onButtonClick: Operation.toggleFavoriteStatus,
+  onButtonClick: DataOperation.toggleFavoriteStatus,
 };
 
 export {PlaceCard};

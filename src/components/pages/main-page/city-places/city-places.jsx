@@ -1,8 +1,7 @@
 import React from 'react';
-import PlacesList from '@ui/places-list/places-list.jsx';
 import {connect} from 'react-redux';
-import {getCurrentOffers} from 'store/data/selectors.js';
-import {ActionCreator} from 'store/data/data.js';
+import {DataSelector, DataOperation} from 'store';
+import PlacesList from '@ui/places-list/places-list.jsx';
 
 const ADDITIONAL_CLASSES = {
   own: [`cities__places-list`, `tabs__content`],
@@ -17,11 +16,11 @@ const CityPlaces = (props) => (
 );
 
 const mapStateToProps = (state) => ({
-  offers: getCurrentOffers(state),
+  offers: DataSelector.getCurrentOffers(state),
 });
 
 const mapDispatchToProps = {
-  onCardActive: ActionCreator.changeCurrentOfferId,
+  onCardActive: DataOperation.changeCurrentOfferId,
 };
 
 export {CityPlaces};

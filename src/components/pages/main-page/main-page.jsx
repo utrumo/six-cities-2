@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {connect} from 'react-redux';
 import PageTemplate from '@ui/page-template/page-template.jsx';
 import PageHeader from '@ui/page-header/page-header.jsx';
 import MainContent from './main-content/main-content.jsx';
 import MainEmptyContent from './main-empty-content/main-empty-content.jsx';
-
-import {connect} from 'react-redux';
-import {checkOffersAvailability, getCurrentLocation} from 'store/data/selectors.js';
-import {Operation} from 'store/data/data.js';
+import {DataOperation, DataSelector} from 'store';
 
 const MainPage = ({isOffersAvailable, currentLocation, onOffersAvailable}) => {
   if (isOffersAvailable) {
@@ -36,12 +33,12 @@ MainPage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  isOffersAvailable: checkOffersAvailability(state),
-  currentLocation: getCurrentLocation(state),
+  isOffersAvailable: DataSelector.checkOffersAvailability(state),
+  currentLocation: DataSelector.getCurrentLocation(state),
 });
 
 const mapDispatchToProps = {
-  onOffersAvailable: Operation.checkCurrentLocationOnMainPage,
+  onOffersAvailable: DataOperation.checkCurrentLocationOnMainPage,
 };
 
 export {MainPage};

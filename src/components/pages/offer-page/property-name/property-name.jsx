@@ -1,15 +1,9 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {OfferTypeToPresentName} from 'shared/const';
-import {
-  getCurrentOfferTitle,
-  getCurrentOfferType,
-  getCurrentOfferId,
-  getCurrentOfferIsFavoriteFlag,
-} from 'store/data/selectors.js';
 import {connect} from 'react-redux';
-import {Operation} from 'store/data/data.js';
+import {OfferTypeToPresentName} from 'shared/const';
+import {DataSelector, DataOperation} from 'store';
 
 class PropertyName extends PureComponent {
   constructor(props) {
@@ -63,14 +57,14 @@ PropertyName.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  title: getCurrentOfferTitle(state),
-  type: getCurrentOfferType(state),
-  id: getCurrentOfferId(state),
-  isFavorite: getCurrentOfferIsFavoriteFlag(state),
+  title: DataSelector.getCurrentOfferTitle(state),
+  type: DataSelector.getCurrentOfferType(state),
+  id: DataSelector.getCurrentOfferId(state),
+  isFavorite: DataSelector.getCurrentOfferIsFavoriteFlag(state),
 });
 
 const mapDispatchToProps = {
-  onButtonClick: Operation.toggleFavoriteStatus,
+  onButtonClick: DataOperation.toggleFavoriteStatus,
 };
 
 export {PropertyName};
